@@ -1,8 +1,7 @@
 import { Fragment } from 'react';
 import RevealOnScroll from '../ui/RevealOnScroll';
 import Button from '../ui/Button';
-
-const CALENDLY_URL = '[CALENDLY_PLACEHOLDER]';
+import { CALENDLY_URL } from '../../config/site';
 
 const STEPS = ['Book 20 min', 'I map your setup', 'You decide'];
 

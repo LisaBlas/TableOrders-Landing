@@ -87,6 +87,7 @@ Run `npm.cmd run build` after meaningful edits.
 
 ## Key Files
 - `src/pages/HomePage.jsx`: page composition
+- `src/config/site.js`: shared config — update `CALENDLY_URL` here, it imports into Navigation, PainSection, and CTASection
 - `src/components/sections/PainSection.jsx`: hero/pain section
 - `src/components/sections/ProofSection.jsx`: proof section
 - `src/components/sections/DemoSection.jsx`: embedded demo section
@@ -97,10 +98,10 @@ Run `npm.cmd run build` after meaningful edits.
 - `CLAUDE.md`: durable project memory for Claude-side work
 
 ## Placeholders To Resolve
-- `[CALENDLY_PLACEHOLDER]`
-- `[PHONE_PLACEHOLDER]`
-- `[LAUNCH_DATE_PLACEHOLDER]`
-- `[SCREENSHOT_PLACEHOLDER]`
+- `CALENDLY_URL` in `src/config/site.js` — booking link, used in Navigation, PainSection, CTASection
+- `[PHONE_PLACEHOLDER]` — phone fallback, remove or replace
+- Kaeserei Camidi launch date in `ProofSection.jsx` — confirm before publishing
+- Real deployment screenshot — confirm before using visual proof
 
 Do not publish placeholders in production-facing copy.
 

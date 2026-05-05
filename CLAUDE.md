@@ -131,7 +131,7 @@ The app uses Directus-backed polling sync so multiple devices can share live tab
 On Windows, use `npm.cmd` rather than `npm` for reliability in automation.
 
 ## Current Blockers / Placeholders
-- Replace `[CALENDLY_PLACEHOLDER]` with the real booking URL.
+- Replace `CALENDLY_URL` in `src/config/site.js` with the real booking URL — it propagates to Navigation, PainSection, and CTASection.
 - Replace `[PHONE_PLACEHOLDER]` or remove the phone fallback.
 - Confirm the Kaeserei Camidi launch date before publishing it.
 - Add a real deployment photo or screenshot before using visual proof.

@@ -1,8 +1,7 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
 import Button from '../ui/Button';
 import DemoPhone from '../ui/DemoPhone';
-
-const CALENDLY_URL = '[CALENDLY_PLACEHOLDER]';
+import { CALENDLY_URL } from '../../config/site';
 
 export default function PainSection() {
   return (

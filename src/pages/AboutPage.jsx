@@ -1,87 +1,158 @@
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import Button from '../components/ui/Button';
+import { CALENDLY_URL } from '../config/site';
+import blasPhoto from '../assets/blas.avif';
+
+const TRUST_POINTS = [
+  {
+    title: 'You talk to the builder',
+    body: 'There is no account manager, no support queue, no reseller. When you book a walkthrough, you talk directly to the person who built the app and can change it.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Built from real hospitality workflows',
+    body: "I've worked as a waiter, bartender, and tourist guide. I know what breaks during a Saturday dinner rush — table state confusion, forgotten orders, bill splits that take longer than they should.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 17h18M9 17V7m6 10V7M5 7h14" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Designed, then built',
+    body: '10+ years of UX design before picking up a compiler. Every screen in TableOrders was designed against real operational friction, not an imaginary user persona or a feature checklist.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 9h6M9 12h4M9 15h2" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Fast to adapt',
+    body: 'Small team means short feedback loops. If your setup has a quirk — a specific POS ID pattern, an unusual split workflow, a hybrid retail and restaurant floor — it can be addressed without a sprint.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+  },
+];
+
+const FIT_ITEMS = [
+  'Small restaurants with table service',
+  'Wine bars and cheese shops with walk-in guests',
+  'Cafes that run full table orders',
+  'Bars with mixed table and counter service',
+  'Hybrid retail and hospitality venues',
+  'Owner-operated teams that need mobile coordination',
+  'Teams with an existing POS that want a mobile layer on top',
+];
 
 export default function AboutPage() {
   return (
     <PageLayout>
-      {/* Page Header */}
-      <section className="page-header">
+      <section className="section section--diagonal about-hero">
         <div className="container">
-          <p className="section-label">About</p>
-          <h1 className="section-title">Design background,<br />business mindset</h1>
-        </div>
-      </section>
-
-      {/* About Content */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <div className="about-grid">
-            <RevealOnScroll className="about-photo">
-              <div className="project-card__placeholder">
-                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <circle cx="24" cy="18" r="8"/>
-                  <path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16"/>
-                </svg>
-                <span>Photo</span>
+          <RevealOnScroll>
+            <div className="about-hero__inner">
+              <div className="about-hero__portrait">
+                <img className="about-hero__photo" src={blasPhoto} alt="Blas Alviz" />
+                <span className="about-location-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" aria-hidden="true">
+                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Berlin, Germany
+                </span>
               </div>
-            </RevealOnScroll>
-            <RevealOnScroll className="about-text">
-              <p><strong>I'm Blas Alviz</strong> — a designer turned builder based in Berlin. I spent years working in UX and product design, helping teams build digital products that people actually want to use.</p>
-              <p>Now I channel that experience into something more direct: <strong>building modern websites and digital systems for local businesses</strong>. Clinics, service companies, small teams — businesses that need a strong online presence but don't need an agency.</p>
-              <p>I design and build everything myself. That means faster turnaround, no miscommunication between designers and developers, and a single point of contact from start to finish.</p>
-              <p>I'm based in Berlin and work with businesses across Germany and beyond. I speak <strong>English, Spanish, and French</strong>.</p>
-            </RevealOnScroll>
-          </div>
-
-          {/* Background */}
-          <RevealOnScroll className="about-side">
-            <h3 className="about-side__title">Background</h3>
-            <div className="about-side__list">
-              <div className="about-side__item">
-                <strong>UX & Product Design</strong>
-                Years of experience designing and shipping digital products across startups and agencies.
-              </div>
-              <div className="about-side__item">
-                <strong>Full-Stack Execution</strong>
-                I design, build, and deploy. No handoffs, no waiting on someone else.
-              </div>
-              <div className="about-side__item">
-                <strong>Conversion & Usability</strong>
-                Every project is built to perform — not just look good, but actually convert visitors into customers.
-              </div>
-            </div>
-          </RevealOnScroll>
-
-          {/* Side Projects */}
-          <RevealOnScroll className="about-side" style={{ marginTop: '24px', borderColor: 'rgba(218,162,119,0.1)' }}>
-            <h3 className="about-side__title">Side Projects</h3>
-            <div className="about-side__list">
-              <div className="about-side__item">
-                <strong>React UI Kit</strong>
-                Building a stylish, developer-friendly component library for modern web apps.
-              </div>
-              <div className="about-side__item">
-                <strong>AI Automation Experiments</strong>
-                Exploring AI agents and automated systems for business workflows.
+              <div className="about-hero__text">
+                <p className="about-eyebrow">About</p>
+                <h1 className="about-hero__title">Built locally, for real restaurant workflows</h1>
+                <p className="about-hero__body">
+                  I'm Blas. I built TableOrders because I've worked in hospitality, spent a decade designing interfaces, and got tired of watching restaurant teams manage table service with paper and memory. TableOrders is already live at Käserei Camidi in Berlin.
+                </p>
+                <p className="about-hero__body">
+                  This is not a VC-backed startup. It's a focused tool built and maintained by one person, used by real restaurants, and designed to stay simple.
+                </p>
+                <div className="about-hero__actions">
+                  <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
+                    Book a walkthrough
+                  </Button>
+                  <a href="mailto:alvizblas@gmail.com" className="about-email-link">
+                    alvizblas@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
           </RevealOnScroll>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section section--alt">
+      <section className="section section--dots about-trust-section">
         <div className="container">
-          <RevealOnScroll className="cta-banner">
-            <h2 className="cta-banner__title">Let's work together</h2>
-            <p className="cta-banner__subtitle">Have a project in mind? I'd love to hear about it.</p>
-            <Button to="/contact" variant="primary">
-              Get in touch
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <path d="M3 8h10M9 4l4 4-4 4"/>
-              </svg>
-            </Button>
+          <RevealOnScroll>
+            <div className="about-trust">
+              <div className="about-trust__header">
+                <p className="about-eyebrow">Why it matters</p>
+                <h2 className="about-trust__title">What makes this different from off-the-shelf software</h2>
+              </div>
+              <div className="about-trust__grid">
+                {TRUST_POINTS.map((point) => (
+                  <div className="about-trust-card" key={point.title}>
+                    <div className="about-trust-card__icon">{point.icon}</div>
+                    <h3 className="about-trust-card__title">{point.title}</h3>
+                    <p className="about-trust-card__body">{point.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      <section className="section section--blobs about-fit-section">
+        <div className="container">
+          <RevealOnScroll>
+            <div className="about-fit">
+              <p className="about-eyebrow">Good fit</p>
+              <h2 className="about-fit__title">The kind of team TableOrders works best for</h2>
+              <div className="about-fit__items">
+                {FIT_ITEMS.map((item) => (
+                  <div className="about-fit__item" key={item}>
+                    <span className="about-fit__check" aria-hidden="true">✓</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      <section className="section section--glow about-cta-section">
+        <div className="container">
+          <RevealOnScroll>
+            <div className="about-cta">
+              <h2 className="about-cta__heading">Let's talk about your setup</h2>
+              <p className="about-cta__body">
+                Book 20 minutes. I'll listen to how your service runs, map where friction happens, and show you where TableOrders fits alongside your existing POS.
+              </p>
+              <div className="about-cta__actions">
+                <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
+                  Book a walkthrough
+                </Button>
+                <a href="mailto:alvizblas@gmail.com" className="about-email-link">
+                  Or email alvizblas@gmail.com
+                </a>
+              </div>
+            </div>
           </RevealOnScroll>
         </div>
       </section>

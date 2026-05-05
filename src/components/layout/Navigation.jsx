@@ -1,16 +1,27 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Button from '../ui/Button';
-
-// Replace with your Calendly link
-const CALENDLY_URL = '[CALENDLY_PLACEHOLDER]';
+import { CALENDLY_URL } from '../../config/site';
 
 export default function Navigation() {
+  const { pathname } = useLocation();
+
   return (
     <nav className="nav">
       <div className="nav__inner">
         <Link to="/" className="nav__logo">blas<span>.</span></Link>
+        <div className="nav__links">
+          <Link to="/camidi" className={`nav__link${pathname === '/camidi' ? ' nav__link--active' : ''}`}>
+            Case Study
+          </Link>
+          <Link to="/how-it-works" className={`nav__link${pathname === '/how-it-works' ? ' nav__link--active' : ''}`}>
+            How It Works
+          </Link>
+          <Link to="/about" className={`nav__link${pathname === '/about' ? ' nav__link--active' : ''}`}>
+            About
+          </Link>
+        </div>
         <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-          See workflow
+          Book a walkthrough
         </Button>
       </div>
     </nav>

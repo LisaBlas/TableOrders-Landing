@@ -39,7 +39,7 @@ export default function DemoSection() {
             </div>
 
             <div className="demo-workflow__steps" aria-label="Who TableOrders fits">
-              {workflowSteps.map((step, index) => (
+              {workflowSteps.map((step) => (
                 <div className="demo-workflow__step" key={step.title}>
                   <span className="demo-workflow__mark" aria-hidden="true" />
                   <div>
