@@ -19,12 +19,7 @@ export default function PainSection() {
                 Run table service from any phone.
               </h1>
               <p className="pain-subtext">
-                One shared mobile view for tables, orders, bill splits, and daily
-                POS totals.
-              </p>
-              <p className="pain-category">
-                Works alongside your existing POS. It does not replace fiscal
-                receipts, payments, or tax-compliant POS workflows.
+                Reduce stress and mistakes. Save time and money. TableOrders makes it simple.
               </p>
               <div className="pain-actions">
                 <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">

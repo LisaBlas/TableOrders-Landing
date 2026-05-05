@@ -1,4 +1,5 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
+import blasPhoto from '../../assets/blas.avif';
 
 const credentials = [
   {
@@ -41,23 +42,43 @@ export default function WhoIAmSection() {
       <div className="container">
         <RevealOnScroll>
           <div className="whois-section">
-            <p className="whois-eyebrow">Why this works</p>
-            <h2 className="whois-heading">
-              Built by someone who's been<br />on both sides of the counter
-            </h2>
-            <p className="whois-intro">
-              Most restaurant tech is built by people who've never run a service.
-              I've spent years working with local hospitality teams as a UX designer,
-              then built the tools myself — no agency, no VC roadmap.
-            </p>
+            <div className="whois-copy">
+              <p className="whois-eyebrow">Why this works</p>
+              <h2 className="whois-heading">
+                Built by a waiter, designer, and developer
+              </h2>
+              <div className="whois-quote">
+                <img
+                  className="whois-quote__photo"
+                  src={blasPhoto}
+                  alt="Blas Alviz"
+                />
+                <blockquote className="whois-intro">
+                  "Most restaurant tech is built by people who've never run a service.
+                  I've spent years working as a waiter, bartender, tourist guide,
+                  UX designer and developer."
+                  {' '}
+                  <a
+                    className="whois-portfolio-link"
+                    href="https://blasalviz.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Portfolio
+                  </a>
+                </blockquote>
+              </div>
+            </div>
 
-            <div className="whois-grid">
+            <div className="whois-credential-panel">
               {credentials.map((cred) => (
-                <div key={cred.label} className="whois-card">
+                <div key={cred.label} className="whois-credential">
                   <div className="whois-card__icon">{cred.icon}</div>
-                  <div className="whois-card__years">{cred.years}</div>
-                  <h3 className="whois-card__label">{cred.label}</h3>
-                  <p className="whois-card__body">{cred.body}</p>
+                  <div>
+                    <div className="whois-card__years">{cred.years}</div>
+                    <h3 className="whois-card__label">{cred.label}</h3>
+                    <p className="whois-card__body">{cred.body}</p>
+                  </div>
                 </div>
               ))}
             </div>
