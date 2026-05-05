@@ -76,11 +76,17 @@ Best fit:
 - Teams that value speed over enterprise complexity
 
 ## Landing Page Structure
-Target structure is a focused single-page flow:
+Homepage flow (single-page):
 1. Hero: mobile table ordering/order coordination for teams that already have a POS
 2. Proof: real use at Kaeserei Camidi, Berlin, with only confirmed facts
 3. Demo: interactive workflow showing table/order/bill flow
-4. CTA: book a walkthrough or see the workflow
+4. Explore: cards linking to supplementary pages (case study, how it works, about)
+5. CTA: book a walkthrough or see the workflow
+
+Supplementary pages (already built — support conversion, do not dilute homepage):
+- `/camidi` — Käserei Camidi case study
+- `/how-it-works` — practical step-by-step workflow walkthrough
+- `/about` — Berlin-based, hospitality background, direct builder contact
 
 Do not re-add:
 - Multi-product sections
@@ -131,13 +137,13 @@ The app uses Directus-backed polling sync so multiple devices can share live tab
 On Windows, use `npm.cmd` rather than `npm` for reliability in automation.
 
 ## Current Blockers / Placeholders
-- Replace `CALENDLY_URL` in `src/config/site.js` with the real booking URL — it propagates to Navigation, PainSection, and CTASection.
+- Replace `CALENDLY_URL` in `src/config/site.js` with the real booking URL — it propagates to Navigation, PainSection, CTASection, CamidiPage, HowItWorksPage, and AboutPage.
 - Replace `[PHONE_PLACEHOLDER]` or remove the phone fallback.
 - Confirm the Kaeserei Camidi launch date before publishing it.
 - Add a real deployment photo or screenshot before using visual proof.
 
 ## Development Guidelines
-- Prefer editing existing landing sections over adding new pages.
+- Prefer editing existing sections over adding new ones. New pages need a clear conversion purpose.
 - Keep the page mobile-first.
 - Keep copy concise and operational.
 - Preserve the single-product TableOrders focus.

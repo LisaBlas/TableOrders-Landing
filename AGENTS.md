@@ -60,11 +60,17 @@ Only use launch dates, screenshots, metrics, or deployment claims when they are 
 ## Site Direction
 Keep this a focused single-product landing page.
 
-Preferred flow:
+Preferred homepage flow:
 1. Hero: staff-facing mobile table service/order coordination
 2. Proof: real use at Kaeserei Camidi
 3. Demo: run a test shift / see the workflow
-4. CTA: book a walkthrough
+4. Explore: links to supplementary pages (case study, how it works, about)
+5. CTA: book a walkthrough
+
+Supplementary pages (support conversion, do not dilute homepage focus):
+- `/camidi` — Käserei Camidi case study: old workflow, friction points, how TableOrders fits, results
+- `/how-it-works` — step-by-step practical walkthrough from open table to POS entry
+- `/about` — trust-building: Berlin-based, hospitality background, direct builder contact
 
 Do not reintroduce portfolio, multi-product, pricing, process, fake stats, or agency sections unless explicitly requested.
 
@@ -86,19 +92,24 @@ Use Windows-safe npm commands:
 Run `npm.cmd run build` after meaningful edits.
 
 ## Key Files
-- `src/pages/HomePage.jsx`: page composition
-- `src/config/site.js`: shared config — update `CALENDLY_URL` here, it imports into Navigation, PainSection, and CTASection
+- `src/pages/HomePage.jsx`: homepage composition
+- `src/pages/CamidiPage.jsx`: Käserei Camidi case study page (`/camidi`)
+- `src/pages/HowItWorksPage.jsx`: practical workflow walkthrough page (`/how-it-works`)
+- `src/pages/AboutPage.jsx`: trust-building about page (`/about`)
+- `src/config/site.js`: shared config — update `CALENDLY_URL` here, it propagates to Navigation, PainSection, CTASection, and all supplementary page CTAs
 - `src/components/sections/PainSection.jsx`: hero/pain section
 - `src/components/sections/ProofSection.jsx`: proof section
 - `src/components/sections/DemoSection.jsx`: embedded demo section
+- `src/components/sections/ExploreSection.jsx`: homepage cards linking to supplementary pages
 - `src/components/sections/CTASection.jsx`: final CTA
-- `src/components/layout/Navigation.jsx`: top CTA
+- `src/components/layout/Navigation.jsx`: top nav with Case Study / How It Works / About links
+- `src/App.jsx`: route definitions
 - `src/styles/index.css`: global styling
 - `index.html`: page title and meta description
 - `CLAUDE.md`: durable project memory for Claude-side work
 
 ## Placeholders To Resolve
-- `CALENDLY_URL` in `src/config/site.js` — booking link, used in Navigation, PainSection, CTASection
+- `CALENDLY_URL` in `src/config/site.js` — booking link, propagates to Navigation, PainSection, CTASection, CamidiPage, HowItWorksPage, and AboutPage
 - `[PHONE_PLACEHOLDER]` — phone fallback, remove or replace
 - Kaeserei Camidi launch date in `ProofSection.jsx` — confirm before publishing
 - Real deployment screenshot — confirm before using visual proof
