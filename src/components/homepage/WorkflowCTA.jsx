@@ -1,6 +1,5 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
-import Button from '../ui/Button';
-import { CALENDLY_URL } from '../../config/site';
+import BookACallButton from '../ui/BookACallButton';
 
 export default function WorkflowCTA({
   id,
@@ -18,9 +17,7 @@ export default function WorkflowCTA({
             <h2 className="workflow-cta__heading">{heading}</h2>
             <p className="workflow-cta__body">{body}</p>
             <div className="workflow-cta__actions">
-              <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-                Book a walkthrough
-              </Button>
+              <BookACallButton />
               <a href="mailto:alvizblas@gmail.com" className="workflow-cta__email">
                 {emailLabel}
               </a>

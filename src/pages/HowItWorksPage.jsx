@@ -2,7 +2,7 @@ import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import Button from '../components/ui/Button';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
-import { CALENDLY_URL } from '../config/site';
+import BookACallButton from '../components/ui/BookACallButton';
 
 const SERVICE_FLOW = [
   {
@@ -134,9 +134,7 @@ export default function HowItWorksPage() {
                 </p>
                 <div className="hiw-hero__actions">
                   <Button href="#service-flow" variant="primary">Walk the flow</Button>
-                  <Button href={CALENDLY_URL} variant="secondary" target="_blank" rel="noopener noreferrer">
-                    Book a walkthrough
-                  </Button>
+                  <BookACallButton variant="secondary" />
                 </div>
               </div>
 

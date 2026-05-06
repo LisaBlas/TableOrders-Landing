@@ -1,8 +1,7 @@
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
-import Button from '../components/ui/Button';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
-import { CALENDLY_URL } from '../config/site';
+import BookACallButton from '../components/ui/BookACallButton';
 import blasPhoto from '../assets/blas.avif';
 
 const SHIFT_SIGNALS = [
@@ -131,9 +130,7 @@ export default function AboutPage() {
                   TableOrders is already live at Kaeserei Camidi in Berlin. It stays intentionally focused: a lightweight operational layer between waitstaff and the official POS.
                 </p>
                 <div className="about-shift-hero__actions">
-                  <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-                    Book a walkthrough
-                  </Button>
+                  <BookACallButton />
                   <a href="mailto:alvizblas@gmail.com" className="about-email-link">
                     Email Blas
                   </a>

@@ -1,5 +1,5 @@
 import Button from '../ui/Button';
-import { CALENDLY_URL } from '../../config/site';
+import BookACallButton from '../ui/BookACallButton';
 
 export default function HeroCopy() {
   return (
@@ -15,9 +15,7 @@ export default function HeroCopy() {
         A shared mobile table map, order tracking, sent batches, and bill splitting {'\u2014'} for teams that already have a POS.
       </p>
       <div className="pain-actions">
-        <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-          Book a walkthrough
-        </Button>
+        <BookACallButton />
         <Button href="#demo" variant="secondary">
           See workflow
         </Button>

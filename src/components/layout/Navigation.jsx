@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import Button from '../ui/Button';
-import { CALENDLY_URL } from '../../config/site';
+import BookACallButton from '../ui/BookACallButton';
 
 export default function Navigation() {
   const { pathname } = useLocation();
@@ -20,9 +19,7 @@ export default function Navigation() {
             About
           </Link>
         </div>
-        <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-          Book a walkthrough
-        </Button>
+        <BookACallButton />
       </div>
     </nav>
   );

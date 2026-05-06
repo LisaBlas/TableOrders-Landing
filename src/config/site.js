@@ -1,1 +1,1 @@
-export const CALENDLY_URL = '[CALENDLY_PLACEHOLDER]';
+export const CALENDLY_URL = 'https://calendly.com/alvizblas/30-min-call-w-blas';

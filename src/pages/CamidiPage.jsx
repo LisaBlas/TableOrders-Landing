@@ -1,8 +1,7 @@
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
-import Button from '../components/ui/Button';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
-import { CALENDLY_URL } from '../config/site';
+import BookACallButton from '../components/ui/BookACallButton';
 import camidiLogo from '../assets/camidi_logo.jpg';
 import camidiPhotoOne from '../assets/camidi-1.jpg';
 import camidiPhotoTwo from '../assets/camidi-2.jpg';
@@ -57,9 +56,7 @@ export default function CamidiPage() {
               <p className="cs-hero__intro">
                 A Berlin wine bar and cheese shop with table service for groups, shop visitors, and regulars. The team was running live service with paper tickets, handwritten bills, and manual POS entry at the end of each shift.
               </p>
-              <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-                Book a walkthrough for your restaurant
-              </Button>
+              <BookACallButton />
             </div>
           </RevealOnScroll>
         </div>
