@@ -51,18 +51,18 @@ export default function Navigation() {
         </button>
 
         <div className={`nav__links${isOpen ? ' nav__links--open' : ''}`}>
+          <Link to="/camidi" className={`nav__link${pathname === '/camidi' ? ' nav__link--active' : ''}`}>
+            Case Study
+          </Link>
           <Link to="/how-it-works" className={`nav__link${pathname === '/how-it-works' ? ' nav__link--active' : ''}`}>
             How It Works
           </Link>
           <Link to="/about" className={`nav__link${pathname === '/about' ? ' nav__link--active' : ''}`}>
             About
           </Link>
-          <div className="nav__drawer-cta">
-            <BookACallButton />
-          </div>
         </div>
 
-        <BookACallButton className="btn--sm nav__cta-desktop" />
+        <BookACallButton className="btn--sm" />
       </div>
     </nav>
   );

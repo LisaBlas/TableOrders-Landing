@@ -368,10 +368,6 @@ ul, ol {
 }
 
 /* Mobile nav toggle */
-.nav__drawer-cta {
-  display: none;
-}
-
 .nav__toggle {
   display: none;
   background: none;
@@ -2668,10 +2664,6 @@ ul, ol {
     display: none;
   }
 
-  .nav__cta-desktop {
-    display: none;
-  }
-
   .nav__links {
     display: none;
     position: fixed;
@@ -2696,15 +2688,6 @@ ul, ol {
     padding: 16px;
     font-size: 16px;
     border-radius: var(--radius-sm);
-  }
-
-  .nav__drawer-cta {
-    margin-top: 12px;
-  }
-
-  .nav__drawer-cta .btn {
-    width: 100%;
-    justify-content: center;
   }
 
   .nav__toggle {
