@@ -70,6 +70,7 @@ ul, ol {
 
 .section {
   padding: 120px 0;
+  min-height: 100vh;
 }
 
 .section--full {
@@ -309,9 +310,7 @@ ul, ol {
   right: 0;
   height: var(--nav-height);
   z-index: 100;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(9, 16, 24, 0.8);
+  background: rgba(9, 16, 24, 0.96);
   border-bottom: 1px solid var(--border);
 }
 
@@ -4902,6 +4901,7 @@ ul, ol {
   overflow: hidden;
   padding: calc(var(--nav-height) + 84px) 0 120px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 100vh;
 }
 
 .about-shift-hero::before {
@@ -5126,6 +5126,7 @@ ul, ol {
 .about-cta-section,
 .workflow-cta-section {
   padding: 120px 0;
+  min-height: 100vh;
 }
 
 .about-section-header {

@@ -97,16 +97,16 @@ Run `npm.cmd run build` after meaningful edits.
 - `src/pages/HowItWorksPage.jsx`: practical workflow walkthrough page (`/how-it-works`)
 - `src/pages/AboutPage.jsx`: trust-building about page (`/about`)
 - `src/config/site.js`: shared config — update `CALENDLY_URL` here, it propagates to Navigation, PainSection, CTASection, and all supplementary page CTAs
-- `src/components/sections/PainSection.jsx`: hero/pain section
-- `src/components/sections/ProofSection.jsx`: proof section
-- `src/components/sections/DemoSection.jsx`: embedded demo section
-- `src/components/sections/ExploreSection.jsx`: homepage cards linking to supplementary pages
-- `src/components/sections/CTASection.jsx`: final CTA
+- `src/components/homepage`: homepage-specific sections, subcomponents, data, and CTA components
+- `src/components/layout`: page shell components such as navigation, footer, and layout wrapper
+- `src/components/ui`: reusable UI primitives shared across pages
 - `src/components/layout/Navigation.jsx`: top nav with Case Study / How It Works / About links
 - `src/App.jsx`: route definitions
 - `src/styles/index.css`: global styling
 - `index.html`: page title and meta description
 - `CLAUDE.md`: durable project memory for Claude-side work
+
+Do not recreate separate `home`, `sections`, `hero`, or `cards` component folders unless the project grows a real cross-page need for them.
 
 ## Placeholders To Resolve
 - `CALENDLY_URL` in `src/config/site.js` — booking link, propagates to Navigation, PainSection, CTASection, CamidiPage, HowItWorksPage, and AboutPage
