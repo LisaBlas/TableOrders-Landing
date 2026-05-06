@@ -368,6 +368,10 @@ ul, ol {
 }
 
 /* Mobile nav toggle */
+.nav__drawer-cta {
+  display: none;
+}
+
 .nav__toggle {
   display: none;
   background: none;
@@ -2660,6 +2664,14 @@ ul, ol {
     padding: 80px 0;
   }
 
+  .nav__logo {
+    display: none;
+  }
+
+  .nav__cta-desktop {
+    display: none;
+  }
+
   .nav__links {
     display: none;
     position: fixed;
@@ -2673,6 +2685,7 @@ ul, ol {
     padding: 24px;
     gap: 4px;
     border-top: 1px solid var(--border);
+    overflow-y: auto;
   }
 
   .nav__links--open {
@@ -2685,10 +2698,13 @@ ul, ol {
     border-radius: var(--radius-sm);
   }
 
-  .nav__link--cta {
-    text-align: center;
-    margin-left: 0;
-    margin-top: 8px;
+  .nav__drawer-cta {
+    margin-top: 12px;
+  }
+
+  .nav__drawer-cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .nav__toggle {
@@ -3201,6 +3217,21 @@ ul, ol {
   color: var(--text-secondary);
   font-size: 0.9em;
   font-weight: 700;
+}
+
+.proof-venue-card__case-study-link {
+  display: inline-block;
+  margin: 14px 20px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s;
+}
+
+.proof-venue-card__case-study-link:hover {
+  opacity: 0.75;
 }
 
 /* Demo Section */
@@ -3824,15 +3855,6 @@ ul, ol {
 }
 
 
-/* ============================================
-   Navigation — mobile hide links
-   ============================================ */
-
-@media (max-width: 640px) {
-  .nav__links {
-    display: none;
-  }
-}
 
 /* ============================================
    ExploreSection

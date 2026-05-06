@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function VenueProofCard({ venue }) {
   return (
     <div className="proof-venue-card">
@@ -36,6 +38,12 @@ export default function VenueProofCard({ venue }) {
           </blockquote>
         </figcaption>
       </figure>
+
+      {venue.caseStudyPath && (
+        <Link to={venue.caseStudyPath} className="proof-venue-card__case-study-link">
+          Case Study →
+        </Link>
+      )}
     </div>
   );
 }
