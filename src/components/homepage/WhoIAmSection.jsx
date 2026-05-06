@@ -16,7 +16,21 @@ export default function WhoIAmSection() {
                 Built by a waiter, designer, and developer
               </h2>
               <FounderIntro profile={FOUNDER_PROFILE} />
-              <Button to="/about" variant="link">About me</Button>
+              <div className="whois-actions">
+                <Button to="/about" variant="secondary" className="btn--sm">About me</Button>
+                <Button
+                  href={FOUNDER_PROFILE.portfolioUrl}
+                  variant="secondary"
+                  className="btn--sm"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Portfolio
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </Button>
+              </div>
             </div>
 
             <FounderCredentialPanel credentials={FOUNDER_CREDENTIALS} />

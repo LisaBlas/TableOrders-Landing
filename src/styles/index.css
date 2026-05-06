@@ -3626,6 +3626,13 @@ ul, ol {
   border-color: var(--accent);
 }
 
+.whois-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
 .whois-credential-panel {
   display: flex;
   flex-direction: column;
