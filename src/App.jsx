@@ -6,7 +6,7 @@ import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/TableOrders-Landing">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/camidi" element={<CamidiPage />} />
