@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import RevealOnScroll from '../ui/RevealOnScroll';
+import Button from '../ui/Button';
 import camidiLogo from '../../assets/camidi_logo.jpg';
 import camidiPhotoOne from '../../assets/camidi-1.jpg';
 import camidiPhotoTwo from '../../assets/camidi-2.jpg';
@@ -107,6 +108,7 @@ export default function ProofSection() {
                   <p>{currentChange.after}</p>
                 </div>
               </article>
+              <Button to="/camidi" variant="link">Case Study</Button>
             </div>
 
             <div className="proof-venue-card">

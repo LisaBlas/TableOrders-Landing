@@ -1,4 +1,5 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
+import Button from '../ui/Button';
 import blasPhoto from '../../assets/blas.avif';
 
 const credentials = [
@@ -55,7 +56,7 @@ export default function WhoIAmSection() {
                 />
                 <blockquote className="whois-intro">
                   "Most restaurant tech is built by people who've never run a service.
-                  I've spent years working as a waiter, bartender, tourist guide,
+                  I've spent years working as a waiter, bartender,
                   UX designer and developer."
                   {' '}
                   <a
@@ -68,6 +69,7 @@ export default function WhoIAmSection() {
                   </a>
                 </blockquote>
               </div>
+              <Button to="/about" variant="link">About me</Button>
             </div>
 
             <div className="whois-credential-panel">

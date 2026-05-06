@@ -16,7 +16,7 @@ const TRUST_POINTS = [
   },
   {
     title: 'Built from real hospitality workflows',
-    body: "I've worked as a waiter, bartender, and tourist guide. I know what breaks during a Saturday dinner rush — table state confusion, forgotten orders, bill splits that take longer than they should.",
+    body: "I've worked as a waiter and bartender. I know what breaks during a Saturday dinner rush — table state confusion, forgotten orders, bill splits that take longer than they should.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 17h18M9 17V7m6 10V7M5 7h14" />
@@ -74,7 +74,7 @@ export default function AboutPage() {
               </div>
               <div className="about-hero__text">
                 <p className="about-eyebrow">About</p>
-                <h1 className="about-hero__title">Built locally, for real restaurant workflows</h1>
+                <h1 className="about-hero__title">Built in Berlin, for real restaurant workflows</h1>
                 <p className="about-hero__body">
                   I'm Blas. I built TableOrders because I've worked in hospitality, spent a decade designing interfaces, and got tired of watching restaurant teams manage table service with paper and memory. TableOrders is already live at Käserei Camidi in Berlin.
                 </p>

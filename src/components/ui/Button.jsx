@@ -29,15 +29,20 @@ export default function Button({
     ? 'btn--secondary'
     : variant === 'outline'
     ? 'btn--outline'
+    : variant === 'link'
+    ? 'btn--link'
     : 'btn--primary';
 
   const classes = `btn ${variantClass} ${className}`.trim();
+  const content = variant === 'link'
+    ? <><span className="btn--link__label">{children}</span><span className="btn--link__arrow" aria-hidden="true">→</span></>
+    : children;
 
   // Internal link
   if (to) {
     return (
       <Link to={to} className={classes} {...props}>
-        {children}
+        {content}
       </Link>
     );
   }
@@ -46,7 +51,7 @@ export default function Button({
   if (href) {
     return (
       <a href={href} className={classes} {...props}>
-        {children}
+        {content}
       </a>
     );
   }
@@ -60,7 +65,7 @@ export default function Button({
       className={classes}
       {...props}
     >
-      {children}
+      {content}
     </button>
   );
 }

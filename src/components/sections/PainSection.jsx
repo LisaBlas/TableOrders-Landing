@@ -18,7 +18,7 @@ export default function PainSection() {
                 Run table service from any phone.
               </h1>
               <p className="pain-subtext">
-                Reduce stress and mistakes. Save time and money. TableOrders makes it simple.
+                A shared mobile table map, order tracking, sent batches, and bill splitting — for teams that already have a POS.
               </p>
               <div className="pain-actions">
                 <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
@@ -29,7 +29,7 @@ export default function PainSection() {
                 </Button>
               </div>
               <p className="pain-trust">
-                No setup required - works on phones your team already has
+                Works on phones your team already has. No new hardware needed.
               </p>
             </div>
 
