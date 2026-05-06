@@ -2977,6 +2977,10 @@ ul, ol {
   align-items: center;
 }
 
+.proof-grid > * {
+  min-width: 0;
+}
+
 .proof-eyebrow {
   font-size: 12px;
   font-weight: 600;
