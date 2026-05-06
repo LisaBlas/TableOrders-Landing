@@ -1,9 +1,9 @@
 import PageLayout from '../components/layout/PageLayout';
-import PainSection from '../components/sections/PainSection';
-import ProofSection from '../components/sections/ProofSection';
-import FitSection from '../components/sections/FitSection';
-import WhoIAmSection from '../components/sections/WhoIAmSection';
-import CTASection from '../components/sections/CTASection';
+import PainSection from '../components/homepage/PainSection';
+import ProofSection from '../components/homepage/ProofSection';
+import FitSection from '../components/homepage/FitSection';
+import WhoIAmSection from '../components/homepage/WhoIAmSection';
+import CTASection from '../components/homepage/CTASection';
 
 export default function HomePage() {
   return (

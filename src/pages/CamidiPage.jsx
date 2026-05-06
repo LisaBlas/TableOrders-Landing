@@ -1,6 +1,7 @@
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import Button from '../components/ui/Button';
+import WorkflowCTA from '../components/homepage/WorkflowCTA';
 import { CALENDLY_URL } from '../config/site';
 import camidiLogo from '../assets/camidi_logo.jpg';
 import camidiPhotoOne from '../assets/camidi-1.jpg';
@@ -153,22 +154,7 @@ export default function CamidiPage() {
         </div>
       </section>
 
-      <section className="section section--glow cs-cta-section">
-        <div className="container">
-          <RevealOnScroll>
-            <div className="cs-cta">
-              <p className="cs-eyebrow">For small hospitality teams</p>
-              <h2 className="cs-cta__heading">Book a walkthrough for your restaurant</h2>
-              <p className="cs-cta__body">
-                I'll map your current service flow and show you exactly where TableOrders fits alongside your existing POS. No obligation, no pitch deck.
-              </p>
-              <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-                Book a walkthrough
-              </Button>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      <WorkflowCTA />
     </PageLayout>
   );
 }

@@ -1,93 +1,171 @@
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import Button from '../components/ui/Button';
+import WorkflowCTA from '../components/homepage/WorkflowCTA';
 import { CALENDLY_URL } from '../config/site';
 import blasPhoto from '../assets/blas.avif';
 
-const TRUST_POINTS = [
+const SHIFT_SIGNALS = [
+  { label: 'Open tables', value: '6', tone: 'neutral' },
+  { label: 'Unsent items', value: '14', tone: 'warn' },
+  { label: 'Split bills', value: '3', tone: 'accent' },
+  { label: 'POS handoff', value: 'Pending', tone: 'muted' },
+];
+
+const SHIFT_STEPS = [
   {
-    title: 'You talk to the builder',
-    body: 'There is no account manager, no support queue, no reseller. When you book a walkthrough, you talk directly to the person who built the app and can change it.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
-    ),
+    time: '17:40',
+    title: 'Before service',
+    pain: 'Tables open fast, but the team is already tracking state in heads, paper, and POS screens that were not designed for floor movement.',
+    fix: 'TableOrders keeps a mobile overview of open, seated, ordered, and confirmed tables before the room fills up.',
   },
   {
-    title: 'Built from real hospitality workflows',
-    body: "I've worked as a waiter and bartender. I know what breaks during a Saturday dinner rush — table state confusion, forgotten orders, bill splits that take longer than they should.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 17h18M9 17V7m6 10V7M5 7h14" />
-      </svg>
-    ),
+    time: '19:10',
+    title: 'First rush',
+    pain: 'Notes, quantities, variants, and custom items start to pile up. One missed modifier can turn into a kitchen correction later.',
+    fix: 'Waitstaff can take orders from phones or tablets, keep unsent batches visible, and confirm before sending the next step.',
   },
   {
-    title: 'Designed, then built',
-    body: '10+ years of UX design before picking up a compiler. Every screen in TableOrders was designed against real operational friction, not an imaginary user persona or a feature checklist.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M9 9h6M9 12h4M9 15h2" />
-      </svg>
-    ),
+    time: '21:20',
+    title: 'Payment pressure',
+    pain: 'Equal splits, item splits, vouchers, and round-by-round payments can slow the table right when seats need to turn.',
+    fix: 'Internal bills stay reviewable, splittable, voucher-aware, and ready to close without pretending to replace the official POS.',
   },
   {
-    title: 'Fast to adapt',
-    body: 'Small team means short feedback loops. If your setup has a quirk — a specific POS ID pattern, an unusual split workflow, a hybrid retail and restaurant floor — it can be addressed without a sprint.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
+    time: '23:05',
+    title: 'End-of-day handoff',
+    pain: 'The team still needs clean daily totals by POS ID, not another messy reconciliation job after service.',
+    fix: 'Closed bills aggregate into practical POS crossing totals for manual entry into the fiscal POS.',
+  },
+];
+
+const STACK_ITEMS = [
+  {
+    title: 'Hospitality floor experience',
+    body: 'I have worked as a waiter and bartender, so the product starts from real service pressure instead of a clean whiteboard.',
+  },
+  {
+    title: '10+ years UX design',
+    body: 'The interface decisions come from years of designing workflows, reducing ambiguity, and making complex actions feel obvious.',
+  },
+  {
+    title: 'Direct builder contact',
+    body: 'When you book a walkthrough, you talk to the person who built the app and can change it.',
+  },
+  {
+    title: 'Focused restaurant adaptation',
+    body: 'Specific POS ID patterns, table habits, voucher flows, and hybrid retail setups can be handled without a bloated roadmap.',
+  },
+];
+
+const PROCESS_ITEMS = [
+  {
+    number: '01',
+    title: 'You show the real workflow',
+    body: 'Paper notes, POS quirks, split habits, end-of-day routines. The messy version is the useful version.',
+  },
+  {
+    number: '02',
+    title: 'We map the operational friction',
+    body: 'We identify where staff lose state: ordering, confirming, splitting, closing, or preparing POS totals.',
+  },
+  {
+    number: '03',
+    title: 'I show the fit honestly',
+    body: 'You see where TableOrders helps, where your existing POS stays responsible, and what should not be automated.',
+  },
+  {
+    number: '04',
+    title: 'We adapt only what matters',
+    body: 'If the fit is strong, the setup stays practical: focused adjustments, direct feedback, and no ceremony.',
   },
 ];
 
 const FIT_ITEMS = [
   'Small restaurants with table service',
-  'Wine bars and cheese shops with walk-in guests',
-  'Cafes that run full table orders',
-  'Bars with mixed table and counter service',
-  'Hybrid retail and hospitality venues',
-  'Owner-operated teams that need mobile coordination',
-  'Teams with an existing POS that want a mobile layer on top',
+  'Wine bars, cafes, and hybrid hospitality floors',
+  'Teams that already have an official POS',
+  'Staff who need mobile ordering and table state clarity',
+  'Owner-operated venues that want direct builder access',
 ];
+
+const NOT_FIT_ITEMS = [
+  'Replacing your fiscal POS',
+  'Tax, receipt, or compliance handling',
+  'Payment processing',
+  'Delivery, reservations, inventory, or staff scheduling',
+  'A full restaurant ERP',
+];
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 6L9 17l-5-5" />
+    </svg>
+  );
+}
+
+function CrossIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M18 6L6 18" />
+      <path d="M6 6l12 12" />
+    </svg>
+  );
+}
 
 export default function AboutPage() {
   return (
     <PageLayout>
-      <section className="section section--diagonal about-hero">
+      <section className="about-shift-hero">
         <div className="container">
           <RevealOnScroll>
-            <div className="about-hero__inner">
-              <div className="about-hero__portrait">
-                <img className="about-hero__photo" src={blasPhoto} alt="Blas Alviz" />
-                <span className="about-location-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" aria-hidden="true">
-                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  Berlin, Germany
-                </span>
-              </div>
-              <div className="about-hero__text">
-                <p className="about-eyebrow">About</p>
-                <h1 className="about-hero__title">Built in Berlin, for real restaurant workflows</h1>
-                <p className="about-hero__body">
-                  I'm Blas. I built TableOrders because I've worked in hospitality, spent a decade designing interfaces, and got tired of watching restaurant teams manage table service with paper and memory. TableOrders is already live at Käserei Camidi in Berlin.
+            <div className="about-shift-hero__grid">
+              <div className="about-shift-hero__copy">
+                <p className="about-kicker">Founder / operator / builder</p>
+                <h1 className="about-shift-hero__title">Built by someone who knows what a busy table section feels like.</h1>
+                <p className="about-shift-hero__body">
+                  I'm Blas, a UX designer and builder in Berlin. Before TableOrders, I worked service. This app exists because table coordination should not depend on paper, memory, and shouting across the room.
                 </p>
-                <p className="about-hero__body">
-                  This is not a VC-backed startup. It's a focused tool built and maintained by one person, used by real restaurants, and designed to stay simple.
+                <p className="about-shift-hero__body">
+                  TableOrders is already live at Kaeserei Camidi in Berlin. It stays intentionally focused: a lightweight operational layer between waitstaff and the official POS.
                 </p>
-                <div className="about-hero__actions">
+                <div className="about-shift-hero__actions">
                   <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
                     Book a walkthrough
                   </Button>
                   <a href="mailto:alvizblas@gmail.com" className="about-email-link">
-                    alvizblas@gmail.com
+                    Email Blas
                   </a>
+                </div>
+              </div>
+
+              <div className="about-shift-console" aria-label="Restaurant shift snapshot">
+                <div className="about-founder-card">
+                  <img className="about-founder-card__photo" src={blasPhoto} alt="Blas Alviz" />
+                  <div>
+                    <p className="about-founder-card__label">Direct builder</p>
+                    <h2 className="about-founder-card__name">Blas Alviz</h2>
+                    <p className="about-founder-card__meta">Berlin, Germany</p>
+                  </div>
+                </div>
+                <div className="about-shift-board">
+                  <div className="about-shift-board__top">
+                    <span>Saturday service</span>
+                    <strong>19:42</strong>
+                  </div>
+                  <div className="about-shift-board__grid">
+                    {SHIFT_SIGNALS.map((signal) => (
+                      <div className={`about-signal about-signal--${signal.tone}`} key={signal.label}>
+                        <span>{signal.label}</span>
+                        <strong>{signal.value}</strong>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="about-shift-note">
+                    <span>Floor note</span>
+                    <p>Table 8 wants to split by items. Table 11 still has unsent drinks. POS entry waits until closed bills are clean.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -95,67 +173,126 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section section--dots about-trust-section">
+      <section className="about-shift-section">
         <div className="container">
           <RevealOnScroll>
-            <div className="about-trust">
-              <div className="about-trust__header">
-                <p className="about-eyebrow">Why it matters</p>
-                <h2 className="about-trust__title">What makes this different from off-the-shelf software</h2>
-              </div>
-              <div className="about-trust__grid">
-                {TRUST_POINTS.map((point) => (
-                  <div className="about-trust-card" key={point.title}>
-                    <div className="about-trust-card__icon">{point.icon}</div>
-                    <h3 className="about-trust-card__title">{point.title}</h3>
-                    <p className="about-trust-card__body">{point.body}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      <section className="section section--blobs about-fit-section">
-        <div className="container">
-          <RevealOnScroll>
-            <div className="about-fit">
-              <p className="about-eyebrow">Good fit</p>
-              <h2 className="about-fit__title">The kind of team TableOrders works best for</h2>
-              <div className="about-fit__items">
-                {FIT_ITEMS.map((item) => (
-                  <div className="about-fit__item" key={item}>
-                    <span className="about-fit__check" aria-hidden="true">✓</span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      <section className="section section--glow about-cta-section">
-        <div className="container">
-          <RevealOnScroll>
-            <div className="about-cta">
-              <h2 className="about-cta__heading">Let's talk about your setup</h2>
-              <p className="about-cta__body">
-                Book 20 minutes. I'll listen to how your service runs, map where friction happens, and show you where TableOrders fits alongside your existing POS.
+            <div className="about-section-header">
+              <p className="about-kicker">Why I built it</p>
+              <h2 className="about-section-title">The product follows the pressure of a real service shift.</h2>
+              <p className="about-section-body">
+                The About page should not ask you to trust a biography. It should show the operational problems that shaped the product.
               </p>
-              <div className="about-cta__actions">
-                <Button href={CALENDLY_URL} variant="primary" target="_blank" rel="noopener noreferrer">
-                  Book a walkthrough
-                </Button>
-                <a href="mailto:alvizblas@gmail.com" className="about-email-link">
-                  Or email alvizblas@gmail.com
-                </a>
+            </div>
+          </RevealOnScroll>
+
+          <div className="about-shift-story">
+            <div className="about-shift-story__rail" aria-hidden="true" />
+            {SHIFT_STEPS.map((step) => (
+              <RevealOnScroll key={step.time}>
+                <article className="about-shift-step">
+                  <div className="about-shift-step__time">{step.time}</div>
+                  <div className="about-shift-step__content">
+                    <h3>{step.title}</h3>
+                    <div className="about-shift-step__panels">
+                      <div className="about-shift-panel about-shift-panel--pain">
+                        <span>What breaks</span>
+                        <p>{step.pain}</p>
+                      </div>
+                      <div className="about-shift-panel about-shift-panel--fix">
+                        <span>What TableOrders does</span>
+                        <p>{step.fix}</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-stack-section">
+        <div className="container">
+          <RevealOnScroll>
+            <div className="about-stack-grid">
+              <div className="about-section-header about-section-header--sticky">
+                <p className="about-kicker">Why that combination matters</p>
+                <h2 className="about-section-title">Small on purpose, practical by design.</h2>
+                <p className="about-section-body">
+                  A one-person product is a risk when it hides behind generic software language. It is an advantage when the scope is clear, the builder is reachable, and the product solves a narrow operational job well.
+                </p>
+              </div>
+              <div className="about-stack">
+                {STACK_ITEMS.map((item, index) => (
+                  <div className="about-stack-item" key={item.title}>
+                    <span className="about-stack-item__num">{String(index + 1).padStart(2, '0')}</span>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.body}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </RevealOnScroll>
         </div>
       </section>
+
+      <section className="about-process-section">
+        <div className="container">
+          <RevealOnScroll>
+            <div className="about-section-header">
+              <p className="about-kicker">What working together looks like</p>
+              <h2 className="about-section-title">A walkthrough, not a sales performance.</h2>
+            </div>
+            <div className="about-process-grid">
+              {PROCESS_ITEMS.map((item) => (
+                <article className="about-process-card" key={item.number}>
+                  <span>{item.number}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      <section className="about-fit-section">
+        <div className="container">
+          <RevealOnScroll>
+            <div className="about-fit-matrix">
+              <div className="about-fit-matrix__intro">
+                <p className="about-kicker">Fit boundaries</p>
+                <h2 className="about-section-title">The right tool only works when the edge is clear.</h2>
+                <p className="about-section-body">
+                  TableOrders helps coordinate table service around your existing POS. It does not try to become the whole restaurant system.
+                </p>
+              </div>
+              <div className="about-fit-list about-fit-list--yes">
+                <h3>Good fit</h3>
+                {FIT_ITEMS.map((item) => (
+                  <div className="about-fit-row" key={item}>
+                    <span><CheckIcon /></span>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="about-fit-list about-fit-list--no">
+                <h3>Not the tool for</h3>
+                {NOT_FIT_ITEMS.map((item) => (
+                  <div className="about-fit-row" key={item}>
+                    <span><CrossIcon /></span>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      <WorkflowCTA />
     </PageLayout>
   );
 }

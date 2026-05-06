@@ -136,6 +136,13 @@ The app uses Directus-backed polling sync so multiple devices can share live tab
 
 On Windows, use `npm.cmd` rather than `npm` for reliability in automation.
 
+## Component Structure
+- `src/components/homepage`: homepage-specific sections, subcomponents, data, and CTA components.
+- `src/components/layout`: page shell components such as navigation, footer, and layout wrapper.
+- `src/components/ui`: reusable UI primitives shared across pages.
+
+Do not recreate separate `home`, `sections`, `hero`, or `cards` component folders unless the project grows a real cross-page need for them.
+
 ## Current Blockers / Placeholders
 - Replace `CALENDLY_URL` in `src/config/site.js` with the real booking URL — it propagates to Navigation, PainSection, CTASection, CamidiPage, HowItWorksPage, and AboutPage.
 - Replace `[PHONE_PLACEHOLDER]` or remove the phone fallback.
