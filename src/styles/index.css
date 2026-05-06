@@ -32,6 +32,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -3743,6 +3744,11 @@ ul, ol {
 
   .pain-hero-demo {
     justify-self: center;
+  }
+
+  .pain-hero-demo .demo-phone__shell {
+    width: calc(100vw - 48px);
+    max-width: 360px;
   }
 
   .proof-grid {
