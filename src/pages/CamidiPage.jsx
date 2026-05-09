@@ -15,18 +15,11 @@ const MONTHLY_SAVINGS = [
       'A large table paying separately could take ten minutes to close — paid staff time standing at one table instead of working the floor. Calculator errors often went unnoticed until after service, and correcting them cost more time than the original mistake.',
   },
   {
-    process: 'Closing large tables',
-    estimate: '10-16 hours',
-    money: '250-480 EUR',
+    process: 'One mistake can cost',
+    estimate: '4-8 hours',
+    money: '200+ EUR',
     detail:
-      'Only the assigned waiter knew which tables were ready to pay and what each person had ordered. Getting that information at closing meant interrupting whoever knew — or reconstructing it from memory. Each slow close was minutes added to a table that should have turned.',
-  },
-  {
-    process: 'Communicating orders between staff',
-    estimate: '12-20 hours',
-    money: '300-600 EUR',
-    detail:
-      'A missed handoff meant a return trip to the table, an apology, and a delay that fell on the guest. At two or three per service, the cost in staff time and lost table confidence accumulated across the week.',
+      'Forgetting even one item on a paper bill means 50 EUR lost instantly — and most mistakes go unnoticed until after service, if at all. One missed item per week compounds to a serious monthly loss with no way to trace it back.',
   },
   {
     process: 'End-of-day count',
@@ -60,8 +53,8 @@ const FIT_SIGNALS = [
 ];
 
 export default function CamidiPage() {
-  const totalHours = '48-76';
-  const totalMoney = '1,200-2,280 EUR';
+  const totalHours = '30-48';
+  const totalMoney = '850-1,200+ EUR';
 
   return (
     <PageLayout>
