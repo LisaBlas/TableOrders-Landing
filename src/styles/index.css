@@ -3022,6 +3022,13 @@ ul, ol {
   background: rgba(17, 24, 32, 0.62);
 }
 
+.problem-block__icon {
+  color: var(--accent);
+  opacity: 0.7;
+  margin-bottom: 8px;
+  display: block;
+}
+
 .problem-block__title {
   font-size: 11px;
   font-weight: 700;
