@@ -8,13 +8,13 @@ export const SERVICE_CHANGES = [
   {
     tab: 'Tickets',
     title: 'Paper tickets',
-    before: 'Paper tickets make the order feel improvised.',
+    before: 'Paper tickets look unprofessional to guests. Totals are added on a calculator, errors go unnoticed, and a large table can take ten minutes to close because everyone pays separately.',
     after: 'Guests see clear items, readable names, and totals the team can trust.',
   },
   {
     tab: 'Closing',
     title: 'Daily sales',
-    before: 'Daily sales are counted ticket by ticket after service.',
+    before: 'Closing means going through every ticket one by one — slow, demanding work that falls on staff at the end of an already exhausting shift.',
     after: 'Closed bills are grouped by POS ID, ready for fast manual POS entry.',
   },
   {
@@ -26,13 +26,13 @@ export const SERVICE_CHANGES = [
   {
     tab: 'Handoff',
     title: 'Order handoff',
-    before: 'Busy waiters can forget to pass on an order after an interruption.',
+    before: 'Passing an order to a colleague depends on memory. During a busy service, that handoff gets skipped — and it\'s the guest who notices first.',
     after: 'Unsent and sent batches stay visible until they are confirmed and handled.',
   },
   {
     tab: 'Tables',
     title: 'Table status',
-    before: 'Nobody is fully sure which tables are waiting, ordered, or ready to close.',
+    before: 'Only the assigned waiter knows the real state of each table. Who\'s about to order, who\'s waiting for the bill, which spot is freeing up — that knowledge stays in one person\'s head.',
     after: 'The floor team shares one live table overview from any phone or tablet.',
   },
 ];
