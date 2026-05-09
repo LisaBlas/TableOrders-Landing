@@ -12,28 +12,28 @@ const MONTHLY_SAVINGS = [
     estimate: '18-26 hours',
     money: '450-780 EUR',
     detail:
-      'Paper tickets looked unprofessional to guests. Totals were added on a calculator, errors went unnoticed, and a large table could take ten minutes to close because everyone was paying their own orders. TableOrders keeps items, quantities, notes, and table status in one shared view.',
+      'A large table paying separately could take ten minutes to close — paid staff time standing at one table instead of working the floor. Calculator errors often went unnoticed until after service, and correcting them cost more time than the original mistake.',
   },
   {
     process: 'Closing large tables',
     estimate: '10-16 hours',
     money: '250-480 EUR',
     detail:
-      'Without a shared table view, the waiter handling a large table had to reconstruct the full order at closing time. Who had what, who was ready to pay, which spot was about to free up — all of that lived in one person\'s head. The bill view has the full order ready before the guest asks.',
+      'Only the assigned waiter knew which tables were ready to pay and what each person had ordered. Getting that information at closing meant interrupting whoever knew — or reconstructing it from memory. Each slow close was minutes added to a table that should have turned.',
   },
   {
     process: 'Communicating orders between staff',
     estimate: '12-20 hours',
     money: '300-600 EUR',
     detail:
-      'Passing an order to a colleague depended on memory. During busy service, that handoff got skipped — and it was usually the guest who noticed first. Unsent batches now stay visible until confirmed and marked handled.',
+      'A missed handoff meant a return trip to the table, an apology, and a delay that fell on the guest. At two or three per service, the cost in staff time and lost table confidence accumulated across the week.',
   },
   {
     process: 'End-of-day count',
     estimate: '8-14 hours',
     money: '200-420 EUR',
     detail:
-      'Counting was done ticket by ticket — slow, detail-heavy work that fell on staff at the end of an already exhausting shift. Closed bills are now grouped by POS ID, ready for direct entry into the official POS.',
+      'Counting the day ticket by ticket required quiet and full concentration — after a long shift, once guests had left. At the team\'s hourly rate, 30 to 45 minutes of post-service reconstruction was a recurring payroll cost with no upside.',
   },
 ];
 
