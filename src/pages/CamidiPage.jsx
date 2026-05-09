@@ -8,32 +8,32 @@ import camidiPhotoThree from '../assets/camidi-3.jpg';
 
 const MONTHLY_SAVINGS = [
   {
-    process: 'Paper orders',
+    process: 'Paper tickets',
     estimate: '18-26 hours',
     money: '450-780 EUR',
     detail:
-      'Handwritten notes had to be carried, checked, rewritten, and sometimes decoded during service. TableOrders keeps the order, table, notes, quantities, and status in one shared place.',
+      'Paper tickets looked unprofessional to guests. Totals were added on a calculator, errors went unnoticed, and a large table could take ten minutes to close because everyone was paying their own orders. TableOrders keeps items, quantities, notes, and table status in one shared view.',
   },
   {
-    process: 'Payment calculations by hand',
+    process: 'Closing large tables',
     estimate: '10-16 hours',
     money: '250-480 EUR',
     detail:
-      'Groups splitting items, rounds, and vouchers used to create slow calculations at the table. The bill view now prepares equal splits, item splits, and voucher-aware totals before the guest is waiting.',
+      'Without a shared table view, the waiter handling a large table had to reconstruct the full order at closing time. Who had what, who was ready to pay, which spot was about to free up — all of that lived in one person\'s head. The bill view has the full order ready before the guest asks.',
   },
   {
-    process: 'Communicating orders to different staff',
+    process: 'Communicating orders between staff',
     estimate: '12-20 hours',
     money: '300-600 EUR',
     detail:
-      'Staff no longer need to interrupt each other to ask what has been sent, what is still pending, or whether a table is ready. Unsent batches stay visible until confirmed.',
+      'Passing an order to a colleague depended on memory. During busy service, that handoff got skipped — and it was usually the guest who noticed first. Unsent batches now stay visible until confirmed and marked handled.',
   },
   {
     process: 'End-of-day count',
     estimate: '8-14 hours',
     money: '200-420 EUR',
     detail:
-      'Instead of reconstructing the day from paper tickets, closed bills are grouped by POS ID for manual entry into the official POS.',
+      'Counting was done ticket by ticket — slow, detail-heavy work that fell on staff at the end of an already exhausting shift. Closed bills are now grouped by POS ID, ready for direct entry into the official POS.',
   },
 ];
 
