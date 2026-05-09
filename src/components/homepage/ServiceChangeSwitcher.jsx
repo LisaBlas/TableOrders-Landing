@@ -1,6 +1,6 @@
-import { Receipt, Calculator, Split, TriangleAlert, LayoutGrid } from 'lucide-react';
+import { Receipt, Calculator, TriangleAlert, LayoutGrid } from 'lucide-react';
 
-const ICONS = { Receipt, Calculator, Split, TriangleAlert, LayoutGrid };
+const ICONS = { Receipt, Calculator, TriangleAlert, LayoutGrid };
 
 export default function ServiceChangeSwitcher({ changes }) {
   return (

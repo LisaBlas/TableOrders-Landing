@@ -20,13 +20,6 @@ export const SERVICE_CHANGES = [
     after: 'Closed bills are grouped by POS ID, ready for fast manual POS entry.',
   },
   {
-    tab: 'Splits',
-    icon: 'Split',
-    title: 'Bill splitting',
-    before: 'Splits, vouchers, and shared bills turn into calculator work.',
-    after: 'Equal splits, item splits, rounds, and vouchers are handled in the bill.',
-  },
-  {
     tab: 'Handoff',
     icon: 'TriangleAlert',
     title: 'Order handoff',
