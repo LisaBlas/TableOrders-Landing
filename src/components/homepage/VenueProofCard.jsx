@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Button from '../ui/Button';
 
 export default function VenueProofCard({ venue }) {
   return (
@@ -40,9 +40,9 @@ export default function VenueProofCard({ venue }) {
       </figure>
 
       {venue.caseStudyPath && (
-        <Link to={venue.caseStudyPath} className="proof-venue-card__case-study-link">
-          Case Study →
-        </Link>
+        <Button to={venue.caseStudyPath} variant="primary" className="btn--sm proof-venue-card__cta">
+          Case Study
+        </Button>
       )}
     </div>
   );
