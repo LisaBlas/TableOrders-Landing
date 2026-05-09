@@ -22,6 +22,13 @@ const MONTHLY_SAVINGS = [
       'Forgetting even one item on a paper bill means 50 EUR lost instantly — and most mistakes go unnoticed until after service, if at all. One missed item per week compounds to a serious monthly loss with no way to trace it back.',
   },
   {
+    process: 'Orders that never made it',
+    estimate: '4-8 hours',
+    money: '150+ EUR',
+    detail:
+      'An order taken but never confirmed stays invisible. The item was prepared, the table was served — but without a sent batch, nothing gets charged. A few unconfirmed rounds per week adds up to consistent silent revenue loss.',
+  },
+  {
     process: 'End-of-day count',
     estimate: '8-14 hours',
     money: '200-420 EUR',
@@ -53,8 +60,8 @@ const FIT_SIGNALS = [
 ];
 
 export default function CamidiPage() {
-  const totalHours = '30-48';
-  const totalMoney = '850-1,200+ EUR';
+  const totalHours = '34-56';
+  const totalMoney = '1,000-1,400+ EUR';
 
   return (
     <PageLayout>
