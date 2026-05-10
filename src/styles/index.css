@@ -3034,8 +3034,8 @@ ul, ol {
 }
 
 .problem-block--open {
-  border-color: rgba(218, 162, 119, 0.28);
-  background: rgba(17, 24, 32, 0.78);
+  border-color: rgba(218, 162, 119, 0.5);
+  background: var(--accent);
 }
 
 .problem-block__faces {
@@ -3079,6 +3079,7 @@ ul, ol {
 }
 
 .problem-block__icon--solution {
+  color: rgba(17, 24, 32, 0.75);
   opacity: 1;
 }
 
@@ -3092,14 +3093,17 @@ ul, ol {
 }
 
 .problem-block__title--solution {
-  color: var(--text-primary, #e8e0d8);
-  opacity: 0.9;
+  color: rgba(17, 24, 32, 0.85);
 }
 
 .problem-block__text {
   color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.5;
+}
+
+.problem-block--open .problem-block__face--after .problem-block__text {
+  color: rgba(17, 24, 32, 0.7);
 }
 
 .proof-venue-card {
