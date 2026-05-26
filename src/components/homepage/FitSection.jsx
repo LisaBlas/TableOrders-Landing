@@ -11,10 +11,11 @@ export default function FitSection() {
           <div className="demo-workflow">
             <div className="demo-workflow__intro">
               <p className="demo-eyebrow">This fits you if</p>
-              <h2 className="demo-heading">You need order coordination, not another POS.</h2>
+              <h2 className="demo-heading">You lose time and money on manual tasks.</h2>
               <p className="demo-subtext">
-                For small front-of-house teams that already have a fiscal POS,
-                but still lose time between orders, splits, and daily closing.
+                A missed item, a forgotten round — small mistakes that quietly cost money.
+                And behind every shift close: recalculating splits, totalling tickets,
+                rebuilding what already happened by hand.
               </p>
               <Button to="/how-it-works" variant="link">How it works</Button>
             </div>

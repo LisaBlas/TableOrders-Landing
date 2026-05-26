@@ -53,33 +53,33 @@ export const CAMIDI_PROOF = {
 
 export const FIT_STEPS = [
   {
-    tag: 'Interrupted',
-    title: 'Order still in notebook',
-    text: 'A table asks for another round while the first order is still on paper.',
+    tag: 'Lost revenue',
+    title: 'Item never made it to the bill',
+    text: 'A dessert ordered mid-service, an extra round added verbally — small items that got missed and were never charged.',
     icon: 'paper',
   },
   {
-    tag: 'Table state',
-    title: 'Table 12 changed fast',
-    text: 'Seated, ordered, waiting, and ready-to-close states need one shared view.',
-    icon: 'shift',
-  },
-  {
-    tag: 'Unsent',
-    title: 'Order needs sending',
-    text: 'Staff switch tasks and need a visible reminder before a batch is handled.',
-    icon: 'interrupt',
-  },
-  {
-    tag: 'Split',
-    title: 'Voucher split at close',
-    text: 'Item splits, vouchers, and rounds should not turn into calculator work.',
+    tag: 'Manual work',
+    title: 'Split recalculated by hand',
+    text: 'A table of six each paying separately means recounting every item on a calculator — slow, error-prone work that holds up closing.',
     icon: 'split',
   },
   {
+    tag: 'Time sink',
+    title: 'Daily totals rebuilt from scratch',
+    text: 'Closing means going through every ticket one by one to get POS-entry figures — exhausting work that falls on staff at the end of a long shift.',
+    icon: 'shift',
+  },
+  {
+    tag: 'Missed order',
+    title: 'Round confirmed but never sent',
+    text: 'An order acknowledged verbally but never entered — staff find out when the guest asks again, minutes later.',
+    icon: 'interrupt',
+  },
+  {
     tag: 'Lean setup',
-    title: 'Phones + existing POS + manual POS totals',
-    text: 'TableOrders coordinates service without replacing the official POS.',
+    title: 'Phones + existing POS + no manual maths',
+    text: 'TableOrders tracks every order, split, and bill so nothing gets missed and closing takes minutes, not an hour.',
     icon: 'lean',
     summary: true,
   },
