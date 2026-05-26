@@ -16,9 +16,9 @@ const SERVICE_FLOW = [
     screen: 'Screenshot placeholder: menu categories, item search, notes, variants, quantities, and unsent items.',
   },
   {
-    label: 'Sent batch',
-    title: 'Confirm once, then track the batch',
-    screen: 'Screenshot placeholder: confirmed batch grouped by kitchen, bar, or counter with handled state.',
+    label: 'Sent order',
+    title: 'Confirm once, then track the order',
+    screen: 'Screenshot placeholder: confirmed order grouped by kitchen, bar, or counter with handled state.',
   },
   {
     label: 'Bill split',
@@ -50,12 +50,12 @@ const FEATURE_MOMENTS = [
     visual: 'Screenshot placeholder: table order screen showing unsent items, item controls, notes, and confirm button.',
   },
   {
-    eyebrow: '03 / Batch tracking',
+    eyebrow: '03 / Order tracking',
     title: 'Sent orders remain visible until handled',
-    staff: 'A confirmed order becomes a sent batch that can be grouped by destination and marked handled after the team acts on it.',
+    staff: 'A confirmed order is sent and can be grouped by destination and marked handled after the team acts on it.',
     problem: 'The app reduces the mental checklist of what was already called, carried, or prepared.',
-    result: 'Late drinks, second rounds, and food additions become separate batches instead of messy paper add-ons.',
-    visual: 'Screenshot placeholder: sent batches with destination labels and handled/unhandled states.',
+    result: 'Late drinks, second rounds, and food additions become separate orders instead of messy paper add-ons.',
+    visual: 'Screenshot placeholder: sent orders with destination labels and handled/unhandled states.',
   },
   {
     eyebrow: '04 / Bill review',
@@ -78,7 +78,7 @@ const FEATURE_MOMENTS = [
 const CHAOS_CASES = [
   {
     title: 'Guests add drinks after food was sent',
-    body: 'New items become a separate unsent order and then a separate sent batch. The earlier food batch stays intact.',
+    body: 'New items become a separate unsent order and then a separate sent order. The earlier food order stays intact.',
   },
   {
     title: 'One guest pays with a voucher',
@@ -105,7 +105,7 @@ const CHAOS_CASES = [
 const BOUNDARIES = [
   {
     title: 'TableOrders',
-    body: 'Coordinates table states, order drafts, sent batches, internal bills, splits, and daily POS-entry totals.',
+    body: 'Coordinates table states, order drafts, sent orders, internal bills, splits, and daily POS-entry totals.',
   },
   {
     title: 'Your official POS',
@@ -130,7 +130,7 @@ export default function HowItWorksPage() {
                   See how a table moves from seated to closed without paper notes.
                 </h1>
                 <p className="hiw-hero__subtitle">
-                  TableOrders gives waitstaff a shared phone-based workflow for tables, orders, batches, splits, and daily POS entry while your official POS stays responsible for receipts, tax, and payment.
+                  TableOrders gives waitstaff a shared phone-based workflow for tables, orders, splits, and daily POS entry while your official POS stays responsible for receipts, tax, and payment.
                 </p>
                 <div className="hiw-hero__actions">
                   <Button href="#service-flow" variant="primary">Walk the flow</Button>

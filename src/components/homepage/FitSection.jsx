@@ -12,7 +12,7 @@ export default function FitSection() {
               <p className="demo-eyebrow">How it works</p>
               <h2 className="demo-heading">Table to bill in four steps.</h2>
               <p className="demo-subtext">
-                TableOrders handles the coordination layer — table state, order batches,
+                TableOrders handles the coordination layer — table state, orders,
                 bill splitting, and daily POS totals. Your existing POS stays in place.
               </p>
               <Button to="/how-it-works" variant="link">See the full workflow</Button>

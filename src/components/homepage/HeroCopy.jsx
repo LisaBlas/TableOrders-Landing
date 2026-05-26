@@ -12,7 +12,7 @@ export default function HeroCopy() {
         Run table service from any phone.
       </h1>
       <p className="pain-subtext">
-        A shared mobile table map, order tracking, sent batches, and bill splitting {'\u2014'} for teams that already have a POS.
+        A shared mobile table map, order tracking, sent orders, and bill splitting {'\u2014'} for teams that already have a POS.
       </p>
       <div className="pain-actions">
         <BookACallButton />

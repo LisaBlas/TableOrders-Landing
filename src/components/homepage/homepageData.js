@@ -26,8 +26,8 @@ export const SERVICE_CHANGES = [
     icon: 'TriangleAlert',
     title: 'Order handoff',
     before: 'Passing an order to a colleague depends on memory. During a busy service, that handoff gets skipped — and it\'s the guest who notices first.',
-    fixTitle: 'Batches stay visible until handled',
-    after: 'Unsent and sent batches stay visible on every device until they are confirmed and marked handled. Nothing relies on memory.',
+    fixTitle: 'Orders stay visible until handled',
+    after: 'Unsent and sent orders stay visible on every device until they are confirmed and marked handled. Nothing relies on memory.',
   },
   {
     tab: 'Tables',
@@ -64,7 +64,7 @@ export const WORKFLOW_STEPS = [
   {
     step: '02',
     title: 'Take the order',
-    text: 'Add items by category: food, drinks, wine, shop. Notes, quantities, and custom items included. Confirm a batch when it\'s ready to send.',
+    text: 'Add items by category: food, drinks, wine, shop. Notes, quantities, and custom items included. Confirm an order when it\'s ready to send.',
   },
   {
     step: '03',

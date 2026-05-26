@@ -26,7 +26,7 @@ const MONTHLY_SAVINGS = [
     estimate: '4-8 hours',
     money: '150+ EUR',
     detail:
-      'An order taken but never confirmed stays invisible. The item was prepared, the table was served — but without a sent batch, nothing gets charged. A few unconfirmed rounds per week adds up to consistent silent revenue loss.',
+      'An order taken but never confirmed stays invisible. The item was prepared, the table was served — but without a confirmed sent order, nothing gets charged. A few unconfirmed rounds per week adds up to consistent silent revenue loss.',
   },
   {
     process: 'End-of-day count',
@@ -39,7 +39,7 @@ const MONTHLY_SAVINGS = [
 
 const SERVICE_CHANGES = [
   'Waiters can see table state from any phone before walking back to the counter.',
-  'Orders stay editable until the staff confirms the batch has been sent.',
+  'Orders stay editable until the staff confirms and sends them.',
   'Bills can be reviewed, split, and closed without rebuilding the table history.',
   'The official POS remains the fiscal system for receipts, tax, and payment processing.',
 ];
@@ -185,7 +185,7 @@ export default function CamidiPage() {
                 <p className="cs-eyebrow">What changed</p>
                 <h2 className="cs-section-title">The team kept their POS. They changed the layer before it.</h2>
                 <p className="cs-section-body">
-                  TableOrders does not issue fiscal receipts, calculate tax, or process payments. It organizes the work that happens before the official POS: table state, order batches, bill review, splitting, closing, and daily POS entry totals.
+                  TableOrders does not issue fiscal receipts, calculate tax, or process payments. It organizes the work that happens before the official POS: table state, orders, bill review, splitting, closing, and daily POS entry totals.
                 </p>
               </div>
               <div className="cs-change__list">

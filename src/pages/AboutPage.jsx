@@ -22,7 +22,7 @@ const SHIFT_STEPS = [
     time: '19:10',
     title: 'First rush',
     pain: 'Notes, quantities, variants, and custom items start to pile up. One missed modifier can turn into a kitchen correction later.',
-    fix: 'Waitstaff can take orders from phones or tablets, keep unsent batches visible, and confirm before sending the next step.',
+    fix: 'Waitstaff can take orders from phones or tablets, keep unsent orders visible, and confirm before sending the next step.',
   },
   {
     time: '21:20',
