@@ -3326,6 +3326,14 @@ ul, ol {
   height: 20px;
 }
 
+.demo-workflow__mark:not(:has(svg)) {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
 .demo-workflow__tag {
   display: inline-flex;
   width: fit-content;

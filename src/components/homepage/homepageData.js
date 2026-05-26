@@ -6,18 +6,18 @@ import camidiPhotoThree from '../../assets/camidi-3.jpg';
 
 export const SERVICE_CHANGES = [
   {
-    tab: 'Tickets',
+    tab: 'Revenue',
     icon: 'Receipt',
-    title: 'Paper tickets',
-    before: 'Paper tickets look unprofessional to guests. Totals are added on a calculator, errors go unnoticed, and a large table can take ten minutes to close because everyone pays separately.',
-    after: 'Guests see clear items, readable names, and totals the team can trust.',
+    title: 'Item never made it to the bill',
+    before: 'A dessert ordered mid-service, an extra round added verbally — small items taken by memory and never entered. The kitchen prepared it. The guest was served. Nothing was charged.',
+    after: 'Every item stays attached to the table until the bill is reviewed and closed. Nothing falls through between taking the order and charging for it.',
   },
   {
-    tab: 'Closing',
+    tab: 'Splits',
     icon: 'Calculator',
-    title: 'Daily sales',
-    before: 'Closing means going through every ticket one by one — slow, demanding work that falls on staff at the end of an already exhausting shift.',
-    after: 'Closed bills are grouped by POS ID, ready for fast manual POS entry.',
+    title: 'Split recalculated by hand',
+    before: 'A table of six each paying separately means recounting every item on a calculator — slow, error-prone work that holds up closing while the rest of the floor keeps moving.',
+    after: 'Split by guest, by item, or by round directly in the app. No calculator, no memory work — the total is ready when the guest asks.',
   },
   {
     tab: 'Handoff',
@@ -51,37 +51,26 @@ export const CAMIDI_PROOF = {
   caseStudyPath: '/camidi',
 };
 
-export const FIT_STEPS = [
+export const WORKFLOW_STEPS = [
   {
-    tag: 'Lost revenue',
-    title: 'Item never made it to the bill',
-    text: 'A dessert ordered mid-service, an extra round added verbally — small items that got missed and were never charged.',
-    icon: 'paper',
+    step: '01',
+    title: 'Open a table',
+    text: 'Tap any table on the shared floor map. Every phone on the floor sees the same state — open, seated, ordered, or confirmed.',
   },
   {
-    tag: 'Manual work',
-    title: 'Split recalculated by hand',
-    text: 'A table of six each paying separately means recounting every item on a calculator — slow, error-prone work that holds up closing.',
-    icon: 'split',
+    step: '02',
+    title: 'Take the order',
+    text: 'Add items by category: food, drinks, wine, shop. Notes, quantities, and custom items included. Confirm a batch when it\'s ready to send.',
   },
   {
-    tag: 'Time sink',
-    title: 'Daily totals rebuilt from scratch',
-    text: 'Closing means going through every ticket one by one to get POS-entry figures — exhausting work that falls on staff at the end of a long shift.',
-    icon: 'shift',
+    step: '03',
+    title: 'Split and close',
+    text: 'Split by guest, by item, or by round. Review the total. Close the table into an internal bill — no calculator, no memory work.',
   },
   {
-    tag: 'Missed order',
-    title: 'Round confirmed but never sent',
-    text: 'An order acknowledged verbally but never entered — staff find out when the guest asks again, minutes later.',
-    icon: 'interrupt',
-  },
-  {
-    tag: 'Lean setup',
-    title: 'Phones + existing POS + no manual maths',
-    text: 'TableOrders tracks every order, split, and bill so nothing gets missed and closing takes minutes, not an hour.',
-    icon: 'lean',
-    summary: true,
+    step: '04',
+    title: 'Cross to POS at end of day',
+    text: 'Closed bills are grouped by POS category. Staff mark items as entered. End-of-day takes minutes, not an hour.',
   },
 ];
 
