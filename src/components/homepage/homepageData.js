@@ -10,6 +10,7 @@ export const SERVICE_CHANGES = [
     icon: 'Receipt',
     title: 'Item never made it to the bill',
     before: 'A dessert ordered mid-service, an extra round added verbally — small items taken by memory and never entered. The kitchen prepared it. The guest was served. Nothing was charged.',
+    fixTitle: 'Every item tracked to the bill',
     after: 'Every item stays attached to the table until the bill is reviewed and closed. Nothing falls through between taking the order and charging for it.',
   },
   {
@@ -17,6 +18,7 @@ export const SERVICE_CHANGES = [
     icon: 'Calculator',
     title: 'Split recalculated by hand',
     before: 'A table of six each paying separately means recounting every item on a calculator — slow, error-prone work that holds up closing while the rest of the floor keeps moving.',
+    fixTitle: 'Split without a calculator',
     after: 'Split by guest, by item, or by round directly in the app. No calculator, no memory work — the total is ready when the guest asks.',
   },
   {
@@ -24,14 +26,16 @@ export const SERVICE_CHANGES = [
     icon: 'TriangleAlert',
     title: 'Order handoff',
     before: 'Passing an order to a colleague depends on memory. During a busy service, that handoff gets skipped — and it\'s the guest who notices first.',
-    after: 'Unsent and sent batches stay visible until they are confirmed and handled.',
+    fixTitle: 'Batches stay visible until handled',
+    after: 'Unsent and sent batches stay visible on every device until they are confirmed and marked handled. Nothing relies on memory.',
   },
   {
     tab: 'Tables',
     icon: 'LayoutGrid',
     title: 'Table status',
     before: 'Only the assigned waiter knows the real state of each table. Who\'s about to order, who\'s waiting for the bill, which spot is freeing up — that knowledge stays in one person\'s head.',
-    after: 'The floor team shares one live table overview from any phone or tablet.',
+    fixTitle: 'One live view for the whole floor',
+    after: 'The floor team shares one live table map from any phone or tablet. Open, seated, ordered, confirmed — everyone sees the same thing.',
   },
 ];
 
