@@ -1,5 +1,5 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
-import BookACallButton from '../ui/BookACallButton';
+import Button from '../ui/Button';
 
 export default function WorkflowCTA({
   id,
@@ -17,7 +17,7 @@ export default function WorkflowCTA({
             <h2 className="workflow-cta__heading">{heading}</h2>
             <p className="workflow-cta__body">{body}</p>
             <div className="workflow-cta__actions">
-              <BookACallButton />
+              <Button to="/contact">Book a call</Button>
               <a href="mailto:alvizblas@gmail.com" className="workflow-cta__email">
                 {emailLabel}
               </a>

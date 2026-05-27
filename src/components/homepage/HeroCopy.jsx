@@ -1,5 +1,4 @@
 import Button from '../ui/Button';
-import BookACallButton from '../ui/BookACallButton';
 
 export default function HeroCopy() {
   return (
@@ -15,7 +14,7 @@ export default function HeroCopy() {
         A shared mobile table map, order tracking, sent orders, and bill splitting {'\u2014'} for teams that already have a POS.
       </p>
       <div className="pain-actions">
-        <BookACallButton />
+        <Button to="/contact">Book a call</Button>
         <Button href="#demo" variant="secondary">
           See workflow
         </Button>

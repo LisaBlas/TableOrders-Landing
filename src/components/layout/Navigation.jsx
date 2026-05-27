@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import BookACallButton from '../ui/BookACallButton';
+import Button from '../ui/Button';
 
 export default function Navigation() {
   const { pathname } = useLocation();
@@ -62,7 +62,7 @@ export default function Navigation() {
           </Link>
         </div>
 
-        <BookACallButton className="btn--sm" />
+        <Button to="/contact" className="btn--sm">Book a call</Button>
       </div>
     </nav>
   );

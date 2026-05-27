@@ -1,5 +1,5 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
-import BookACallButton from '../ui/BookACallButton';
+import Button from '../ui/Button';
 import ServiceChangeSwitcher from './ServiceChangeSwitcher';
 import { SERVICE_CHANGES } from './homepageData';
 
@@ -55,7 +55,7 @@ export default function PricingSection() {
                 At €80 / month, it covers itself before the end of the first week.
               </div>
 
-              <BookACallButton />
+              <Button to="/contact">Book a call</Button>
             </div>
 
           </div>
