@@ -1,7 +1,6 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
-import ServiceChangeSwitcher from './ServiceChangeSwitcher';
 import VenueProofCard from './VenueProofCard';
-import { CAMIDI_PROOF, SERVICE_CHANGES } from './homepageData';
+import { CAMIDI_PROOF } from './homepageData';
 
 export default function ProofSection() {
   return (
@@ -10,11 +9,13 @@ export default function ProofSection() {
         <RevealOnScroll>
           <div className="proof-grid">
             <div className="proof-text">
-              <p className="proof-eyebrow">Before</p>
+              <p className="proof-eyebrow">Live venue</p>
               <h2 className="proof-heading">
-                The daily service mess TableOrders removes.
+                Already running at Käserei Camidi.
               </h2>
-              <ServiceChangeSwitcher changes={SERVICE_CHANGES} />
+              <p className="proof-body">
+                A Berlin wine bar and cheese shop with full table service. The team uses TableOrders every shift — tables, orders, splits, and daily POS crossing.
+              </p>
             </div>
 
             <VenueProofCard venue={CAMIDI_PROOF} />

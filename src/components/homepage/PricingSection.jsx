@@ -1,64 +1,34 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
 import BookACallButton from '../ui/BookACallButton';
-
-const COST_ROWS = [
-  {
-    label: 'Unbilled items',
-    scenario:
-      'One item taken verbally and never entered — a dessert mid-service, a second round added at the table. On a 5-shift week that happens more than once.',
-    math: '5 shifts × 1 item × avg. €8',
-    monthly: '~€160 / month in revenue that leaves without a record',
-  },
-  {
-    label: 'End-of-day reconstruction',
-    scenario:
-      'After closing, someone spends 30 minutes matching paper notes, memory, and card receipts before entering totals into the POS.',
-    math: '5 shifts × 30 min × avg. €15 / hr',
-    monthly: '~€185 / month in paid hours spent on manual reconciliation',
-  },
-];
+import ServiceChangeSwitcher from './ServiceChangeSwitcher';
+import { SERVICE_CHANGES } from './homepageData';
 
 export default function PricingSection() {
-  const total = 160 + 185;
-
   return (
     <section className="section section--glow pricing-section" id="pricing">
       <div className="container">
         <RevealOnScroll>
           <div className="pricing-layout">
 
-            {/* Left: cost breakdown */}
+            {/* Left: problems + cost summary */}
             <div className="pricing-copy">
               <p className="pricing-eyebrow">Pricing</p>
               <h2 className="pricing-heading">
-                What running without it actually costs.
+                What service friction actually costs.
               </h2>
               <p className="pricing-subtext">
-                Before looking at the price, it helps to see what the friction costs on a typical week.
+                These are the breakdowns TableOrders removes — and what they add up to on a typical 5-shift week.
               </p>
 
-              <div className="pricing-ledger">
-                {COST_ROWS.map((row) => (
-                  <div className="pricing-ledger__row" key={row.label}>
-                    <div className="pricing-ledger__row-top">
-                      <span className="pricing-ledger__row-label">{row.label}</span>
-                    </div>
-                    <p className="pricing-ledger__row-scenario">{row.scenario}</p>
-                    <div className="pricing-ledger__row-math">
-                      <span className="pricing-ledger__row-formula">{row.math}</span>
-                      <span className="pricing-ledger__row-result">{row.monthly}</span>
-                    </div>
-                  </div>
-                ))}
+              <ServiceChangeSwitcher changes={SERVICE_CHANGES} />
 
-                <div className="pricing-ledger__total">
-                  <span>Estimated monthly friction</span>
-                  <span className="pricing-ledger__total-amount">≈ €{total} / month</span>
-                </div>
-                <p className="pricing-ledger__disclaimer">
-                  Conservative estimate for a small venue running 5 shifts a week.
-                </p>
+              <div className="pricing-cost-summary">
+                <span>Estimated monthly friction on a 5-shift week</span>
+                <strong>≈ €345 / month</strong>
               </div>
+              <p className="pricing-cost-disclaimer">
+                One item not billed per shift (≈ €160) and 30 min of end-of-day reconciliation at avg. staff wage (≈ €185). Conservative estimate.
+              </p>
             </div>
 
             {/* Right: price card */}
