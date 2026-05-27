@@ -52,7 +52,7 @@ export const CAMIDI_PROOF = {
   ],
   quote: 'TableOrders made service feel calmer almost immediately. Orders are clearer, splitting bills is faster, and the team spends less time reconstructing what happened after the shift.',
   quoteSource: 'K\u00e4serei Camidi team',
-  caseStudyPath: '/camidi',
+  workflowPath: '/camidi',
 };
 
 export const WORKFLOW_STEPS = [

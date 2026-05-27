@@ -14,7 +14,7 @@ export default function ProofSection() {
                 Already running at Käserei Camidi.
               </h2>
               <p className="proof-body">
-                A Berlin wine bar and cheese shop with full table service. The team uses TableOrders every shift — tables, orders, splits, and daily POS crossing.
+                A Berlin wine bar and cheese shop with full table service. The team uses TableOrders every shift — tables, orders, splits, and daily sales tracking.
               </p>
             </div>
 

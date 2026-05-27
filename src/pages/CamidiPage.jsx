@@ -69,7 +69,7 @@ export default function CamidiPage() {
           <RevealOnScroll>
             <div className="cs-story-hero__copy">
               <div className="cs-hero__meta">
-                <span className="cs-badge">Case Study</span>
+                <span className="cs-badge">Camidi Workflow</span>
                 <span className="cs-badge cs-badge--venue">Berlin, Germany</span>
               </div>
               <div className="cs-hero__venue">

@@ -66,7 +66,7 @@ const FEATURE_MOMENTS = [
     visual: 'Screenshot placeholder: bill split interface with selected items, guest totals, voucher line, and close table action.',
   },
   {
-    eyebrow: '05 / Daily POS crossing',
+    eyebrow: '05 / Daily sales tracking',
     title: 'The end-of-day handoff is prepared automatically',
     staff: 'Managers review closed bills, see quantities aggregated by POS ID, flag missing POS IDs, and mark entries as added.',
     problem: 'The team does not reconstruct the day from paper notes, memory, and scattered payment moments.',

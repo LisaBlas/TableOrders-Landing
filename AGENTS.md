@@ -63,16 +63,16 @@ Keep this a focused single-product landing page.
 Preferred homepage flow:
 1. Hero: staff-facing mobile table service/order coordination
 2. Proof: real use at Kaeserei Camidi
-3. Demo: run a test shift / see the workflow
-4. Explore: links to supplementary pages (case study, how it works, about)
-5. CTA: book a walkthrough
+3. Pricing/friction: show what paper/service friction costs and position the €80/month venue plan
+4. Founder/trust: direct builder context and operational credibility
+5. CTA: contact / book a walkthrough
 
 Supplementary pages (support conversion, do not dilute homepage focus):
-- `/camidi` — Käserei Camidi case study: old workflow, friction points, how TableOrders fits, results
+- `/camidi` — Camidi Workflow: old workflow, friction points, how TableOrders fits, results
 - `/how-it-works` — step-by-step practical walkthrough from open table to POS entry
-- `/about` — trust-building: Berlin-based, hospitality background, direct builder contact
+- `/contact` — direct builder contact page with founder photo, email copy action, and booking link
 
-Do not reintroduce portfolio, multi-product, pricing, process, fake stats, or agency sections unless explicitly requested.
+Do not reintroduce portfolio, multi-product, generic process, fake stats, or agency sections unless explicitly requested. Do not add extra pricing tiers or pricing-table complexity unless explicitly requested; the current homepage uses a simple €80/month venue plan as conversion framing.
 
 ## Tech Stack
 - React 19
@@ -93,14 +93,14 @@ Run `npm.cmd run build` after meaningful edits.
 
 ## Key Files
 - `src/pages/HomePage.jsx`: homepage composition
-- `src/pages/CamidiPage.jsx`: Käserei Camidi case study page (`/camidi`)
+- `src/pages/CamidiPage.jsx`: Camidi Workflow page (`/camidi`)
 - `src/pages/HowItWorksPage.jsx`: practical workflow walkthrough page (`/how-it-works`)
-- `src/pages/AboutPage.jsx`: trust-building about page (`/about`)
-- `src/config/site.js`: shared config — update `CALENDLY_URL` here, it propagates to Navigation, PainSection, CTASection, and all supplementary page CTAs
+- `src/pages/ContactPage.jsx`: direct builder contact page (`/contact`)
+- `src/config/site.js`: shared config for the Calendly booking URL used by `BookACallButton`
 - `src/components/homepage`: homepage-specific sections, subcomponents, data, and CTA components
 - `src/components/layout`: page shell components such as navigation, footer, and layout wrapper
 - `src/components/ui`: reusable UI primitives shared across pages
-- `src/components/layout/Navigation.jsx`: top nav with Case Study / How It Works / About links
+- `src/components/layout/Navigation.jsx`: top nav with Camidi Workflow / How It Works / Contact links
 - `src/App.jsx`: route definitions
 - `src/styles/index.css`: global styling
 - `index.html`: page title and meta description
@@ -109,10 +109,8 @@ Run `npm.cmd run build` after meaningful edits.
 Do not recreate separate `home`, `sections`, `hero`, or `cards` component folders unless the project grows a real cross-page need for them.
 
 ## Placeholders To Resolve
-- `CALENDLY_URL` in `src/config/site.js` — booking link, propagates to Navigation, PainSection, CTASection, CamidiPage, HowItWorksPage, and AboutPage
-- `[PHONE_PLACEHOLDER]` — phone fallback, remove or replace
-- Kaeserei Camidi launch date in `ProofSection.jsx` — confirm before publishing
-- Real deployment screenshot — confirm before using visual proof
+- Real deployment/product screenshot — confirm before using product visual proof
+- Any launch dates, metrics, or quantified savings — confirm before publishing
 
 Do not publish placeholders in production-facing copy.
 

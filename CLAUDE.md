@@ -79,18 +79,18 @@ Best fit:
 Homepage flow (single-page):
 1. Hero: mobile table ordering/order coordination for teams that already have a POS
 2. Proof: real use at Kaeserei Camidi, Berlin, with only confirmed facts
-3. Demo: interactive workflow showing table/order/bill flow
-4. Explore: cards linking to supplementary pages (case study, how it works, about)
-5. CTA: book a walkthrough or see the workflow
+3. Pricing/friction: show what paper/service friction costs and position the €80/month venue plan
+4. Founder/trust: direct builder context and operational credibility
+5. CTA: contact / book a walkthrough
 
-Supplementary pages (already built — support conversion, do not dilute homepage):
-- `/camidi` — Käserei Camidi case study
+Supplementary pages (support conversion, do not dilute homepage):
+- `/camidi` — Camidi Workflow: practical Käserei Camidi workflow page
 - `/how-it-works` — practical step-by-step workflow walkthrough
 - `/contact` — founder photo, email, and booking link; no product copy
 
 Do not re-add:
 - Multi-product sections
-- Pricing tables unless explicitly requested
+- Extra pricing tiers or pricing-table complexity unless explicitly requested
 - Generic process sections
 - Fake testimonials
 - Fake credibility stats
@@ -144,10 +144,11 @@ On Windows, use `npm.cmd` rather than `npm` for reliability in automation.
 Do not recreate separate `home`, `sections`, `hero`, or `cards` component folders unless the project grows a real cross-page need for them.
 
 ## Current Blockers / Placeholders
-- Replace `CALENDLY_URL` in `src/config/site.js` with the real booking URL — it propagates to Navigation, PainSection, CTASection, CamidiPage, HowItWorksPage, and AboutPage.
-- Replace `[PHONE_PLACEHOLDER]` or remove the phone fallback.
-- Confirm the Kaeserei Camidi launch date before publishing it.
-- Add a real deployment photo or screenshot before using visual proof.
+- Add a real deployment/product screenshot before using product visual proof.
+- Confirm any launch dates, metrics, or quantified savings before publishing them.
+
+`CALENDLY_URL` is already set in `src/config/site.js` and is used by `BookACallButton`.
+`AboutPage.jsx` still exists as legacy code, but `/about` is not routed; the conversion page is `/contact`.
 
 ## Development Guidelines
 - Prefer editing existing sections over adding new ones. New pages need a clear conversion purpose.

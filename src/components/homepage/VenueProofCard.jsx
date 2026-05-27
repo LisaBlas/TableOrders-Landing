@@ -39,9 +39,9 @@ export default function VenueProofCard({ venue }) {
         </figcaption>
       </figure>
 
-      {venue.caseStudyPath && (
-        <Button to={venue.caseStudyPath} variant="primary" className="btn--sm proof-venue-card__cta">
-          Case Study
+      {venue.workflowPath && (
+        <Button to={venue.workflowPath} variant="primary" className="btn--sm proof-venue-card__cta">
+          Camidi Workflow
         </Button>
       )}
     </div>
