@@ -55,7 +55,7 @@ export default function PricingSection() {
                 At €80 / month, it covers itself before the end of the first week.
               </div>
 
-              <Button to="/contact">Book a call</Button>
+              <Button to="/contact">Contact</Button>
             </div>
 
           </div>

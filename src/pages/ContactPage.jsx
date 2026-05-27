@@ -1,9 +1,22 @@
+import { useState } from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import BookACallButton from '../components/ui/BookACallButton';
+import Button from '../components/ui/Button';
 import blasPhoto from '../assets/blas.avif';
 
+const EMAIL = 'alvizblas@gmail.com';
+
 export default function ContactPage() {
+  const [copied, setCopied] = useState(false);
+
+  function copyEmail() {
+    navigator.clipboard.writeText(EMAIL).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
   return (
     <PageLayout>
       <section className="about-shift-hero contact-hero">
@@ -18,10 +31,11 @@ export default function ContactPage() {
                 </p>
                 <div className="about-shift-hero__actions">
                   <BookACallButton />
-                  <a href="mailto:alvizblas@gmail.com" className="about-email-link">
-                    alvizblas@gmail.com
-                  </a>
+                  <Button variant="secondary" onClick={copyEmail}>
+                    {copied ? '✓ Copied' : 'Copy email'}
+                  </Button>
                 </div>
+                <p className="contact-email-hint">{EMAIL}</p>
               </div>
 
               <div className="contact-founder-wrap">

@@ -5999,6 +5999,13 @@ main > section {
   gap: 60px;
 }
 
+.contact-email-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+  margin-top: -4px; /* tighten gap after the actions row */
+}
+
 .contact-founder-wrap {
   display: flex;
   justify-content: center;
