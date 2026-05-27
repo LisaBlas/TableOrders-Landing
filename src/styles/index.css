@@ -5987,3 +5987,42 @@ main > section {
   border-top: 1px solid var(--accent);
   border-bottom: 1px solid var(--accent);
 }
+
+/* ============================================
+   Contact Page
+   ============================================ */
+
+/* Override the two-column grid to be more balanced
+   and suppress the wide shift-console column rule */
+.contact-hero__grid {
+  grid-template-columns: 1fr minmax(260px, 360px);
+  gap: 60px;
+}
+
+.contact-founder-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Let the card shrink to its natural width */
+.contact-founder-wrap .about-founder-card {
+  min-height: auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-founder-wrap {
+    order: -1;
+  }
+
+  .contact-founder-wrap .about-founder-card {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}

@@ -86,7 +86,7 @@ Homepage flow (single-page):
 Supplementary pages (already built — support conversion, do not dilute homepage):
 - `/camidi` — Käserei Camidi case study
 - `/how-it-works` — practical step-by-step workflow walkthrough
-- `/about` — Berlin-based, hospitality background, direct builder contact
+- `/contact` — founder photo, email, and booking link; no product copy
 
 Do not re-add:
 - Multi-product sections

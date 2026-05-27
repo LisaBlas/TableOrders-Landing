@@ -57,8 +57,8 @@ export default function Navigation() {
           <Link to="/how-it-works" className={`nav__link${pathname === '/how-it-works' ? ' nav__link--active' : ''}`}>
             How It Works
           </Link>
-          <Link to="/about" className={`nav__link${pathname === '/about' ? ' nav__link--active' : ''}`}>
-            About
+          <Link to="/contact" className={`nav__link${pathname === '/contact' ? ' nav__link--active' : ''}`}>
+            Contact
           </Link>
         </div>
 
