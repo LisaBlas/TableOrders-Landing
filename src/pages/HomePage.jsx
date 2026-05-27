@@ -1,7 +1,7 @@
 import PageLayout from '../components/layout/PageLayout';
 import PainSection from '../components/homepage/PainSection';
 import ProofSection from '../components/homepage/ProofSection';
-import FitSection from '../components/homepage/FitSection';
+import PricingSection from '../components/homepage/PricingSection';
 import WhoIAmSection from '../components/homepage/WhoIAmSection';
 import CTASection from '../components/homepage/CTASection';
 
@@ -10,7 +10,7 @@ export default function HomePage() {
     <PageLayout>
       <PainSection />
       <ProofSection />
-      <FitSection />
+      <PricingSection />
       <WhoIAmSection />
       <CTASection />
     </PageLayout>
