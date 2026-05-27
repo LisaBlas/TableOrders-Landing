@@ -4758,7 +4758,15 @@ ul, ol {
   padding-bottom: 36px;
 }
 
+.cs-paper-trail__step-group {
+  position: relative;
+}
+
 .cs-paper-trail__step:last-of-type {
+  padding-bottom: 0;
+}
+
+.cs-paper-trail__step-group:last-of-type .cs-paper-trail__step {
   padding-bottom: 0;
 }
 
@@ -4797,6 +4805,44 @@ ul, ol {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.7;
+}
+
+.cs-paper-trail__divider {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 22px;
+  padding: 0 0 36px;
+}
+
+.cs-paper-trail__divider--top {
+  padding-bottom: 22px;
+}
+
+.cs-paper-trail__divider::before {
+  content: '';
+  width: 1px;
+  min-height: 32px;
+  justify-self: center;
+  background: rgba(218, 162, 119, 0.28);
+}
+
+.cs-paper-trail__divider span {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cs-paper-trail__divider span::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(218, 162, 119, 0.3), transparent);
 }
 
 .cs-paper-trail__coda {

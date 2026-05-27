@@ -20,11 +20,13 @@ const PAPER_STEPS = [
   {
     num: '03',
     title: 'Walk to the kitchen',
+    dividerAfter: 'Closing the table',
     body: 'Food orders need a kitchen ticket too. Another trip, another handwritten slip — this time only the dishes. The kitchen does not need the cheese plates, so it is a different note.',
   },
   {
     num: '04',
     title: 'Come back to close the bill',
+    dividerAfter: 'End of the shift',
     body: 'Find the original table ticket. Pull out a calculator. Add up each item one by one. If the group is splitting, run the math again — per guest or by item. One missed line and the total is wrong. Most errors go unnoticed until after service, if at all.',
   },
   {
@@ -128,19 +130,29 @@ export default function CamidiPage() {
             <div className="cs-paper-trail">
               <div className="cs-paper-trail__header">
                 <p className="cs-eyebrow">Before TableOrders</p>
-                <h2 className="cs-section-title">One table order. Written in three places. Calculated by hand. Reconstructed at the end of every shift.</h2>
+                <h2 className="cs-section-title">1. Paper Tickets</h2>
                 <p className="cs-section-body">
-                  This is what a single busy shift looked like at Camidi when paper was the system.
+                  One table order, written in three places, calculated by hand, and reconstructed at the end of every shift.
                 </p>
               </div>
               <div className="cs-paper-trail__steps">
+                <div className="cs-paper-trail__divider cs-paper-trail__divider--top">
+                  <span>Taking an order</span>
+                </div>
                 {PAPER_STEPS.map((step) => (
-                  <div className="cs-paper-trail__step" key={step.num}>
-                    <div className="cs-paper-trail__step-num">{step.num}</div>
-                    <div className="cs-paper-trail__step-content">
-                      <h3 className="cs-paper-trail__step-title">{step.title}</h3>
-                      <p className="cs-paper-trail__step-body">{step.body}</p>
+                  <div className="cs-paper-trail__step-group" key={step.num}>
+                    <div className="cs-paper-trail__step">
+                      <div className="cs-paper-trail__step-num">{step.num}</div>
+                      <div className="cs-paper-trail__step-content">
+                        <h3 className="cs-paper-trail__step-title">{step.title}</h3>
+                        <p className="cs-paper-trail__step-body">{step.body}</p>
+                      </div>
                     </div>
+                    {step.dividerAfter ? (
+                      <div className="cs-paper-trail__divider">
+                        <span>{step.dividerAfter}</span>
+                      </div>
+                    ) : null}
                   </div>
                 ))}
                 <p className="cs-paper-trail__coda">This happened every shift, for every table.</p>
