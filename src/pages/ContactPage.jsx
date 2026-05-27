@@ -7,6 +7,12 @@ import blasPhoto from '../assets/blas.avif';
 
 const EMAIL = 'alvizblas@gmail.com';
 
+const WALKTHROUGH_STEPS = [
+  '30 minutes, video call',
+  'You show your current workflow — paper notes, POS setup, split habits',
+  'I show you where TableOrders fits, and where it doesn\'t',
+];
+
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
 
@@ -24,11 +30,18 @@ export default function ContactPage() {
           <RevealOnScroll>
             <div className="about-shift-hero__grid contact-hero__grid">
               <div className="about-shift-hero__copy">
-                <p className="about-kicker">Get in touch</p>
+                <p className="about-kicker">Direct line to the builder</p>
                 <h1 className="about-shift-hero__title">Talk directly with the person who built it.</h1>
                 <p className="about-shift-hero__body">
-                  I'm Blas, a UX designer and builder based in Berlin. Book a walkthrough or send an email — no queue, no sales team.
+                  No queue, no sales team — just a 30-minute walkthrough of your real workflow.
                 </p>
+
+                <ul className="contact-walkthrough" aria-label="What a walkthrough looks like">
+                  {WALKTHROUGH_STEPS.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ul>
+
                 <div className="about-shift-hero__actions">
                   <BookACallButton />
                   <Button variant="secondary" onClick={copyEmail}>
@@ -36,6 +49,7 @@ export default function ContactPage() {
                   </Button>
                 </div>
                 <p className="contact-email-hint">{EMAIL}</p>
+                <p className="contact-reply-time">I usually reply within a day.</p>
               </div>
 
               <div className="contact-founder-wrap">
@@ -45,6 +59,7 @@ export default function ContactPage() {
                     <p className="about-founder-card__label">Direct builder</p>
                     <h2 className="about-founder-card__name">Blas Alviz</h2>
                     <p className="about-founder-card__meta">Berlin, Germany</p>
+                    <p className="about-founder-card__avail">Mon–Fri · CET</p>
                   </div>
                 </div>
               </div>

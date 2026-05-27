@@ -5999,11 +5999,49 @@ main > section {
   gap: 60px;
 }
 
+.contact-walkthrough {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.contact-walkthrough li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding-left: 18px;
+  position: relative;
+}
+
+.contact-walkthrough li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
 .contact-email-hint {
   font-size: 13px;
   color: var(--text-muted);
   letter-spacing: 0.01em;
-  margin-top: -4px; /* tighten gap after the actions row */
+  margin-top: -4px;
+}
+
+.contact-reply-time {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: -4px;
+}
+
+.about-founder-card__avail {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  letter-spacing: 0.03em;
 }
 
 .contact-founder-wrap {
