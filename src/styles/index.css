@@ -4552,6 +4552,134 @@ ul, ol {
   color: var(--text-secondary);
 }
 
+/* ============================================
+   Paper Trail Section — cs-paper-trail
+   ============================================ */
+
+.cs-paper-trail-section {
+  padding: 120px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-paper-trail-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.cs-paper-trail-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cs-paper-trail {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1.15fr);
+  gap: 76px;
+  align-items: start;
+}
+
+.cs-paper-trail__header {
+  position: sticky;
+  top: calc(var(--nav-height) + 32px);
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cs-paper-trail__steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Vertical connecting line */
+.cs-paper-trail__steps::before {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 18px;
+  bottom: 56px; /* stops above the coda */
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.08) 90%,
+    transparent 100%
+  );
+}
+
+.cs-paper-trail__step {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 22px;
+  padding-bottom: 36px;
+}
+
+.cs-paper-trail__step:last-of-type {
+  padding-bottom: 0;
+}
+
+.cs-paper-trail__step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid rgba(218, 162, 119, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-paper-trail__step-content {
+  padding-top: 6px;
+}
+
+.cs-paper-trail__step-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.cs-paper-trail__step-body {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.cs-paper-trail__coda {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* ============================================
+   /Paper Trail Section
+   ============================================ */
+
 .cs-change-section {
   background: var(--bg-secondary);
 }
@@ -4644,13 +4772,15 @@ ul, ol {
   .cs-story-hero__grid,
   .cs-venue-story,
   .cs-change,
-  .cs-fit-signals {
+  .cs-fit-signals,
+  .cs-paper-trail {
     grid-template-columns: 1fr;
     gap: 48px;
   }
 
   .cs-change__copy,
-  .cs-fit-signals .cs-workflow-header {
+  .cs-fit-signals .cs-workflow-header,
+  .cs-paper-trail__header {
     position: static;
   }
 }
@@ -4662,6 +4792,7 @@ ul, ol {
 
   .cs-venue-section,
   .cs-savings-section,
+  .cs-paper-trail-section,
   .cs-change-section,
   .cs-fit-signals-section {
     padding: 80px 0;
@@ -4676,6 +4807,10 @@ ul, ol {
   .cs-saving-card,
   .cs-fit-signal {
     padding: 22px;
+  }
+
+  .cs-paper-trail__steps::before {
+    display: none;
   }
 }
 

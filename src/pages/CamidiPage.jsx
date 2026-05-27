@@ -6,34 +6,36 @@ import camidiPhotoOne from '../assets/camidi-1.jpg';
 import camidiPhotoTwo from '../assets/camidi-2.jpg';
 import camidiPhotoThree from '../assets/camidi-3.jpg';
 
-const MONTHLY_SAVINGS = [
+const PAPER_STEPS = [
   {
-    process: 'Paper tickets',
-    estimate: '18-26 hours',
-    money: '450-780 EUR',
-    detail:
-      'A large table paying separately could take ten minutes to close — paid staff time standing at one table instead of working the floor. Calculator errors often went unnoticed until after service, and correcting them cost more time than the original mistake.',
+    num: '01',
+    title: 'Take the order at the table',
+    body: 'Write it down. Prices from memory if the waiter knows the menu — or pause the conversation to check. Every member of staff has their own handwriting. No standardized format.',
   },
   {
-    process: 'One mistake can cost',
-    estimate: '4-8 hours',
-    money: '200+ EUR',
-    detail:
-      'Forgetting even one item on a paper bill means 50 EUR lost instantly — and most mistakes go unnoticed until after service, if at all. One missed item per week compounds to a serious monthly loss with no way to trace it back.',
+    num: '02',
+    title: 'Walk to the cheese counter',
+    body: 'Cheese plate orders need their own slip at the counter. A separate trip, a separate piece of paper — only the cheese items, written again for the person working the counter.',
   },
   {
-    process: 'Orders that never made it',
-    estimate: '4-8 hours',
-    money: '150+ EUR',
-    detail:
-      'An order taken but never confirmed stays invisible. The item was prepared, the table was served — but without a confirmed sent order, nothing gets charged. A few unconfirmed rounds per week adds up to consistent silent revenue loss.',
+    num: '03',
+    title: 'Walk to the kitchen',
+    body: 'Food orders need a kitchen ticket too. Another trip, another handwritten slip — this time only the dishes. The kitchen does not need the cheese plates, so it is a different note.',
   },
   {
-    process: 'End-of-day count',
-    estimate: '8-14 hours',
-    money: '200-420 EUR',
-    detail:
-      'Counting the day ticket by ticket required quiet and full concentration — after a long shift, once guests had left. At the team\'s hourly rate, 30 to 45 minutes of post-service reconstruction was a recurring payroll cost with no upside.',
+    num: '04',
+    title: 'Come back to close the bill',
+    body: 'Find the original table ticket. Pull out a calculator. Add up each item one by one. If the group is splitting, run the math again — per guest or by item. One missed line and the total is wrong. Most errors go unnoticed until after service, if at all.',
+  },
+  {
+    num: '05',
+    title: 'After the last guest: the A4 sheet',
+    body: 'Once guests are gone, someone sits down with all the kitchen tickets and transfers the dish quantities into a handwritten A4 table — the owner\'s daily sales record. One ticket at a time, at the end of a long shift.',
+  },
+  {
+    num: '06',
+    title: 'Enter everything into the POS',
+    body: 'The final step: take those totals and manually enter each item into the official POS cheese-scale. Only then is the shift fully closed.',
   },
 ];
 
@@ -60,51 +62,29 @@ const FIT_SIGNALS = [
 ];
 
 export default function CamidiPage() {
-  const totalHours = '34-56';
-  const totalMoney = '1,000-1,400+ EUR';
-
   return (
     <PageLayout>
       <section className="cs-story-hero">
         <div className="container">
           <RevealOnScroll>
-            <div className="cs-story-hero__grid">
-              <div className="cs-story-hero__copy">
-                <div className="cs-hero__meta">
-                  <span className="cs-badge">Case Study</span>
-                  <span className="cs-badge cs-badge--venue">Berlin, Germany</span>
-                </div>
-                <div className="cs-hero__venue">
-                  <img className="cs-hero__logo" src={camidiLogo} alt="Kaeserei Camidi logo" />
-                  <div>
-                    <p className="cs-story-hero__venue-label">Kaeserei Camidi</p>
-                    <p className="cs-hero__type">Wine bar / cheese shop / table service</p>
-                  </div>
-                </div>
-                <h1 className="cs-story-hero__title">
-                  A calmer way to run table service when the POS is not the problem.
-                </h1>
-                <p className="cs-story-hero__intro">
-                  Camidi needed less paper, fewer interruptions, faster bill handling, and a cleaner end-of-day routine. TableOrders gave the team a live service layer between the floor and the official POS.
-                </p>
+            <div className="cs-story-hero__copy">
+              <div className="cs-hero__meta">
+                <span className="cs-badge">Case Study</span>
+                <span className="cs-badge cs-badge--venue">Berlin, Germany</span>
               </div>
-
-              <aside className="cs-impact-panel" aria-label="Estimated monthly impact">
-                <p className="cs-impact-panel__label">Estimated monthly impact</p>
-                <div className="cs-impact-panel__numbers">
-                  <div>
-                    <strong>{totalHours}h</strong>
-                    <span>staff time saved</span>
-                  </div>
-                  <div>
-                    <strong>{totalMoney}</strong>
-                    <span>operational value</span>
-                  </div>
+              <div className="cs-hero__venue">
+                <img className="cs-hero__logo" src={camidiLogo} alt="Kaeserei Camidi logo" />
+                <div>
+                  <p className="cs-story-hero__venue-label">Kaeserei Camidi</p>
+                  <p className="cs-hero__type">Wine bar / cheese shop / table service</p>
                 </div>
-                <p className="cs-impact-panel__note">
-                  Working estimates based on repeated manual tasks, not audited financial reporting. The point is simple: the savings come from boring service work that happens every week.
-                </p>
-              </aside>
+              </div>
+              <h1 className="cs-story-hero__title">
+                A calmer way to run table service when the POS is not the problem.
+              </h1>
+              <p className="cs-story-hero__intro">
+                Camidi needed less paper, fewer interruptions, faster bill handling, and a cleaner end-of-day routine. TableOrders gave the team a live service layer between the floor and the official POS.
+              </p>
             </div>
           </RevealOnScroll>
         </div>
@@ -142,36 +122,29 @@ export default function CamidiPage() {
         </div>
       </section>
 
-      <section className="cs-savings-section">
+      <section className="cs-paper-trail-section">
         <div className="container">
           <RevealOnScroll>
-            <div className="cs-workflow-header">
-              <p className="cs-eyebrow">The old processes</p>
-              <h2 className="cs-section-title">The money was hiding inside small repeated tasks.</h2>
-              <p className="cs-section-body">
-                None of these problems looked dramatic on their own. Together, they created a constant tax on service: minutes lost during the rush, mental load carried by senior staff, and extra closing work after guests were gone.
-              </p>
-            </div>
-            <div className="cs-savings-grid">
-              {MONTHLY_SAVINGS.map((item, index) => (
-                <article className="cs-saving-card" key={item.process}>
-                  <div className="cs-saving-card__top">
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <h3>{item.process}</h3>
-                  </div>
-                  <p>{item.detail}</p>
-                  <div className="cs-saving-card__metrics">
-                    <div>
-                      <strong>{item.estimate}</strong>
-                      <span>saved / month</span>
-                    </div>
-                    <div>
-                      <strong>{item.money}</strong>
-                      <span>value / month</span>
+            <div className="cs-paper-trail">
+              <div className="cs-paper-trail__header">
+                <p className="cs-eyebrow">Before TableOrders</p>
+                <h2 className="cs-section-title">One table order. Written in three places. Calculated by hand. Reconstructed at the end of every shift.</h2>
+                <p className="cs-section-body">
+                  This is what a single busy shift looked like at Camidi when paper was the system.
+                </p>
+              </div>
+              <div className="cs-paper-trail__steps">
+                {PAPER_STEPS.map((step) => (
+                  <div className="cs-paper-trail__step" key={step.num}>
+                    <div className="cs-paper-trail__step-num">{step.num}</div>
+                    <div className="cs-paper-trail__step-content">
+                      <h3 className="cs-paper-trail__step-title">{step.title}</h3>
+                      <p className="cs-paper-trail__step-body">{step.body}</p>
                     </div>
                   </div>
-                </article>
-              ))}
+                ))}
+                <p className="cs-paper-trail__coda">This happened every shift, for every table.</p>
+              </div>
             </div>
           </RevealOnScroll>
         </div>
