@@ -1,5 +1,7 @@
+import { useState, useRef, useEffect } from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
+import Button from '../components/ui/Button';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
 import camidiLogo from '../assets/camidi_logo.jpg';
 import camidiPhotoOne from '../assets/camidi-1.jpg';
@@ -41,29 +43,167 @@ const PAPER_STEPS = [
   },
 ];
 
-const SERVICE_CHANGES = [
-  'Waiters can see table state from any phone before walking back to the counter.',
-  'Orders stay editable until the staff confirms and sends them.',
-  'Bills can be reviewed, split, and closed without rebuilding the table history.',
-  'The official POS remains the fiscal system for receipts, tax, and payment processing.',
+const SALES_RECORD_STEPS = [
+  {
+    num: '01',
+    title: 'Track daily sales',
+    body: 'By hand and memory, staff had to write down every sale of kitchen dishes on an A4 paper at the end of every shift.',
+  },
+  {
+    num: '02',
+    title: 'Read the pile later',
+    body: 'The owner tries to make sense of a pile of A4 paper to learn what sells better, and when.',
+  },
+  {
+    num: '03',
+    title: 'Rebuild item totals',
+    body: 'Kitchen dishes, cheese plates, vouchers, and custom items have to be grouped back into useful totals after the service context is already gone.',
+  },
+  {
+    num: '04',
+    title: 'Compare unclear days',
+    body: 'Busy evenings, quiet lunches, seasonal changes, and special events are hard to compare when the source is handwritten pages.',
+  },
+];
+
+const TEAMWORK_STEPS = [
+  {
+    num: '01',
+    title: 'Ask what already happened',
+    body: '"Did you serve the drinks for table 2 yet?" "Has table 3 payed already? We need the space for new clients." These small checks happened throughout service.',
+  },
+  {
+    num: '02',
+    title: 'Hold table state in memory',
+    body: 'Open tables, confirmed orders, payments, and everything else depended on the teams memory.',
+  },
+  {
+    num: '03',
+    title: 'Interrupt service to fix a mistake',
+    body: 'When the room got busy, small uncertainties and mistakes turned into interruptions: checking notes, asking teammates, or walking back to the counter.',
+  },
+  {
+    num: '04',
+    title: 'Recover from missed handoffs',
+    body: 'If one handoff was unclear, the team had to reconstruct what happened from memory, paper tickets, and conversations.',
+  },
+  {
+    num: '05',
+    title: 'No time, and compounding stress',
+    body: 'As the room got busier, the team had less and less time to manage clients and the shift ended way later than expected. Stress keeps piling on, producing more mistakes and increasing the risk of losing customers.',
+  },
+];
+
+const OPERATING_MODEL = [
+  {
+    title: 'Floor view',
+    body: 'Staff can see which tables are open, seated, unsent, confirmed, or ready to close.',
+  },
+  {
+    title: 'Order buffer',
+    body: 'Orders stay editable until the team confirms what should be sent or handled.',
+  },
+  {
+    title: 'Bill workspace',
+    body: 'Splits, vouchers, custom items, and closed bills are reviewed before the POS handoff.',
+  },
+  {
+    title: 'POS totals',
+    body: 'Closed bills roll up by POS ID so daily entry stays manual, but much less reconstructed.',
+  },
 ];
 
 const FIT_SIGNALS = [
   {
-    title: 'A small team with real table service',
-    body: 'The best fit is a restaurant, bar, cafe, or shop-with-service where staff move between tables, counter, and POS during busy periods.',
+    title: 'Good fit',
+    points: [
+      'Your team moves between tables, counter, kitchen, and POS during service.',
+      'Orders or bill changes are still tracked on paper, memory, or chat.',
+      'Splits, vouchers, rounds, or custom items make closing slow.',
+    ],
   },
   {
-    title: 'An existing POS that should stay in place',
-    body: 'TableOrders works as the coordination layer before the official POS. It is useful when replacing the POS would be expensive, risky, or unnecessary.',
+    title: 'Probably not yet',
+    points: [
+      'Your POS already handles table service, splitting, and daily category totals well.',
+      'You mostly do counter service with little table state to coordinate.',
+      'You need payments, fiscal receipts, inventory, reservations, or staff scheduling.',
+    ],
+  },
+];
+
+const NAV_ITEMS = [
+  {
+    label: 'Paper Tickets',
+    desc: 'The table order starts as handwriting, memory, and separate notes.',
   },
   {
-    title: 'Recurring friction around splits and closing',
-    body: 'If bills regularly require rounds, shared plates, vouchers, custom items, or manual totals, the time savings become visible quickly.',
+    label: 'Sales records',
+    desc: 'Kitchen tickets are rebuilt into daily totals after service.',
+  },
+  {
+    label: 'Teamwork',
+    desc: 'Staff coordinate by walking, asking, checking, and recalculating.',
+  },
+];
+
+const PAPER_TRAIL_SECTIONS = [
+  {
+    ...NAV_ITEMS[0],
+    dividerLabel: 'Taking an order',
+    coda: 'This happened every shift, for every table.',
+    steps: PAPER_STEPS,
+  },
+  {
+    ...NAV_ITEMS[1],
+    dividerLabel: 'End-of-shift records',
+    coda: 'The sales record existed, but only after manual reconstruction.',
+    steps: SALES_RECORD_STEPS,
+  },
+  {
+    ...NAV_ITEMS[2],
+    dividerLabel: 'During service',
+    coda: 'The team made it work, but coordination lived in interruptions.',
+    steps: TEAMWORK_STEPS,
+  },
+];
+
+const REQUIREMENTS = [
+  {
+    title: 'Keep the official POS',
+    body: 'Fiscal receipts, tax, payments, and compliance stay in the system Camidi already uses.',
+  },
+  {
+    title: 'Stop rewriting the same order',
+    body: 'One table order should carry the work from table service into counter notes, kitchen handoff, bill review, and daily totals.',
+  },
+  {
+    title: 'Make table state visible',
+    body: 'Staff should know what is open, unsent, confirmed, split, or ready to close without walking back to ask.',
+  },
+  {
+    title: 'Make closing less manual',
+    body: 'Splits, vouchers, custom items, and POS category totals should be reviewable without rebuilding the table from paper.',
   },
 ];
 
 export default function CamidiPage() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const blockRefs = useRef([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = window.innerHeight * 0.4;
+      let next = 0;
+      blockRefs.current.forEach((el, i) => {
+        if (el && el.getBoundingClientRect().top <= threshold) next = i;
+      });
+      setActiveIndex(next);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <PageLayout>
       <section className="cs-story-hero">
@@ -126,36 +266,81 @@ export default function CamidiPage() {
 
       <section className="cs-paper-trail-section">
         <div className="container">
+          <div className="cs-paper-trail">
+            <div className="cs-paper-trail__sticky-nav">
+              <p className="cs-eyebrow">Before TableOrders</p>
+              <ol className="cs-paper-trail__nav-list">
+                {PAPER_TRAIL_SECTIONS.map((item, i) => (
+                  <li
+                    key={item.label}
+                    className={`cs-paper-trail__nav-item${activeIndex === i ? ' cs-paper-trail__nav-item--active' : ''}`}
+                  >
+                    <span className="cs-paper-trail__nav-num">{i + 1}</span>
+                    <span className="cs-paper-trail__nav-label">
+                      {item.label}
+                      <span className="cs-paper-trail__nav-desc">{item.desc}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div className="cs-paper-trail__content">
+              {PAPER_TRAIL_SECTIONS.map((item, i) => (
+                <div
+                  className="cs-paper-trail__block"
+                  key={item.label}
+                    ref={(el) => { blockRefs.current[i] = el; }}
+                >
+                  <div className="cs-paper-trail__steps">
+                    <div className="cs-paper-trail__divider cs-paper-trail__divider--top">
+                      <span>{item.dividerLabel}</span>
+                    </div>
+                    {item.steps.map((step) => (
+                      <div className="cs-paper-trail__step-group" key={step.num}>
+                        <div className="cs-paper-trail__step">
+                          <div className="cs-paper-trail__step-num">{step.num}</div>
+                          <div className="cs-paper-trail__step-content">
+                            <h3 className="cs-paper-trail__step-title">{step.title}</h3>
+                            <p className="cs-paper-trail__step-body">{step.body}</p>
+                          </div>
+                        </div>
+                        {step.dividerAfter ? (
+                          <div className="cs-paper-trail__divider">
+                            <span>{step.dividerAfter}</span>
+                          </div>
+                        ) : null}
+                      </div>
+                    ))}
+                    <p className="cs-paper-trail__coda">{item.coda}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="cs-requirements-section">
+        <div className="container">
           <RevealOnScroll>
-            <div className="cs-paper-trail">
-              <div className="cs-paper-trail__header">
-                <p className="cs-eyebrow">Before TableOrders</p>
-                <h2 className="cs-section-title">1. Paper Tickets</h2>
+            <div className="cs-requirements">
+              <div className="cs-requirements__copy">
+                <p className="cs-eyebrow">The requirement</p>
+                <h2 className="cs-section-title">The fix had to respect the POS, not replace it.</h2>
                 <p className="cs-section-body">
-                  One table order, written in three places, calculated by hand, and reconstructed at the end of every shift.
+                  The problem was not the fiscal system. It was the service work around it: orders, handoffs, splits, table state, and the daily totals that still had to be entered cleanly.
                 </p>
               </div>
-              <div className="cs-paper-trail__steps">
-                <div className="cs-paper-trail__divider cs-paper-trail__divider--top">
-                  <span>Taking an order</span>
-                </div>
-                {PAPER_STEPS.map((step) => (
-                  <div className="cs-paper-trail__step-group" key={step.num}>
-                    <div className="cs-paper-trail__step">
-                      <div className="cs-paper-trail__step-num">{step.num}</div>
-                      <div className="cs-paper-trail__step-content">
-                        <h3 className="cs-paper-trail__step-title">{step.title}</h3>
-                        <p className="cs-paper-trail__step-body">{step.body}</p>
-                      </div>
+              <div className="cs-requirements__list">
+                {REQUIREMENTS.map((requirement, i) => (
+                  <article className="cs-requirement" key={requirement.title}>
+                    <span className="cs-requirement__num">{String(i + 1).padStart(2, '0')}</span>
+                    <div>
+                      <h3>{requirement.title}</h3>
+                      <p>{requirement.body}</p>
                     </div>
-                    {step.dividerAfter ? (
-                      <div className="cs-paper-trail__divider">
-                        <span>{step.dividerAfter}</span>
-                      </div>
-                    ) : null}
-                  </div>
+                  </article>
                 ))}
-                <p className="cs-paper-trail__coda">This happened every shift, for every table.</p>
               </div>
             </div>
           </RevealOnScroll>
@@ -168,16 +353,17 @@ export default function CamidiPage() {
             <div className="cs-change">
               <div className="cs-change__copy">
                 <p className="cs-eyebrow">What changed</p>
-                <h2 className="cs-section-title">The team kept their POS. They changed the layer before it.</h2>
+                <h2 className="cs-section-title">TableOrders became the service layer before the POS.</h2>
                 <p className="cs-section-body">
-                  TableOrders does not issue fiscal receipts, calculate tax, or process payments. It organizes the work that happens before the official POS: table state, orders, bill review, splitting, closing, and daily POS entry totals.
+                  The official POS still handles fiscal receipts, tax, and payments. TableOrders organizes the room work before that handoff, so the team can run service from phones without rebuilding the shift at closing.
                 </p>
               </div>
               <div className="cs-change__list">
-                {SERVICE_CHANGES.map((change) => (
-                  <div className="cs-change-row" key={change}>
-                    <span />
-                    <p>{change}</p>
+                {OPERATING_MODEL.map((change, i) => (
+                  <div className="cs-change-row" key={change.title}>
+                    <span>{String(i + 1).padStart(2, '0')}</span>
+                    <h3>{change.title}</h3>
+                    <p>{change.body}</p>
                   </div>
                 ))}
               </div>
@@ -192,18 +378,28 @@ export default function CamidiPage() {
             <div className="cs-fit-signals">
               <div className="cs-workflow-header">
                 <p className="cs-eyebrow">Could it fit your restaurant?</p>
-                <h2 className="cs-section-title">Look for the same operational pattern.</h2>
+                <h2 className="cs-section-title">Decide by workflow shape, not restaurant size.</h2>
                 <p className="cs-section-body">
-                  The strongest candidates are not necessarily large restaurants. They are places where table service is busy enough that paper, memory, and manual closing become expensive.
+                  TableOrders is strongest when the official POS should stay, but the work around it has become too manual for busy service.
                 </p>
               </div>
               <div className="cs-fit-signals__grid">
                 {FIT_SIGNALS.map((signal) => (
                   <article className="cs-fit-signal" key={signal.title}>
                     <h3>{signal.title}</h3>
-                    <p>{signal.body}</p>
+                    <ul>
+                      {signal.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
                   </article>
                 ))}
+              </div>
+              <div className="cs-fit-signals__decision">
+                <p>
+                  If two or more good-fit points sound familiar, the fastest next step is a workflow walkthrough, not a generic demo.
+                </p>
+                <Button to="/contact">Book a walkthrough</Button>
               </div>
             </div>
           </RevealOnScroll>
