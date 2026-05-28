@@ -69,6 +69,10 @@ export default function PricingSection() {
             </div>
 
             {/* Price card */}
+            <div className="pricing-card-wrapper">
+              <h3 className="pricing-card__header">
+                Save money and time, get clarity and control over your shifts.
+              </h3>
             <div className="pricing-card">
               <div className="pricing-card__summary">
                 <p className="pricing-card__kicker">TableOrders</p>
@@ -97,6 +101,7 @@ export default function PricingSection() {
 
                 <BookACallButton />
               </div>
+            </div>
             </div>
 
           </div>

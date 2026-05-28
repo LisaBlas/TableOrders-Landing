@@ -4029,9 +4029,23 @@ ul, ol {
 }
 
 /* Price Card */
+.pricing-card-wrapper {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(0, 2fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.pricing-card__header {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  padding-top: 8px;
+}
+
 .pricing-card {
-  width: min(100%, 760px);
-  margin: 0 auto;
   padding: 36px 32px;
   border: 1px solid rgba(218, 162, 119, 0.25);
   border-radius: var(--radius);
@@ -4146,6 +4160,11 @@ ul, ol {
 }
 
 @media (max-width: 960px) {
+  .pricing-card-wrapper {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
   .pricing-card {
     gap: 22px;
   }
