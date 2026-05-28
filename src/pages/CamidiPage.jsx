@@ -47,6 +47,7 @@ const SALES_RECORD_STEPS = [
   {
     num: '01',
     title: 'Track daily sales',
+    dividerAfter: 'Making sense of sales',
     body: 'By hand and memory, staff had to write down every sale of kitchen dishes on an A4 paper at the end of every shift.',
   },
   {

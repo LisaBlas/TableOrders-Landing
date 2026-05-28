@@ -4844,7 +4844,7 @@ ul, ol {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 20px;
 }
 
 /* Vertical connecting line */
@@ -4867,7 +4867,7 @@ ul, ol {
   display: grid;
   grid-template-columns: 36px 1fr;
   gap: 22px;
-  padding-bottom: 36px;
+  padding-bottom: 48px;
 }
 
 .cs-paper-trail__step-group {
@@ -4923,11 +4923,11 @@ ul, ol {
   display: grid;
   grid-template-columns: 36px 1fr;
   gap: 22px;
-  padding: 0 0 36px;
+  padding: 0 0 48px;
 }
 
 .cs-paper-trail__divider--top {
-  padding-bottom: 22px;
+  padding-bottom: 28px;
 }
 
 .cs-paper-trail__divider::before {
@@ -5181,9 +5181,43 @@ ul, ol {
   }
 
   .cs-change__copy,
-  .cs-requirements__copy,
-  .cs-paper-trail__sticky-nav {
+  .cs-requirements__copy {
     position: static;
+  }
+
+  .cs-paper-trail__sticky-nav {
+    top: var(--nav-height);
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    gap: 0;
+    z-index: 10;
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+
+  .cs-paper-trail__sticky-nav .cs-eyebrow {
+    display: none;
+  }
+
+  .cs-paper-trail__nav-item {
+    display: none;
+    padding: 14px 0;
+    border-top: none;
+    border-bottom: none;
+    font-size: 13px;
+  }
+
+  .cs-paper-trail__nav-item:first-child {
+    border-top: none;
+  }
+
+  .cs-paper-trail__nav-item--active {
+    display: flex;
+  }
+
+  .cs-paper-trail__nav-desc {
+    display: none;
   }
 
   .cs-change__list {
