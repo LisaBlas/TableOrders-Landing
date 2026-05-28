@@ -17,7 +17,7 @@ export default function WhoIAmSection() {
               </h2>
               <FounderIntro profile={FOUNDER_PROFILE} />
               <div className="whois-actions">
-                <Button to="/contact" variant="secondary" className="btn--sm">Contact</Button>
+                <Button to="/contact" variant="secondary" className="btn--sm">Book a walkthrough</Button>
                 <Button
                   href={FOUNDER_PROFILE.portfolioUrl}
                   variant="secondary"

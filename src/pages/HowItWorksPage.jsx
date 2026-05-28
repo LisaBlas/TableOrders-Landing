@@ -8,27 +8,27 @@ const SERVICE_FLOW = [
   {
     label: 'Table map',
     title: 'See the room before anyone asks',
-    screen: 'Screenshot placeholder: table overview with open, seated, ordered, and confirmed tables.',
+    screen: 'Table overview with open, seated, ordered, and confirmed tables.',
   },
   {
     label: 'Order draft',
     title: 'Capture the order at the table',
-    screen: 'Screenshot placeholder: menu categories, item search, notes, variants, quantities, and unsent items.',
+    screen: 'Menu categories, item search, notes, variants, quantities, and unsent items.',
   },
   {
     label: 'Sent order',
     title: 'Confirm once, then track the order',
-    screen: 'Screenshot placeholder: confirmed order grouped by kitchen, bar, or counter with handled state.',
+    screen: 'Confirmed order grouped by kitchen, bar, or counter with handled state.',
   },
   {
     label: 'Bill split',
     title: 'Close the table without recalculating',
-    screen: 'Screenshot placeholder: bill review with equal split, item split, voucher-aware totals, and close action.',
+    screen: 'Bill review with equal split, item split, voucher-aware totals, and close action.',
   },
   {
     label: 'POS totals',
     title: 'End the shift with structured totals',
-    screen: 'Screenshot placeholder: daily sales grouped by POS ID, closed bills, missing POS ID warning, and mark-added state.',
+    screen: 'Daily sales grouped by POS ID, closed bills, missing POS ID warnings, and mark-added state.',
   },
 ];
 
@@ -39,7 +39,7 @@ const FEATURE_MOMENTS = [
     staff: 'Staff open a table, seat guests, and see whether a table is empty, seated, waiting on unconfirmed items, or already confirmed.',
     problem: 'No one has to ask whether table 7 has been handled or whether the outside section is still waiting.',
     result: 'The room becomes a shared operational board across the phones and tablets already on the floor.',
-    visual: 'Screenshot placeholder: floor grid with inside/outside sections and mixed table states.',
+    visual: 'Floor grid with inside/outside sections and mixed table states.',
   },
   {
     eyebrow: '02 / Order capture',
@@ -47,7 +47,7 @@ const FEATURE_MOMENTS = [
     staff: 'Waitstaff add food, drinks, wine, shop items, notes, variants, quantities, and custom items directly from the table.',
     problem: 'A waiter can build the order while talking to guests without committing half-finished changes too early.',
     result: 'Unsent items are explicit, visible, and ready to confirm when the table visit is complete.',
-    visual: 'Screenshot placeholder: table order screen showing unsent items, item controls, notes, and confirm button.',
+    visual: 'Table order screen with unsent items, item controls, notes, and confirm action.',
   },
   {
     eyebrow: '03 / Order tracking',
@@ -55,7 +55,7 @@ const FEATURE_MOMENTS = [
     staff: 'A confirmed order is sent and can be grouped by destination and marked handled after the team acts on it.',
     problem: 'The app reduces the mental checklist of what was already called, carried, or prepared.',
     result: 'Late drinks, second rounds, and food additions become separate orders instead of messy paper add-ons.',
-    visual: 'Screenshot placeholder: sent orders with destination labels and handled/unhandled states.',
+    visual: 'Sent orders with destination labels and handled/unhandled states.',
   },
   {
     eyebrow: '04 / Bill review',
@@ -63,7 +63,7 @@ const FEATURE_MOMENTS = [
     staff: 'Staff review the internal bill, split evenly, split by item, handle round-based payment, apply vouchers, and close the table.',
     problem: 'The common end-of-meal chaos is handled inside the same operational record.',
     result: 'Closed tables become internal paid bills for daily review while fiscal receipts stay in the official POS.',
-    visual: 'Screenshot placeholder: bill split interface with selected items, guest totals, voucher line, and close table action.',
+    visual: 'Bill split view with selected items, guest totals, voucher line, and close table action.',
   },
   {
     eyebrow: '05 / Daily sales tracking',
@@ -71,7 +71,7 @@ const FEATURE_MOMENTS = [
     staff: 'Managers review closed bills, see quantities aggregated by POS ID, flag missing POS IDs, and mark entries as added.',
     problem: 'The team does not reconstruct the day from paper notes, memory, and scattered payment moments.',
     result: 'Your POS remains the fiscal source of truth while TableOrders gives staff the operational totals to enter.',
-    visual: 'Screenshot placeholder: daily sales screen with POS IDs, aggregated quantities, restore action, and added-to-POS state.',
+    visual: 'Daily sales view with POS IDs, aggregated quantities, restore action, and added-to-POS state.',
   },
 ];
 
@@ -138,7 +138,7 @@ export default function HowItWorksPage() {
                 </div>
               </div>
 
-              <div className="hiw-flow-preview" aria-label="TableOrders service flow screenshot placeholders">
+              <div className="hiw-flow-preview" aria-label="TableOrders service flow screens">
                 {SERVICE_FLOW.map((item, index) => (
                   <div className="hiw-flow-preview__item" key={item.label}>
                     <span className="hiw-flow-preview__num">{String(index + 1).padStart(2, '0')}</span>
@@ -161,13 +161,13 @@ export default function HowItWorksPage() {
               <p className="hiw-eyebrow">During service</p>
               <h2 className="hiw-section-title">The operating flow your staff actually uses</h2>
               <p className="hiw-section-subtitle">
-                Each screen should prove one operational moment: what staff do, what mistake it prevents, and what the manager gets back.
+                Follow the main service moments from opening a table to preparing daily POS totals.
               </p>
             </div>
           </RevealOnScroll>
 
           <div className="hiw-cockpit">
-            <div className="hiw-cockpit__screens" aria-label="Feature screenshot placeholders">
+            <div className="hiw-cockpit__screens" aria-label="TableOrders feature screens">
               {FEATURE_MOMENTS.map((moment) => (
                 <RevealOnScroll key={moment.title}>
                   <article className="hiw-screen-card">
@@ -214,7 +214,7 @@ export default function HowItWorksPage() {
               <p className="hiw-eyebrow">When service gets messy</p>
               <h2 className="hiw-section-title">Built for the parts of a shift that usually live in someone&apos;s head</h2>
               <p className="hiw-section-subtitle">
-                The product should feel real here. Use screenshots that show edge cases, not only the clean happy path.
+                TableOrders is built for the moments that usually create extra asking, checking, and recalculating during service.
               </p>
             </div>
           </RevealOnScroll>
@@ -250,7 +250,7 @@ export default function HowItWorksPage() {
                 </div>
               </div>
               <div className="hiw-handoff__visual">
-                <span>Screenshot placeholder: Daily Sales / POS crossing summary with closed bills and POS ID aggregation.</span>
+                <span>Daily Sales / POS crossing summary with closed bills and POS ID aggregation.</span>
               </div>
             </div>
           </RevealOnScroll>

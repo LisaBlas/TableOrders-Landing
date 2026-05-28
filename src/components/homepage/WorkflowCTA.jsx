@@ -4,8 +4,8 @@ import Button from '../ui/Button';
 export default function WorkflowCTA({
   id,
   eyebrow = 'Bring the messy version',
-  heading = 'Show me your current service workflow.',
-  body = 'Bring the paper notes, POS quirks, bill split habits, and end-of-day routine. I will show you honestly where TableOrders fits and where it does not.',
+  heading = 'Show me how your team runs service today.',
+  body = 'Bring the paper notes, POS quirks, bill split habits, and end-of-shift routine. I will show you honestly where TableOrders fits and where it does not.',
   emailLabel = 'alvizblas@gmail.com',
 }) {
   return (
@@ -17,7 +17,7 @@ export default function WorkflowCTA({
             <h2 className="workflow-cta__heading">{heading}</h2>
             <p className="workflow-cta__body">{body}</p>
             <div className="workflow-cta__actions">
-              <Button to="/contact">Contact</Button>
+              <Button to="/contact">Book a walkthrough</Button>
               <a href="mailto:alvizblas@gmail.com" className="workflow-cta__email">
                 {emailLabel}
               </a>

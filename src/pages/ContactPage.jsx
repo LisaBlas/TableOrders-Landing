@@ -9,7 +9,7 @@ const EMAIL = 'alvizblas@gmail.com';
 
 const WALKTHROUGH_STEPS = [
   '30 minutes, video call',
-  'You show your current workflow — paper notes, POS setup, split habits',
+  'You show how service runs today — paper notes, POS setup, split habits',
   'I show you where TableOrders fits, and where it doesn\'t',
 ];
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
                 <p className="about-kicker">Direct line to the builder</p>
                 <h1 className="about-shift-hero__title">Talk directly with the person who built it.</h1>
                 <p className="about-shift-hero__body">
-                  No queue, no sales team — just a 30-minute walkthrough of your real workflow.
+                  No queue, no sales team — just a 30-minute walkthrough of how your team runs service today.
                 </p>
 
                 <ul className="contact-walkthrough" aria-label="What a walkthrough looks like">

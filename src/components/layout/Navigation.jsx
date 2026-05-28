@@ -62,7 +62,7 @@ export default function Navigation() {
           </Link>
         </div>
 
-        <Button to="/contact" className="btn--sm">Contact</Button>
+        <Button to="/contact" className="btn--sm">Book a walkthrough</Button>
       </div>
     </nav>
   );

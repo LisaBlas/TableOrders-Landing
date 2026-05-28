@@ -10,7 +10,7 @@ export default function BookACallButton({ variant = 'primary', className }) {
       rel="noopener noreferrer"
       className={className}
     >
-      Book a call
+      Book a walkthrough
     </Button>
   );
 }

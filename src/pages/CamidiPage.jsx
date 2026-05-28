@@ -71,7 +71,7 @@ const TEAMWORK_STEPS = [
   {
     num: '01',
     title: 'Ask what already happened',
-    body: '"Did you serve the drinks for table 2 yet?" "Has table 3 payed already? We need the space for new clients." These small checks happened throughout service.',
+    body: '"Did you serve the drinks for table 2 yet?" "Has table 3 paid already? We need the space for new guests." These small checks happened throughout service.',
   },
   {
     num: '02',
@@ -91,7 +91,7 @@ const TEAMWORK_STEPS = [
   {
     num: '05',
     title: 'No time, and compounding stress',
-    body: 'As the room got busier, the team had less and less time to manage clients and the shift ended way later than expected. Stress keeps piling on, producing more mistakes and increasing the risk of losing customers.',
+    body: 'As the room got busier, the team had less and less time to look after guests and the shift ended way later than expected. Stress kept piling on, creating more mistakes and more pressure on service.',
   },
 ];
 
@@ -398,7 +398,7 @@ export default function CamidiPage() {
               </div>
               <div className="cs-fit-signals__decision">
                 <p>
-                  If two or more good-fit points sound familiar, the fastest next step is a workflow walkthrough, not a generic demo.
+                  If two or more good-fit points sound familiar, the fastest next step is a service walkthrough, not a generic demo.
                 </p>
                 <Button to="/contact">Book a walkthrough</Button>
               </div>
@@ -408,7 +408,7 @@ export default function CamidiPage() {
       </section>
 
       <WorkflowCTA
-        eyebrow="Run your workflow against it"
+        eyebrow="Run your service flow against it"
         heading="Bring one messy service process."
         body="Paper orders, table splits, POS category totals, voucher habits, or closing routines. I will map where TableOrders would save time and where your current setup should stay as it is."
       />

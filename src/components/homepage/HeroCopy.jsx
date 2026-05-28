@@ -14,9 +14,9 @@ export default function HeroCopy() {
         A shared mobile table map, order tracking, sent orders, and bill splitting {'\u2014'} for teams that already have a POS.
       </p>
       <div className="pain-actions">
-        <Button to="/contact">Contact</Button>
-        <Button href="#demo" variant="secondary">
-          See workflow
+        <Button to="/contact">Book a walkthrough</Button>
+        <Button to="/how-it-works" variant="secondary">
+          See how it works
         </Button>
       </div>
       <p className="pain-trust">

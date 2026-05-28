@@ -92,7 +92,7 @@ export default function PricingSection() {
 
               <div className="pricing-card__action">
                 <div className="pricing-card__verdict">
-                  At €80 / month, it covers itself before the end of the first week.
+                  For many small venues, one or two avoided mistakes can cover most of the monthly cost.
                 </div>
 
                 <BookACallButton />
