@@ -167,21 +167,14 @@ export default function HowItWorksPage() {
           </RevealOnScroll>
 
           <div className="hiw-cockpit">
-            <div className="hiw-cockpit__screens" aria-label="TableOrders feature screens">
-              {FEATURE_MOMENTS.map((moment) => (
-                <RevealOnScroll key={moment.title}>
+            {FEATURE_MOMENTS.map((moment) => (
+              <RevealOnScroll key={moment.eyebrow}>
+                <div className="hiw-cockpit__row">
                   <article className="hiw-screen-card">
                     <div className="hiw-screen-card__visual">
                       <span className="hiw-screen-card__placeholder">{moment.visual}</span>
                     </div>
                   </article>
-                </RevealOnScroll>
-              ))}
-            </div>
-
-            <div className="hiw-cockpit__copy">
-              {FEATURE_MOMENTS.map((moment) => (
-                <RevealOnScroll key={moment.eyebrow}>
                   <article className="hiw-feature-card">
                     <p className="hiw-feature-card__eyebrow">{moment.eyebrow}</p>
                     <h3>{moment.title}</h3>
@@ -200,9 +193,9 @@ export default function HowItWorksPage() {
                       </div>
                     </div>
                   </article>
-                </RevealOnScroll>
-              ))}
-            </div>
+                </div>
+              </RevealOnScroll>
+            ))}
           </div>
         </div>
       </section>

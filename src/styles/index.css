@@ -5529,22 +5529,16 @@ ul, ol {
 }
 
 .hiw-cockpit {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hiw-cockpit__row {
   display: grid;
   grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
   gap: 36px;
   align-items: start;
-}
-
-.hiw-cockpit__screens,
-.hiw-cockpit__copy {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.hiw-cockpit__screens {
-  position: sticky;
-  top: calc(var(--nav-height) + 24px);
 }
 
 .hiw-screen-card,
@@ -5772,12 +5766,8 @@ ul, ol {
     padding-bottom: 8px;
   }
 
-  .hiw-cockpit {
+  .hiw-cockpit__row {
     grid-template-columns: 1fr;
-  }
-
-  .hiw-cockpit__screens {
-    position: static;
   }
 
   .hiw-screen-card__visual,
