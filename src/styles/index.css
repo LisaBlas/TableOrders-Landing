@@ -4003,11 +4003,46 @@ ul, ol {
   font-variant-numeric: tabular-nums;
 }
 
+.pricing-ledger__row-details {
+  margin-top: auto;
+}
+
+.pricing-ledger__row-details-toggle {
+  font-size: 12px;
+  color: var(--text-tertiary, var(--text-secondary));
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.pricing-ledger__row-details-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.pricing-ledger__row-details-toggle::after {
+  content: '▸';
+  font-size: 10px;
+  transition: transform 0.15s;
+}
+
+.pricing-ledger__row-details[open] .pricing-ledger__row-details-toggle::after {
+  transform: rotate(90deg);
+}
+
+.pricing-ledger__row-details-toggle:hover {
+  opacity: 1;
+}
+
 .pricing-ledger__row-scenario {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.55;
-  margin-top: auto;
+  margin-top: 6px;
 }
 
 .pricing-ledger__total {

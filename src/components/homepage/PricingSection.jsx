@@ -54,12 +54,12 @@ export default function PricingSection() {
 
             {/* Left: cost breakdown */}
             <div className="pricing-copy">
-              <p className="pricing-eyebrow">Pricing</p>
+              <p className="pricing-eyebrow">Where your money goes</p>
               <h2 className="pricing-heading">
-                What running without it actually costs.
+                This is where you're losing money and time every week.
               </h2>
               <p className="pricing-subtext">
-                Before looking at the price, see what friction costs on a typical week.
+                Three recurring friction points that drain real money and hours from every shift — before you even look at the price.
               </p>
 
               <div className="pricing-ledger">
@@ -75,7 +75,10 @@ export default function PricingSection() {
                       </span>
                       <span className="pricing-ledger__row-formula">{row.math}</span>
                     </div>
-                    <p className="pricing-ledger__row-scenario">{row.scenario}</p>
+                    <details className="pricing-ledger__row-details">
+                      <summary className="pricing-ledger__row-details-toggle">Details</summary>
+                      <p className="pricing-ledger__row-scenario">{row.scenario}</p>
+                    </details>
                   </div>
                 ))}
 
