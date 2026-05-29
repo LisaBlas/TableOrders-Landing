@@ -5,7 +5,7 @@ const COST_ROWS = [
   {
     label: 'Unbilled items',
     amount: '~€60',
-    scenario: 'One missed dessert or round per week leaks money without anyone noticing.',
+    scenario: 'A round not written down, a dish added verbally and forgotten. With paper tickets, these losses are invisible — they never show up anywhere.',
     math: '1 missed item / week × avg. €15',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -17,7 +17,7 @@ const COST_ROWS = [
   {
     label: 'End-of-day reconstruction',
     amount: '~€75',
-    scenario: 'After closing, staff still reconcile notes and receipts before entering POS totals.',
+    scenario: 'At the end of every shift, staff piece together stacks of tickets before they can enter POS totals. Slow, error-prone, and entirely avoidable.',
     math: '5 shifts × 15 min × avg. €15 / hr',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -29,7 +29,7 @@ const COST_ROWS = [
   {
     label: 'Manual bill splitting',
     amount: '~€75',
-    scenario: 'Working out who owes what by hand slows every table turn.',
+    scenario: 'Mental math at the table, renegotiating who ordered what, waiting on calculations. Every split wastes time the table could have turned.',
     math: '5 shifts × 15 min × avg. €15 / hr',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
