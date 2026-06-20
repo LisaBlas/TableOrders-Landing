@@ -5,7 +5,6 @@ const COST_ROWS = [
   {
     label: 'Unbilled items',
     amount: '~€60',
-    scenario: 'A round not written down, a dish added verbally and forgotten. With paper tickets, these losses are invisible — they never show up anywhere.',
     math: '1 missed item / week × avg. €15',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -17,7 +16,6 @@ const COST_ROWS = [
   {
     label: 'End-of-day reconstruction',
     amount: '~€75',
-    scenario: 'At the end of every shift, staff piece together stacks of tickets before they can enter POS totals. Slow, error-prone, and entirely avoidable.',
     math: '5 shifts × 15 min × avg. €15 / hr',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -29,7 +27,6 @@ const COST_ROWS = [
   {
     label: 'Manual bill splitting',
     amount: '~€75',
-    scenario: 'Mental math at the table, renegotiating who ordered what, waiting on calculations. Every split wastes time the table could have turned.',
     math: '5 shifts × 15 min × avg. €15 / hr',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -50,80 +47,71 @@ export default function PricingSection() {
     <section className="section section--glow pricing-section" id="pricing">
       <div className="container">
         <RevealOnScroll>
-          <div className="pricing-layout">
+          <div className="pricing-split">
 
-            {/* Left: cost breakdown */}
-            <div className="pricing-copy">
+            {/* Left: friction summary */}
+            <div className="pricing-loss">
               <p className="pricing-eyebrow">Where your money goes</p>
               <h2 className="pricing-heading">
-                This is where you're losing money and time every week.
+                Three ways you lose time and money every week.
               </h2>
-              <p className="pricing-subtext">
-                Three recurring friction points that drain real money and hours from every shift — before you even look at the price.
-              </p>
 
-              <div className="pricing-ledger">
+              <ul className="pricing-loss-list">
                 {COST_ROWS.map((row) => (
-                  <div className="pricing-ledger__row" key={row.label}>
-                    <div className="pricing-ledger__row-top">
-                      <span className="pricing-ledger__row-icon">{row.icon}</span>
-                      <span className="pricing-ledger__row-label">{row.label}</span>
-                    </div>
-                    <div className="pricing-ledger__row-amount-group">
-                      <span className="pricing-ledger__row-amount">
-                        {row.amount}<span className="pricing-ledger__row-period"> / mo</span>
-                      </span>
-                      <span className="pricing-ledger__row-formula">{row.math}</span>
-                    </div>
-                    <details className="pricing-ledger__row-details">
-                      <summary className="pricing-ledger__row-details-toggle">Details</summary>
-                      <p className="pricing-ledger__row-scenario">{row.scenario}</p>
-                    </details>
-                  </div>
+                  <li className="pricing-loss-item" key={row.label}>
+                    <span className="pricing-loss-item__icon">{row.icon}</span>
+                    <span className="pricing-loss-item__label">{row.label}</span>
+                    <span className="pricing-loss-item__math">{row.math}</span>
+                    <span className="pricing-loss-item__amount">
+                      {row.amount}<span className="pricing-loss-item__period"> / mo</span>
+                    </span>
+                  </li>
                 ))}
-
-                <div className="pricing-ledger__total">
-                  <span className="pricing-ledger__total-label">Estimated monthly friction</span>
-                  <span className="pricing-ledger__total-amount">≈ €{total}</span>
-                  <p>per month · 5 shifts/week</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Price card */}
-            <div className="pricing-card-wrapper">
-              <h3 className="pricing-card__header">
-                Save money and time, get clarity and control over your shifts.
-              </h3>
-            <div className="pricing-card">
-              <div className="pricing-card__summary">
-                <p className="pricing-card__kicker">TableOrders</p>
-
-                <div className="pricing-card__price-block">
-                  <div className="pricing-card__price">
-                    <span className="pricing-card__amount">€80</span>
-                    <span className="pricing-card__period">/ month</span>
-                  </div>
-                  <p className="pricing-card__note">Per venue · All devices included</p>
-                </div>
-              </div>
-
-              <ul className="pricing-card__includes">
-                <li>Shared live table map</li>
-                <li>Order taking and batch tracking</li>
-                <li>Bill splitting — by guest, item, or round</li>
-                <li>Daily POS crossing summary</li>
-                <li>Works on phones your team already has</li>
               </ul>
 
-              <div className="pricing-card__action">
-                <div className="pricing-card__verdict">
-                  For many small venues, one or two avoided mistakes can cover most of the monthly cost.
+              <div className="pricing-loss-total">
+                <span className="pricing-loss-total__label">Estimated monthly friction</span>
+                <div className="pricing-loss-total__row">
+                  <span className="pricing-loss-total__amount">≈ €{total}</span>
+                  <span className="pricing-loss-total__period">/ month</span>
                 </div>
-
-                <BookACallButton />
+                <span className="pricing-loss-total__sub">per venue · 5 shifts / week</span>
               </div>
             </div>
+
+            {/* Right: solution */}
+            <div className="pricing-solution">
+              <h3 className="pricing-solution__heading">
+                Fix it for less than you're losing.
+              </h3>
+              <div className="pricing-card">
+                <div className="pricing-card__summary">
+                  <p className="pricing-card__kicker">TableOrders</p>
+
+                  <div className="pricing-card__price-block">
+                    <div className="pricing-card__price">
+                      <span className="pricing-card__amount">€80</span>
+                      <span className="pricing-card__period">/ month</span>
+                    </div>
+                    <p className="pricing-card__note">Per venue · All devices included</p>
+                  </div>
+                </div>
+
+                <ul className="pricing-card__includes">
+                  <li>Shared live table map</li>
+                  <li>Order taking and batch tracking</li>
+                  <li>Bill splitting — by guest, item, or round</li>
+                  <li>Daily POS crossing summary</li>
+                  <li>Works on phones your team already has</li>
+                </ul>
+
+                <div className="pricing-card__action">
+                  <div className="pricing-card__verdict">
+                    For many small venues, one or two avoided mistakes can cover most of the monthly cost.
+                  </div>
+                  <BookACallButton />
+                </div>
+              </div>
             </div>
 
           </div>
