@@ -3242,6 +3242,14 @@ ul, ol {
   gap: 12px;
   padding: 14px 20px 18px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.proof-venue-card__actions .btn {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+  justify-content: center;
 }
 
 /* Demo Section */

@@ -14,7 +14,7 @@ const COST_ROWS = [
     ),
   },
   {
-    label: 'End-of-day reconstruction',
+    label: 'Counting Sales',
     amount: '~€75',
     math: '5 shifts × 15 min × avg. €15 / hr',
     icon: (
