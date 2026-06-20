@@ -3237,29 +3237,11 @@ ul, ol {
   grid-row: 1 / span 2;
 }
 
-.proof-venue-card__testimonial {
-  padding: 18px 20px;
-  background: rgba(255, 245, 230, 0.08);
-  border-left: 2px solid rgba(218, 162, 119, 0.55);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.proof-venue-card__testimonial-quote {
-  color: var(--text-primary);
-  font-size: 15px;
-  font-weight: 200;
-  line-height: 1.55;
-}
-
-.proof-venue-card__testimonial-person {
-  display: inline;
-  color: var(--text-secondary);
-  font-size: 0.9em;
-  font-weight: 700;
-}
-
-.proof-venue-card__cta {
-  margin: 14px 20px 18px;
+.proof-venue-card__actions {
+  display: flex;
+  gap: 12px;
+  padding: 14px 20px 18px;
+  flex-wrap: wrap;
 }
 
 /* Demo Section */

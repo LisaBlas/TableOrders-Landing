@@ -50,8 +50,7 @@ export const CAMIDI_PROOF = {
     { src: camidiPhotoTwo, alt: 'K\u00e4serei Camidi table service area' },
     { src: camidiPhotoThree, alt: 'K\u00e4serei Camidi bar and counter area' },
   ],
-  quote: 'TableOrders made service feel calmer almost immediately. Orders are clearer, splitting bills is faster, and the team spends less time reconstructing what happened after the shift.',
-  quoteSource: 'K\u00e4serei Camidi team',
+  mapsUrl: 'https://maps.app.goo.gl/b3TYnNwShp7oc9w49',
   workflowPath: '/camidi',
 };
 
