@@ -184,17 +184,30 @@ export default function HowItWorksPage() {
       <section className="section section--alt hiw-handoff-section">
         <div className="container">
           <RevealOnScroll>
-            <div className="hiw-handoff hiw-handoff--text-only">
-              <p className="hiw-eyebrow">Where it fits</p>
-              <h2 className="hiw-section-title">Don&apos;t replace your system. Add TableOrders to simplify it.</h2>
-              <p className="hiw-section-subtitle">
-                Switching POS systems means months of evaluation, retraining, migration, and hardware costs. Most owners already have a system that handles receipts, tax, and payments just fine. TableOrders is a subscription you layer on top — set it up in a day, keep everything else in place, and get sales record analytics without buying a single piece of hardware or waiting weeks for an installation.
-              </p>
-              <div className="hiw-handoff__checks">
-                <span>Your POS stays in place</span>
-                <span>No hardware to buy</span>
-                <span>Sales record analytics included</span>
-                <span>Up and running in a day</span>
+            <div className="hiw-compare-wrapper">
+              <div className="hiw-compare-header">
+                <p className="hiw-eyebrow">Where it fits</p>
+                <h2 className="hiw-section-title">Don&apos;t replace your system. Add TableOrders to simplify it.</h2>
+              </div>
+              <div className="hiw-compare">
+                <div className="hiw-compare__col">
+                  <p className="hiw-compare__col-title">Replacing your POS</p>
+                  <ul className="hiw-compare__list">
+                    <li>Months of evaluation and migration</li>
+                    <li>Full team retraining</li>
+                    <li>Hardware to source and install</li>
+                    <li>Weeks before you&apos;re operational</li>
+                  </ul>
+                </div>
+                <div className="hiw-compare__col hiw-compare__col--for">
+                  <p className="hiw-compare__col-title">Adding TableOrders</p>
+                  <ul className="hiw-compare__list">
+                    <li>One subscription, cancel anytime</li>
+                    <li>Set up in a day</li>
+                    <li>No hardware required</li>
+                    <li>Sales record analytics included</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </RevealOnScroll>
