@@ -71,20 +71,6 @@ const CHAOS_CASES = [
   },
 ];
 
-const BOUNDARIES = [
-  {
-    title: 'TableOrders',
-    body: 'Coordinates table states, order drafts, sent orders, internal bills, splits, and daily POS-entry totals.',
-  },
-  {
-    title: 'Your official POS',
-    body: 'Handles fiscal receipts, taxes, legal compliance, payments, and the final source-of-truth transaction record.',
-  },
-  {
-    title: 'Your team',
-    body: 'Keeps the existing kitchen, bar, counter, and guest-service routines that already work in the venue.',
-  },
-];
 
 export default function HowItWorksPage() {
   return (
@@ -199,37 +185,16 @@ export default function HowItWorksPage() {
         <div className="container">
           <RevealOnScroll>
             <div className="hiw-handoff hiw-handoff--text-only">
-              <p className="hiw-eyebrow">End of shift</p>
-              <h2 className="hiw-section-title">Improve the process without replacing the system</h2>
+              <p className="hiw-eyebrow">Where it fits</p>
+              <h2 className="hiw-section-title">Don&apos;t replace your system. Add TableOrders to simplify it.</h2>
               <p className="hiw-section-subtitle">
-                TableOrders sits alongside your existing POS — it does not replace it. Owners can improve how the floor runs without switching fiscal systems, retraining the whole team, or changing what already works at the counter.
+                Switching POS systems means months of evaluation, retraining, migration, and hardware costs. Most owners already have a system that handles receipts, tax, and payments just fine. TableOrders is a subscription you layer on top — set it up in a day, keep everything else in place, and get sales record analytics without buying a single piece of hardware or waiting weeks for an installation.
               </p>
               <div className="hiw-handoff__checks">
                 <span>Your POS stays in place</span>
-                <span>Fiscal receipts handled as before</span>
-                <span>Daily totals ready to enter</span>
-                <span>One layer added, nothing removed</span>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      <section className="section section--lines hiw-fit-section">
-        <div className="container">
-          <RevealOnScroll>
-            <div className="hiw-fit">
-              <div className="hiw-fit__header">
-                <p className="hiw-eyebrow">Where it fits</p>
-                <h2 className="hiw-section-title">A lightweight layer between waitstaff and the official POS</h2>
-              </div>
-              <div className="hiw-boundary-stack">
-                {BOUNDARIES.map((item) => (
-                  <article className="hiw-boundary" key={item.title}>
-                    <h3>{item.title}</h3>
-                    <p>{item.body}</p>
-                  </article>
-                ))}
+                <span>No hardware to buy</span>
+                <span>Sales record analytics included</span>
+                <span>Up and running in a day</span>
               </div>
             </div>
           </RevealOnScroll>
