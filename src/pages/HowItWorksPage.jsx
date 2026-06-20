@@ -4,74 +4,46 @@ import Button from '../components/ui/Button';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
 import BookACallButton from '../components/ui/BookACallButton';
 
-const SERVICE_FLOW = [
+const STEPS = [
   {
-    label: 'Table map',
-    title: 'See the room before anyone asks',
-    screen: 'Table overview with open, seated, ordered, and confirmed tables.',
-  },
-  {
-    label: 'Order draft',
-    title: 'Capture the order at the table',
-    screen: 'Menu categories, item search, notes, variants, quantities, and unsent items.',
-  },
-  {
-    label: 'Sent order',
-    title: 'Confirm once, then track the order',
-    screen: 'Confirmed order grouped by kitchen, bar, or counter with handled state.',
-  },
-  {
-    label: 'Bill split',
-    title: 'Close the table without recalculating',
-    screen: 'Bill review with equal split, item split, voucher-aware totals, and close action.',
-  },
-  {
-    label: 'POS totals',
-    title: 'End the shift with structured totals',
-    screen: 'Daily sales grouped by POS ID, closed bills, missing POS ID warnings, and mark-added state.',
-  },
-];
-
-const FEATURE_MOMENTS = [
-  {
-    eyebrow: '01 / Live floor state',
+    num: '01',
+    eyebrow: 'Live floor state',
     title: 'Every table has a visible status',
     staff: 'Staff open a table, seat guests, and see whether a table is empty, seated, waiting on unconfirmed items, or already confirmed.',
     problem: 'No one has to ask whether table 7 has been handled or whether the outside section is still waiting.',
     result: 'The room becomes a shared operational board across the phones and tablets already on the floor.',
-    visual: 'Floor grid with inside/outside sections and mixed table states.',
   },
   {
-    eyebrow: '02 / Order capture',
+    num: '02',
+    eyebrow: 'Order capture',
     title: 'Orders stay editable until staff confirm them',
     staff: 'Waitstaff add food, drinks, wine, shop items, notes, variants, quantities, and custom items directly from the table.',
     problem: 'A waiter can build the order while talking to guests without committing half-finished changes too early.',
     result: 'Unsent items are explicit, visible, and ready to confirm when the table visit is complete.',
-    visual: 'Table order screen with unsent items, item controls, notes, and confirm action.',
   },
   {
-    eyebrow: '03 / Order tracking',
+    num: '03',
+    eyebrow: 'Order tracking',
     title: 'Sent orders remain visible until handled',
     staff: 'A confirmed order is sent and can be grouped by destination and marked handled after the team acts on it.',
     problem: 'The app reduces the mental checklist of what was already called, carried, or prepared.',
     result: 'Late drinks, second rounds, and food additions become separate orders instead of messy paper add-ons.',
-    visual: 'Sent orders with destination labels and handled/unhandled states.',
   },
   {
-    eyebrow: '04 / Bill review',
+    num: '04',
+    eyebrow: 'Bill review',
     title: 'Splits are part of the workflow, not an afterthought',
     staff: 'Staff review the internal bill, split evenly, split by item, handle round-based payment, apply vouchers, and close the table.',
     problem: 'The common end-of-meal chaos is handled inside the same operational record.',
     result: 'Closed tables become internal paid bills for daily review while fiscal receipts stay in the official POS.',
-    visual: 'Bill split view with selected items, guest totals, voucher line, and close table action.',
   },
   {
-    eyebrow: '05 / Daily sales tracking',
+    num: '05',
+    eyebrow: 'Daily sales tracking',
     title: 'The end-of-day handoff is prepared automatically',
     staff: 'Managers review closed bills, see quantities aggregated by POS ID, flag missing POS IDs, and mark entries as added.',
     problem: 'The team does not reconstruct the day from paper notes, memory, and scattered payment moments.',
     result: 'Your POS remains the fiscal source of truth while TableOrders gives staff the operational totals to enter.',
-    visual: 'Daily sales view with POS IDs, aggregated quantities, restore action, and added-to-POS state.',
   },
 ];
 
@@ -123,38 +95,24 @@ export default function HowItWorksPage() {
       <section className="section section--diagonal hiw-hero">
         <div className="container">
           <RevealOnScroll>
-            <div className="hiw-hero__grid">
-              <div className="hiw-hero__copy">
-                <p className="hiw-eyebrow">Service workflow</p>
-                <h1 className="hiw-hero__title">
-                  See how a table moves from seated to closed without paper notes.
-                </h1>
-                <p className="hiw-hero__subtitle">
-                  TableOrders gives waitstaff a shared phone-based workflow for tables, orders, splits, and daily POS entry while your official POS stays responsible for receipts, tax, and payment.
-                </p>
-                <div className="hiw-hero__actions">
-                  <Button href="#service-flow" variant="primary">Walk the flow</Button>
-                  <BookACallButton variant="secondary" />
-                </div>
-              </div>
-
-              <div className="hiw-flow-preview" aria-label="TableOrders service flow screens">
-                {SERVICE_FLOW.map((item, index) => (
-                  <div className="hiw-flow-preview__item" key={item.label}>
-                    <span className="hiw-flow-preview__num">{String(index + 1).padStart(2, '0')}</span>
-                    <div className="hiw-flow-preview__screen">
-                      <span>{item.label}</span>
-                    </div>
-                    <strong>{item.title}</strong>
-                  </div>
-                ))}
+            <div className="hiw-hero__copy hiw-hero__copy--centered">
+              <p className="hiw-eyebrow">Service workflow</p>
+              <h1 className="hiw-hero__title">
+                See how a table moves from seated to closed without paper notes.
+              </h1>
+              <p className="hiw-hero__subtitle">
+                TableOrders gives waitstaff a shared phone-based workflow for tables, orders, splits, and daily POS entry while your official POS stays responsible for receipts, tax, and payment.
+              </p>
+              <div className="hiw-hero__actions">
+                <Button href="#service-flow" variant="primary">Walk the flow</Button>
+                <BookACallButton variant="secondary" />
               </div>
             </div>
           </RevealOnScroll>
         </div>
       </section>
 
-      <section id="service-flow" className="section section--dots hiw-cockpit-section">
+      <section id="service-flow" className="section section--dots hiw-steps-section">
         <div className="container">
           <RevealOnScroll>
             <div className="hiw-section-header">
@@ -166,34 +124,32 @@ export default function HowItWorksPage() {
             </div>
           </RevealOnScroll>
 
-          <div className="hiw-cockpit">
-            {FEATURE_MOMENTS.map((moment) => (
-              <RevealOnScroll key={moment.eyebrow}>
-                <div className="hiw-cockpit__row">
-                  <article className="hiw-screen-card">
-                    <div className="hiw-screen-card__visual">
-                      <span className="hiw-screen-card__placeholder">{moment.visual}</span>
+          <div className="hiw-steps">
+            {STEPS.map((step) => (
+              <RevealOnScroll key={step.num}>
+                <article className="hiw-step">
+                  <div className="hiw-step__header">
+                    <span className="hiw-step__num">{step.num}</span>
+                    <div>
+                      <p className="hiw-step__eyebrow">{step.eyebrow}</p>
+                      <h3 className="hiw-step__title">{step.title}</h3>
                     </div>
-                  </article>
-                  <article className="hiw-feature-card">
-                    <p className="hiw-feature-card__eyebrow">{moment.eyebrow}</p>
-                    <h3>{moment.title}</h3>
-                    <div className="hiw-feature-card__grid">
-                      <div>
-                        <span>Staff action</span>
-                        <p>{moment.staff}</p>
-                      </div>
-                      <div>
-                        <span>Problem solved</span>
-                        <p>{moment.problem}</p>
-                      </div>
-                      <div>
-                        <span>Operational result</span>
-                        <p>{moment.result}</p>
-                      </div>
+                  </div>
+                  <div className="hiw-step__grid">
+                    <div className="hiw-step__col">
+                      <span className="hiw-step__label">Staff action</span>
+                      <p>{step.staff}</p>
                     </div>
-                  </article>
-                </div>
+                    <div className="hiw-step__col">
+                      <span className="hiw-step__label">Problem solved</span>
+                      <p>{step.problem}</p>
+                    </div>
+                    <div className="hiw-step__col">
+                      <span className="hiw-step__label">Operational result</span>
+                      <p>{step.result}</p>
+                    </div>
+                  </div>
+                </article>
               </RevealOnScroll>
             ))}
           </div>
@@ -228,22 +184,17 @@ export default function HowItWorksPage() {
       <section className="section section--alt hiw-handoff-section">
         <div className="container">
           <RevealOnScroll>
-            <div className="hiw-handoff">
-              <div className="hiw-handoff__copy">
-                <p className="hiw-eyebrow">End of shift</p>
-                <h2 className="hiw-section-title">The payoff is a clean handoff into the POS</h2>
-                <p className="hiw-section-subtitle">
-                  TableOrders does not replace the official POS. It prepares the daily operational summary so staff can enter totals with less reconstruction and fewer blind spots.
-                </p>
-                <div className="hiw-handoff__checks">
-                  <span>Closed internal bills</span>
-                  <span>Aggregated POS IDs</span>
-                  <span>Missing POS IDs flagged</span>
-                  <span>Entries marked as added</span>
-                </div>
-              </div>
-              <div className="hiw-handoff__visual">
-                <span>Daily Sales / POS crossing summary with closed bills and POS ID aggregation.</span>
+            <div className="hiw-handoff hiw-handoff--text-only">
+              <p className="hiw-eyebrow">End of shift</p>
+              <h2 className="hiw-section-title">The payoff is a clean handoff into the POS</h2>
+              <p className="hiw-section-subtitle">
+                TableOrders does not replace the official POS. It prepares the daily operational summary so staff can enter totals with less reconstruction and fewer blind spots.
+              </p>
+              <div className="hiw-handoff__checks">
+                <span>Closed internal bills</span>
+                <span>Aggregated POS IDs</span>
+                <span>Missing POS IDs flagged</span>
+                <span>Entries marked as added</span>
               </div>
             </div>
           </RevealOnScroll>
