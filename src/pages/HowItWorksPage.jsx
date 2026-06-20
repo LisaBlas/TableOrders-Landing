@@ -50,28 +50,24 @@ const STEPS = [
 
 const CHAOS_CASES = [
   {
-    title: 'Guests add drinks after food was sent',
-    body: 'New items become a separate unsent order and then a separate sent order. The earlier food order stays intact.',
+    title: 'Voucher amounts',
+    body: 'Applied to the internal bill before the table closes, so the remaining split already accounts for them.',
   },
   {
-    title: 'One guest pays with a voucher',
-    body: 'Voucher-aware totals keep the internal bill readable before the official POS handles payment and receipt.',
+    title: 'Split payment state',
+    body: 'Who paid what — by item, round, or equal share — stays on the bill until the table is fully closed.',
   },
   {
-    title: 'A table wants to split items',
-    body: 'Staff can divide the bill by guest, item, or round without rebuilding the order from scratch.',
+    title: 'Sent order history',
+    body: 'Every confirmed batch stays visible and trackable until staff mark it handled.',
   },
   {
-    title: 'Wi-Fi drops during a busy moment',
-    body: 'Local caching, polling sync, retry behavior, and reconnect conflict handling keep service inspectable.',
+    title: 'Closed bill records',
+    body: 'Each closed table becomes an internal paid bill used for daily review and POS entry.',
   },
   {
-    title: 'A menu item is missing a POS ID',
-    body: 'Daily Sales flags the gap before the manager relies on the totals for manual POS entry.',
-  },
-  {
-    title: 'The table closes while the shift keeps moving',
-    body: 'Closing a table creates an internal paid bill and returns the table to the room workflow.',
+    title: 'Daily sales by POS ID',
+    body: 'Totals are aggregated automatically, with missing POS IDs flagged before the team enters them.',
   },
 ];
 
@@ -179,9 +175,9 @@ export default function HowItWorksPage() {
           <RevealOnScroll>
             <div className="hiw-section-header">
               <p className="hiw-eyebrow">When service gets messy</p>
-              <h2 className="hiw-section-title">Built for the parts of a shift that usually live in someone&apos;s head</h2>
+              <h2 className="hiw-section-title">The app tracks what staff would otherwise have to remember</h2>
               <p className="hiw-section-subtitle">
-                TableOrders is built for the moments that usually create extra asking, checking, and recalculating during service.
+                These are the details that usually live in someone&apos;s head or get reconstructed at the end of the night.
               </p>
             </div>
           </RevealOnScroll>
@@ -204,15 +200,15 @@ export default function HowItWorksPage() {
           <RevealOnScroll>
             <div className="hiw-handoff hiw-handoff--text-only">
               <p className="hiw-eyebrow">End of shift</p>
-              <h2 className="hiw-section-title">The payoff is a clean handoff into the POS</h2>
+              <h2 className="hiw-section-title">Improve the process without replacing the system</h2>
               <p className="hiw-section-subtitle">
-                TableOrders does not replace the official POS. It prepares the daily operational summary so staff can enter totals with less reconstruction and fewer blind spots.
+                TableOrders sits alongside your existing POS — it does not replace it. Owners can improve how the floor runs without switching fiscal systems, retraining the whole team, or changing what already works at the counter.
               </p>
               <div className="hiw-handoff__checks">
-                <span>Closed internal bills</span>
-                <span>Aggregated POS IDs</span>
-                <span>Missing POS IDs flagged</span>
-                <span>Entries marked as added</span>
+                <span>Your POS stays in place</span>
+                <span>Fiscal receipts handled as before</span>
+                <span>Daily totals ready to enter</span>
+                <span>One layer added, nothing removed</span>
               </div>
             </div>
           </RevealOnScroll>
