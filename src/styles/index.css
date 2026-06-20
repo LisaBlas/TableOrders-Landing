@@ -3239,15 +3239,14 @@ ul, ol {
 
 .proof-venue-card__actions {
   display: flex;
+  flex-direction: column;
   gap: 12px;
   padding: 14px 20px 18px;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
 }
 
 .proof-venue-card__actions .btn {
-  flex: 1 1 0;
-  min-width: 0;
+  width: 100%;
   text-align: center;
   justify-content: center;
 }
