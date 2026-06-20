@@ -49,26 +49,11 @@ const STEPS = [
 ];
 
 const CHAOS_CASES = [
-  {
-    title: 'Voucher amounts',
-    body: 'Applied to the internal bill before the table closes, so the remaining split already accounts for them.',
-  },
-  {
-    title: 'Split payment state',
-    body: 'Who paid what — by item, round, or equal share — stays on the bill until the table is fully closed.',
-  },
-  {
-    title: 'Sent order history',
-    body: 'Every confirmed batch stays visible and trackable until staff mark it handled.',
-  },
-  {
-    title: 'Closed bill records',
-    body: 'Each closed table becomes an internal paid bill used for daily review and POS entry.',
-  },
-  {
-    title: 'Daily sales by POS ID',
-    body: 'Totals are aggregated automatically, with missing POS IDs flagged before the team enters them.',
-  },
+  'Voucher amounts',
+  'Split payment state',
+  'Sent order history',
+  'Closed bill records',
+  'Daily sales by POS ID',
 ];
 
 
@@ -159,25 +144,16 @@ export default function HowItWorksPage() {
       <section className="section section--glow hiw-chaos-section">
         <div className="container">
           <RevealOnScroll>
-            <div className="hiw-section-header">
+            <div className="hiw-chaos-pills-block">
               <p className="hiw-eyebrow">When service gets messy</p>
-              <h2 className="hiw-section-title">The app tracks what staff would otherwise have to remember</h2>
-              <p className="hiw-section-subtitle">
-                These are the details that usually live in someone&apos;s head or get reconstructed at the end of the night.
-              </p>
+              <h2 className="hiw-section-title">The details that usually live in someone&apos;s head</h2>
+              <div className="hiw-handoff__checks">
+                {CHAOS_CASES.map((label) => (
+                  <span key={label}>{label}</span>
+                ))}
+              </div>
             </div>
           </RevealOnScroll>
-
-          <div className="hiw-chaos-grid">
-            {CHAOS_CASES.map((item) => (
-              <RevealOnScroll key={item.title}>
-                <article className="hiw-chaos-card">
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              </RevealOnScroll>
-            ))}
-          </div>
         </div>
       </section>
 
