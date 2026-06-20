@@ -5599,6 +5599,35 @@ ul, ol {
   }
 }
 
+.hiw-try-section {
+  padding: 120px 0;
+}
+
+.hiw-try {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 80px;
+  align-items: center;
+}
+
+.hiw-try__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 480px;
+}
+
+@media (max-width: 900px) {
+  .hiw-try {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hiw-try .demo-phone {
+    margin: 0 auto;
+  }
+}
+
 .hiw-demo-section {
   padding: 120px 0;
 }

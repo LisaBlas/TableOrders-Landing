@@ -3,6 +3,7 @@ import RevealOnScroll from '../components/ui/RevealOnScroll';
 import Button from '../components/ui/Button';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
 import BookACallButton from '../components/ui/BookACallButton';
+import DemoPhone from '../components/ui/DemoPhone';
 
 const STEPS = [
   {
@@ -153,6 +154,23 @@ export default function HowItWorksPage() {
               </RevealOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section hiw-try-section">
+        <div className="container">
+          <RevealOnScroll>
+            <div className="hiw-try">
+              <div className="hiw-try__copy">
+                <p className="hiw-eyebrow">Try it yourself</p>
+                <h2 className="hiw-section-title">The real workflow, live in your browser.</h2>
+                <p className="hiw-section-subtitle">
+                  Tap through a table, add orders, split a bill, and close the shift — no login needed.
+                </p>
+              </div>
+              <DemoPhone loading="lazy" />
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
