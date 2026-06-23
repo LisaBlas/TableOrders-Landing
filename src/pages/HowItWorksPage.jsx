@@ -1,50 +1,48 @@
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
-import Button from '../components/ui/Button';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
-import BookACallButton from '../components/ui/BookACallButton';
 import DemoPhone from '../components/ui/DemoPhone';
 
 const STEPS = [
   {
     num: '01',
-    eyebrow: 'Live floor state',
-    title: 'Every table has a visible status',
-    staff: 'Staff open a table, seat guests, and see whether a table is empty, seated, waiting on unconfirmed items, or already confirmed.',
-    problem: 'No one has to ask whether table 7 has been handled or whether the outside section is still waiting.',
-    result: 'The room becomes a shared operational board across the phones and tablets already on the floor.',
+    eyebrow: 'Ordering',
+    title: 'Build and send orders from any phone at the table',
+    staff: 'Waitstaff open a table and add food, drinks, wine, and shop items — with variants, notes, quantities, and custom entries — without committing until the visit is done.',
+    problem: 'Orders built mid-conversation do not go out half-finished. Staff adjust freely before sending the batch to bar, kitchen, or counter.',
+    result: 'Confirmed batches stay visible to the whole team until marked handled. Late additions go out as a separate order rather than a verbal add-on.',
   },
   {
     num: '02',
-    eyebrow: 'Order capture',
-    title: 'Orders stay editable until staff confirm them',
-    staff: 'Waitstaff add food, drinks, wine, shop items, notes, variants, quantities, and custom items directly from the table.',
-    problem: 'A waiter can build the order while talking to guests without committing half-finished changes too early.',
-    result: 'Unsent items are explicit, visible, and ready to confirm when the table visit is complete.',
+    eyebrow: 'Paying',
+    title: 'Splits and table closing built into the same record',
+    staff: 'Staff review the internal bill, split by guest count, split by item, handle round-by-round payment, apply vouchers, and close the table — all in one flow.',
+    problem: 'End-of-meal questions — who owes what, which round is settled, where the voucher applies — are answered inside the operational record, not reconstructed from memory.',
+    result: 'Closed tables become internal paid bills with full split history. Fiscal receipts stay where they belong: in your official POS.',
   },
   {
     num: '03',
-    eyebrow: 'Order tracking',
-    title: 'Sent orders remain visible until handled',
-    staff: 'A confirmed order is sent and can be grouped by destination and marked handled after the team acts on it.',
-    problem: 'The app reduces the mental checklist of what was already called, carried, or prepared.',
-    result: 'Late drinks, second rounds, and food additions become separate orders instead of messy paper add-ons.',
+    eyebrow: 'Table states',
+    title: 'The whole floor visible on any device at a glance',
+    staff: 'Staff open a table, seat guests, and read every table\'s current state: open, seated, waiting on unconfirmed items, or confirmed.',
+    problem: 'No one has to call across the room to check whether table 7 is handled or whether the outside section is still waiting.',
+    result: 'The floor becomes a shared live board updated across every phone and tablet already in the team\'s hands.',
   },
   {
     num: '04',
-    eyebrow: 'Bill review',
-    title: 'Splits are part of the workflow, not an afterthought',
-    staff: 'Staff review the internal bill, split evenly, split by item, handle round-based payment, apply vouchers, and close the table.',
-    problem: 'The common end-of-meal chaos is handled inside the same operational record.',
-    result: 'Closed tables become internal paid bills for daily review while fiscal receipts stay in the official POS.',
+    eyebrow: 'Daily sales & POS',
+    title: 'End-of-day POS entry prepared, not reconstructed',
+    staff: 'Managers open Daily Sales, review closed bills for the day, and see item quantities already aggregated by POS ID — grouped for direct POS entry.',
+    problem: 'The team no longer rebuilds the day from paper notes, split-payment memory, and scattered receipts.',
+    result: 'Staff mark each line as added to POS and flag any missing IDs. Your POS stays the fiscal source of truth; TableOrders handles the operational total.',
   },
   {
     num: '05',
-    eyebrow: 'Daily sales tracking',
-    title: 'The end-of-day handoff is prepared automatically',
-    staff: 'Managers review closed bills, see quantities aggregated by POS ID, flag missing POS IDs, and mark entries as added.',
-    problem: 'The team does not reconstruct the day from paper notes, memory, and scattered payment moments.',
-    result: 'Your POS remains the fiscal source of truth while TableOrders gives staff the operational totals to enter.',
+    eyebrow: 'Analytics',
+    title: 'Revenue trends and top sellers across any time period',
+    staff: 'Managers select any date range and see revenue over time, best and worst selling items, and aggregated sales figures — all derived from the closed bills already in the system.',
+    problem: 'Performance questions that used to mean exporting spreadsheets or counting paper have a direct answer inside the same tool the floor uses every shift.',
+    result: 'Sales trends, slow movers, and revenue patterns are visible without leaving TableOrders — giving owners the data to adjust menus, staffing, and service decisions.',
   },
 ];
 
@@ -71,9 +69,17 @@ export default function HowItWorksPage() {
               <p className="hiw-hero__subtitle">
                 TableOrders gives waitstaff a shared phone-based workflow for tables, orders, splits, and daily POS entry while your official POS stays responsible for receipts, tax, and payment.
               </p>
-              <div className="hiw-hero__actions">
-                <Button href="#service-flow" variant="primary">Walk the flow</Button>
-                <BookACallButton variant="secondary" />
+              <div className="hiw-hero__nav">
+                {STEPS.map((step) => (
+                  <a
+                    key={step.num}
+                    href={`#step-${step.num}`}
+                    className="hiw-hero__nav-chip"
+                  >
+                    <span className="hiw-hero__nav-chip__num">{step.num}</span>
+                    <span className="hiw-hero__nav-chip__label">{step.eyebrow}</span>
+                  </a>
+                ))}
               </div>
             </div>
           </RevealOnScroll>
@@ -95,7 +101,7 @@ export default function HowItWorksPage() {
           <div className="hiw-steps">
             {STEPS.map((step) => (
               <RevealOnScroll key={step.num}>
-                <article className="hiw-step">
+                <article id={`step-${step.num}`} className="hiw-step">
                   <div className="hiw-step__header">
                     <span className="hiw-step__num">{step.num}</span>
                     <div>
