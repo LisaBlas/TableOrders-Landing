@@ -51,6 +51,9 @@ export default function Navigation() {
         </button>
 
         <div className={`nav__links${isOpen ? ' nav__links--open' : ''}`}>
+          <Link to="/" className={`nav__link${pathname === '/' ? ' nav__link--active' : ''}`}>
+            Home
+          </Link>
           <Link to="/camidi" className={`nav__link${pathname === '/camidi' ? ' nav__link--active' : ''}`}>
             Camidi Workflow
           </Link>
@@ -62,7 +65,7 @@ export default function Navigation() {
           </Link>
         </div>
 
-        <Button to="/contact" className="btn--sm">Book a walkthrough</Button>
+        <Button to="/contact" className="btn--sm">Contact me</Button>
       </div>
     </nav>
   );

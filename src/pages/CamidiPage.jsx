@@ -95,25 +95,6 @@ const TEAMWORK_STEPS = [
   },
 ];
 
-const OPERATING_MODEL = [
-  {
-    title: 'Floor view',
-    body: 'Staff can see which tables are open, seated, unsent, confirmed, or ready to close.',
-  },
-  {
-    title: 'Order buffer',
-    body: 'Orders stay editable until the team confirms what should be sent or handled.',
-  },
-  {
-    title: 'Bill workspace',
-    body: 'Splits, vouchers, custom items, and closed bills are reviewed before the POS handoff.',
-  },
-  {
-    title: 'POS totals',
-    body: 'Closed bills roll up by POS ID so daily entry stays manual, but much less reconstructed.',
-  },
-];
-
 const FIT_SIGNALS = [
   {
     title: 'Good fit',
@@ -348,31 +329,6 @@ export default function CamidiPage() {
         </div>
       </section>
 
-      <section className="cs-change-section">
-        <div className="container">
-          <RevealOnScroll>
-            <div className="cs-change">
-              <div className="cs-change__copy">
-                <p className="cs-eyebrow">What changed</p>
-                <h2 className="cs-section-title">TableOrders became the service layer before the POS.</h2>
-                <p className="cs-section-body">
-                  The official POS still handles fiscal receipts, tax, and payments. TableOrders organizes the room work before that handoff, so the team can run service from phones without rebuilding the shift at closing.
-                </p>
-              </div>
-              <div className="cs-change__list">
-                {OPERATING_MODEL.map((change, i) => (
-                  <div className="cs-change-row" key={change.title}>
-                    <span>{String(i + 1).padStart(2, '0')}</span>
-                    <h3>{change.title}</h3>
-                    <p>{change.body}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
       <section className="cs-fit-signals-section">
         <div className="container">
           <RevealOnScroll>
@@ -400,7 +356,7 @@ export default function CamidiPage() {
                 <p>
                   If two or more good-fit points sound familiar, the fastest next step is a service walkthrough, not a generic demo.
                 </p>
-                <Button to="/contact">Book a walkthrough</Button>
+                <Button to="/contact">Contact me</Button>
               </div>
             </div>
           </RevealOnScroll>

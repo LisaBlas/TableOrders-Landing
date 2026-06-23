@@ -17,7 +17,7 @@ export default function WorkflowCTA({
             <h2 className="workflow-cta__heading">{heading}</h2>
             <p className="workflow-cta__body">{body}</p>
             <div className="workflow-cta__actions">
-              <Button to="/contact">Book a walkthrough</Button>
+              <Button to="/contact">Contact me</Button>
               <a href="mailto:alvizblas@gmail.com" className="workflow-cta__email">
                 {emailLabel}
               </a>

@@ -173,6 +173,7 @@ export default function HowItWorksPage() {
                     <li>Full team retraining</li>
                     <li>Hardware to source and install</li>
                     <li>Weeks before you&apos;re operational</li>
+                    <li>Hardware costs, subscription fees, and commissions on every sale</li>
                   </ul>
                 </div>
                 <div className="hiw-compare__col hiw-compare__col--for">
