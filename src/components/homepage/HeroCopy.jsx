@@ -8,10 +8,10 @@ export default function HeroCopy() {
         Live at Kaeserei Camidi, Berlin
       </div>
       <h1 className="pain-heading">
-        Ditch the notepad. Keep your cash register.
+        Easy order taking, real sales data, low commitment.
       </h1>
       <p className="pain-subtext">
-        No new hardware, no register swap, no retraining {'\u2014'} just a phone your team already has, and sales numbers you've never had before.
+        Keep the system you already use {'\u2014'} simplify your shifts and get sales data from any phone your team already has.
       </p>
       <div className="pain-actions">
         <Button to="/contact">Contact me</Button>
