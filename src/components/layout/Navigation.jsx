@@ -62,7 +62,7 @@ export default function Navigation() {
           </Link>
         </div>
 
-        <Button to="/contact" variant="secondary" className="btn--sm">Contact me</Button>
+        <Button to="/contact" variant="secondary" className="btn--sm nav__cta">Contact me</Button>
       </div>
     </nav>
   );
