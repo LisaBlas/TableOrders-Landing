@@ -2940,6 +2940,15 @@ ul, ol {
   grid-area: bottom;
 }
 
+.pain-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
 .pain-badge {
   display: inline-flex;
   align-items: center;
@@ -2989,8 +2998,21 @@ ul, ol {
 
 .pain-actions {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
+}
+
+.pain-actions .btn {
+  padding: 17px 34px;
+  font-size: 16px;
+}
+
+.pain-actions .btn--primary {
+  box-shadow: 0 10px 30px rgba(218, 162, 119, 0.35);
+}
+
+.pain-actions .btn--secondary {
+  border-color: var(--border-hover);
 }
 
 .pain-trust-row {
@@ -3027,6 +3049,22 @@ ul, ol {
 
 .pain-hero-demo .demo-phone__screen {
   height: 612px;
+}
+
+.pain-photo-strip {
+  display: flex;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.pain-photo-strip__img {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-hover);
 }
 
 /* Proof Section */
@@ -3901,6 +3939,11 @@ ul, ol {
   .pain-hero-demo .demo-phone__shell {
     width: calc(100vw - 48px);
     max-width: 360px;
+  }
+
+  .pain-photo-strip {
+    gap: 8px;
+    margin-top: 32px;
   }
 
   .proof-grid {

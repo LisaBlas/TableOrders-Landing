@@ -1,6 +1,7 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
 import DemoPhone from '../ui/DemoPhone';
 import { HeroCopyTop, HeroCopyBottom } from './HeroCopy';
+import HeroPhotoStrip from './HeroPhotoStrip';
 
 export default function PainSection() {
   return (
@@ -12,6 +13,7 @@ export default function PainSection() {
             <DemoPhone className="pain-hero-demo" loading="eager" />
             <HeroCopyBottom />
           </div>
+          <HeroPhotoStrip />
         </RevealOnScroll>
       </div>
     </section>

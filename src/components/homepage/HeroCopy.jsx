@@ -3,6 +3,7 @@ import Button from '../ui/Button';
 export function HeroCopyTop() {
   return (
     <div className="pain-section pain-top">
+      <p className="pain-eyebrow">Restaurant order management</p>
       <div className="pain-badge">
         <span className="pain-badge__dot" />
         Live at Kaeserei Camidi, Berlin
