@@ -28,8 +28,6 @@ export default function Navigation() {
   return (
     <nav className="nav">
       <div className="nav__inner">
-        <Link to="/" className="nav__logo">TableOrders</Link>
-
         <button
           className="nav__toggle"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -49,6 +47,8 @@ export default function Navigation() {
             </svg>
           )}
         </button>
+
+        <Link to="/" className="nav__logo">TableOrders</Link>
 
         <div className={`nav__links${isOpen ? ' nav__links--open' : ''}`}>
           <Link to="/" className={`nav__link${pathname === '/' ? ' nav__link--active' : ''}`}>
