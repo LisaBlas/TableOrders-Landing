@@ -1,17 +1,24 @@
 import Button from '../ui/Button';
 
-export default function HeroCopy() {
+export function HeroCopyTop() {
   return (
-    <div className="pain-section">
+    <div className="pain-section pain-top">
       <div className="pain-badge">
         <span className="pain-badge__dot" />
         Live at Kaeserei Camidi, Berlin
       </div>
       <h1 className="pain-heading">
-        Easy order taking, real sales data, low commitment.
+        Keep your setup. Lose the notepad.
       </h1>
+    </div>
+  );
+}
+
+export function HeroCopyBottom() {
+  return (
+    <div className="pain-section pain-bottom">
       <p className="pain-subtext">
-        Keep the system you already use {'\u2014'} simplify your shifts and get sales data from any phone your team already has.
+        No new hardware, no retraining {'—'} just faster order taking and real sales numbers, on the phones your team already carries.
       </p>
       <div className="pain-actions">
         <Button to="/contact">Contact me</Button>

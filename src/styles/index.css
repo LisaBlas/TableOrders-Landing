@@ -155,6 +155,11 @@ ul, ol {
   z-index: 1;
 }
 
+/* Hero: quieter than other diagonal sections so copy stays high-contrast */
+#top.section--diagonal::before {
+  opacity: 0.5;
+}
+
 /* Clients: floating abstract blobs */
 .section--blobs {
   position: relative;
@@ -2662,7 +2667,7 @@ ul, ol {
   }
 
   .nav__logo {
-    display: none;
+    font-size: 15px;
   }
 
   .nav__links {
@@ -2883,26 +2888,38 @@ ul, ol {
 .pain-layout {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 64px;
-  align-items: center;
+  grid-template-areas:
+    "top    demo"
+    "bottom demo";
+  column-gap: 64px;
+  row-gap: 0;
+  align-items: start;
 }
 
 .pain-section {
   max-width: 520px;
 }
 
+.pain-top {
+  grid-area: top;
+}
+
+.pain-bottom {
+  grid-area: bottom;
+}
+
 .pain-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(218, 162, 119, 0.08);
-  border: 1px solid rgba(218, 162, 119, 0.2);
+  background: rgba(218, 162, 119, 0.12);
+  border: 1px solid rgba(218, 162, 119, 0.32);
   border-radius: 100px;
-  padding: 6px 16px;
-  margin-bottom: 32px;
-  font-size: 13px;
+  padding: 8px 18px;
+  margin-bottom: 28px;
+  font-size: 13.5px;
+  font-weight: 600;
   color: var(--accent);
-  font-weight: 500;
 }
 
 @keyframes pulse-dot {
@@ -2921,20 +2938,21 @@ ul, ol {
 }
 
 .pain-heading {
-  font-size: clamp(2.6rem, 6vw, 4.55rem);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: 0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .pain-subtext {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--text-secondary);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 500;
+  color: #cdd4de;
   line-height: 1.6;
   max-width: 540px;
-  margin: 0 0 18px;
+  margin: 22px 0 20px;
 }
 
 .pain-actions {
@@ -2955,16 +2973,19 @@ ul, ol {
 .pain-trust-pill {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
+  background: rgba(218, 162, 119, 0.07);
+  border: 1px solid rgba(218, 162, 119, 0.22);
   border-radius: 100px;
   padding: 6px 14px;
   font-size: 12.5px;
-  color: var(--text-secondary);
+  font-weight: 500;
+  color: var(--text-primary);
   letter-spacing: 0.01em;
 }
 
 .pain-hero-demo {
+  grid-area: demo;
+  align-self: center;
   justify-self: end;
 }
 
@@ -3797,7 +3818,11 @@ ul, ol {
 
   .pain-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-areas:
+      "top"
+      "demo"
+      "bottom";
+    gap: 28px;
     text-align: center;
     justify-items: center;
   }

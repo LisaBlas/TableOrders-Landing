@@ -60,12 +60,9 @@ export default function Navigation() {
           <Link to="/how-it-works" className={`nav__link${pathname === '/how-it-works' ? ' nav__link--active' : ''}`}>
             How It Works
           </Link>
-          <Link to="/contact" className={`nav__link${pathname === '/contact' ? ' nav__link--active' : ''}`}>
-            Contact
-          </Link>
         </div>
 
-        <Button to="/contact" className="btn--sm">Contact me</Button>
+        <Button to="/contact" variant="secondary" className="btn--sm">Contact me</Button>
       </div>
     </nav>
   );
