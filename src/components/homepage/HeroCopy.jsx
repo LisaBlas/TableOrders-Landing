@@ -8,10 +8,10 @@ export default function HeroCopy() {
         Live at Kaeserei Camidi, Berlin
       </div>
       <h1 className="pain-heading">
-        Run table service from any phone.
+        Ditch the notepad. Keep your cash register.
       </h1>
       <p className="pain-subtext">
-        A shared mobile table map, order tracking, sent orders, and bill splitting {'\u2014'} for teams that already have a POS.
+        No new hardware, no register swap, no retraining {'\u2014'} just a phone your team already has, and sales numbers you've never had before.
       </p>
       <div className="pain-actions">
         <Button to="/contact">Contact me</Button>
@@ -19,9 +19,11 @@ export default function HeroCopy() {
           See how it works
         </Button>
       </div>
-      <p className="pain-trust">
-        Works on phones your team already has. No new hardware needed.
-      </p>
+      <ul className="pain-trust-row">
+        <li className="pain-trust-pill">No hardware to buy</li>
+        <li className="pain-trust-pill">Works with your cash register</li>
+        <li className="pain-trust-pill">Live in an afternoon</li>
+      </ul>
     </div>
   );
 }
