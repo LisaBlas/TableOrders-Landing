@@ -3899,14 +3899,8 @@ ul, ol {
   }
 
   .pain-hero-demo .demo-phone__shell {
-    width: calc(100vw - 140px);
-    max-width: 220px;
-    padding: 10px 8px 12px;
-  }
-
-  .pain-hero-demo .demo-phone__screen {
-    height: 260px;
-    aspect-ratio: auto;
+    width: calc(100vw - 48px);
+    max-width: 360px;
   }
 
   .proof-grid {
