@@ -2924,7 +2924,7 @@ ul, ol {
     "top    demo"
     "bottom demo";
   column-gap: 64px;
-  row-gap: 0;
+  row-gap: 28px;
   align-items: start;
 }
 
@@ -2948,7 +2948,7 @@ ul, ol {
   border: 1px solid rgba(218, 162, 119, 0.32);
   border-radius: 100px;
   padding: 8px 18px;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   font-size: 13.5px;
   font-weight: 600;
   color: var(--accent);
@@ -2984,7 +2984,7 @@ ul, ol {
   color: #cdd4de;
   line-height: 1.6;
   max-width: 540px;
-  margin: 22px 0 20px;
+  margin: 28px 0 0;
 }
 
 .pain-actions {
@@ -3860,7 +3860,7 @@ ul, ol {
       "top"
       "demo"
       "bottom";
-    gap: 16px;
+    gap: 20px;
     text-align: center;
     justify-items: center;
   }
@@ -3871,7 +3871,7 @@ ul, ol {
   }
 
   .pain-badge {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   .pain-heading {
@@ -3879,7 +3879,7 @@ ul, ol {
   }
 
   .pain-subtext {
-    margin: 14px auto 16px;
+    margin: 18px auto 0;
     font-size: 1rem;
   }
 

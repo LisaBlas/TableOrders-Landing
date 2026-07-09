@@ -10,6 +10,9 @@ export function HeroCopyTop() {
       <h1 className="pain-heading">
         Keep your setup. Lose the notepad.
       </h1>
+      <p className="pain-subtext">
+        No new hardware, no retraining {'—'} just faster order taking and real sales numbers, on the phones your team already carries.
+      </p>
     </div>
   );
 }
@@ -17,9 +20,6 @@ export function HeroCopyTop() {
 export function HeroCopyBottom() {
   return (
     <div className="pain-section pain-bottom">
-      <p className="pain-subtext">
-        No new hardware, no retraining {'—'} just faster order taking and real sales numbers, on the phones your team already carries.
-      </p>
       <div className="pain-actions">
         <Button to="/contact">Contact me</Button>
         <Button to="/how-it-works" variant="secondary">
