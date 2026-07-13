@@ -69,7 +69,8 @@ Preferred homepage flow:
 
 Supplementary pages (support conversion, do not dilute homepage focus):
 - `/camidi` — Camidi Workflow: old workflow, friction points, how TableOrders fits, results
-- `/how-it-works` — step-by-step practical walkthrough from open table to POS entry
+- `/features` — step-by-step practical walkthrough from open table to POS entry (formerly `/how-it-works`)
+- `/pricing` — placeholder page, not yet built out
 - `/contact` — direct builder contact page with founder photo, email copy action, and booking link
 
 Do not reintroduce portfolio, multi-product, generic process, fake stats, or agency sections unless explicitly requested. Do not add extra pricing tiers or pricing-table complexity unless explicitly requested; the current homepage uses a simple €80/month venue plan as conversion framing.
@@ -94,7 +95,8 @@ Run `npm.cmd run build` after meaningful edits.
 ## Key Files
 - `src/pages/HomePage.jsx`: homepage composition
 - `src/pages/CamidiPage.jsx`: Camidi Workflow page (`/camidi`)
-- `src/pages/HowItWorksPage.jsx`: practical workflow walkthrough page (`/how-it-works`)
+- `src/pages/FeaturesPage.jsx`: practical workflow walkthrough page (`/features`)
+- `src/pages/PricingPage.jsx`: pricing page placeholder (`/pricing`)
 - `src/pages/ContactPage.jsx`: direct builder contact page (`/contact`)
 - `src/config/site.js`: shared config for the Calendly booking URL used by `BookACallButton`
 - `src/components/homepage`: homepage-specific sections, subcomponents, data, and CTA components

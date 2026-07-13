@@ -85,7 +85,8 @@ Homepage flow (single-page):
 
 Supplementary pages (support conversion, do not dilute homepage):
 - `/camidi` — Camidi Workflow: practical Käserei Camidi workflow page
-- `/how-it-works` — practical step-by-step workflow walkthrough
+- `/features` — practical step-by-step workflow walkthrough (formerly `/how-it-works`)
+- `/pricing` — placeholder page, not yet built out
 - `/contact` — founder photo, email, and booking link; no product copy
 
 Do not re-add:

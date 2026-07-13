@@ -4,16 +4,16 @@ export function HeroCopyTop() {
   return (
     <div className="pain-section pain-top">
       <p className="pain-eyebrow">Restaurant order management</p>
-      <div className="pain-badge">
-        <span className="pain-badge__dot" />
-        Live at Kaeserei Camidi, Berlin
-      </div>
       <h1 className="pain-heading">
-        Keep your setup. Lose the notepad.
+        Keep your workflow. Ditch the notepad.
       </h1>
       <p className="pain-subtext">
-        No new hardware, no retraining {'—'} just faster order taking and real sales numbers, on the phones your team already carries.
+        Take orders on your staff&apos;s existing phones. No new hardware, no retraining, no expensive POS replacement.
       </p>
+      <div className="pain-proof">
+        <span className="pain-proof__dot" />
+        Used daily at Kaeserei Camidi, Berlin
+      </div>
     </div>
   );
 }
@@ -22,9 +22,9 @@ export function HeroCopyBottom() {
   return (
     <div className="pain-section pain-bottom">
       <div className="pain-actions">
-        <Button to="/contact">Contact me</Button>
-        <Button to="/how-it-works" variant="secondary">
-          See how it works
+        <Button to="/contact">Book a demo</Button>
+        <Button href="#demo-preview" variant="secondary">
+          See it in action
         </Button>
       </div>
       <ul className="pain-trust-row">

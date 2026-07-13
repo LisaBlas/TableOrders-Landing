@@ -15,7 +15,7 @@ export default function FitSection() {
                 TableOrders handles the coordination layer — table state, orders,
                 bill splitting, and daily POS totals. Your existing POS stays in place.
               </p>
-              <Button to="/how-it-works" variant="link">See the full workflow</Button>
+              <Button to="/features" variant="link">See the full workflow</Button>
             </div>
 
             <div className="demo-workflow__steps" aria-label="How TableOrders works">

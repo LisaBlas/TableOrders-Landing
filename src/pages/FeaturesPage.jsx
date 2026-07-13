@@ -55,7 +55,7 @@ const CHAOS_CASES = [
 ];
 
 
-export default function HowItWorksPage() {
+export default function FeaturesPage() {
   return (
     <PageLayout>
       <section className="section section--diagonal hiw-hero">
