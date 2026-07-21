@@ -1,0 +1,2 @@
+# Local development quality tooling; runtime remains a static frontend.
+pre-commit==4.6.0
