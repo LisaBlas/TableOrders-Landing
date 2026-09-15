@@ -6,6 +6,10 @@ import FeaturesPage from './pages/FeaturesPage';
 import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
 
+const routerBasename = import.meta.env.BASE_URL === '/'
+  ? undefined
+  : import.meta.env.BASE_URL.replace(/\/$/, '');
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
@@ -14,7 +18,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter basename="/TableOrders-Landing">
+    <BrowserRouter basename={routerBasename}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
