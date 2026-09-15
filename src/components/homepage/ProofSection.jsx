@@ -9,13 +9,19 @@ export default function ProofSection() {
         <RevealOnScroll>
           <div className="proof-grid">
             <div className="proof-text">
-              <p className="proof-eyebrow">Live venue</p>
+              <p className="proof-eyebrow">Proof, not promises</p>
               <h2 className="proof-heading">
-                Already running at Käserei Camidi.
+                Built inside a real Berlin service.
               </h2>
               <p className="proof-body">
-                A Berlin wine bar and cheese shop with full table service. The team uses TableOrders every shift — tables, orders, splits, and daily sales tracking.
+                Käserei Camidi is a wine bar, cheese shop, and table-service venue. The team uses TableOrders for tables, orders, splits, and daily sales tracking.
               </p>
+              <div className="proof-facts">
+                <span>Wine bar</span>
+                <span>Cheese shop</span>
+                <span>Table service</span>
+                <span>Berlin</span>
+              </div>
             </div>
 
             <VenueProofCard venue={CAMIDI_PROOF} />

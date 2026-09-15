@@ -4,10 +4,9 @@ import BookACallButton from '../ui/BookACallButton';
 
 const COST_ROWS = [
   {
-    label: 'Unbilled items',
-    amount: '~€60',
-    math: '1 missed item / week × avg. €15',
-    detail: 'One forgotten order per shift is easy to miss in the rush. At an average of €15 per item, that\'s roughly €60 gone each month that never shows up anywhere — not on the POS, not on your daily summary.',
+    label: 'Items fall through',
+    signal: 'Revenue',
+    detail: 'Verbal additions and paper notes can disappear between taking the order and closing the table. TableOrders keeps each item attached to the operational bill until review.',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <rect x="2.5" y="1.5" width="9" height="11" rx="1" stroke="currentColor" strokeWidth="1.4"/>
@@ -16,10 +15,9 @@ const COST_ROWS = [
     ),
   },
   {
-    label: 'Counting Sales',
-    amount: '~€75',
-    math: '5 shifts × 15 min × avg. €15 / hr',
-    detail: 'At the end of each service, someone has to go back through paper notes or memory to re-enter totals into the POS. Fifteen minutes per shift adds up to over an hour a week — staff time spent on a task that should take two minutes.',
+    label: 'Closing takes too long',
+    signal: 'Time',
+    detail: 'Paper tickets and memory make end-of-day entry a reconstruction task. TableOrders groups closed bills and prepares item quantities by POS ID for manual entry.',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.4"/>
@@ -28,10 +26,9 @@ const COST_ROWS = [
     ),
   },
   {
-    label: 'Manual bill splitting',
-    amount: '~€75',
-    math: '5 shifts × 15 min × avg. €15 / hr',
-    detail: 'Splitting a table by hand with paper, a calculator, or memory is slow and prone to errors. Guests wait, staff get flustered, and the numbers rarely add up cleanly on the first try.',
+    label: 'Splits become calculator work',
+    signal: 'Service',
+    detail: 'Guest-by-guest, item-by-item, and round-by-round splits can be handled inside the same table record, with durable split details for later review.',
     icon: (
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
         <path d="M7 2v10M2 7h10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
@@ -51,7 +48,6 @@ const Chevron = () => (
 );
 
 export default function PricingSection() {
-  const total = 60 + 75 + 75;
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
@@ -60,63 +56,42 @@ export default function PricingSection() {
         <RevealOnScroll>
           <div className="pricing-split">
 
-            {/* Left: friction summary */}
             <div className="pricing-loss">
-              <p className="pricing-eyebrow">Where your money goes</p>
+              <p className="pricing-eyebrow">The cost of manual service</p>
               <h2 className="pricing-heading">
-                Three ways you lose time and money every week.
+                The expensive part is the friction you repeat every shift.
               </h2>
+              <p className="pricing-intro">Open each signal to see where the coordination breaks.</p>
 
               <ul className="pricing-loss-list">
                 {COST_ROWS.map((row, i) => (
                   <li
                     className={`pricing-loss-item${openIdx === i ? ' pricing-loss-item--open' : ''}`}
                     key={row.label}
-                    onClick={() => setOpenIdx(openIdx === i ? null : i)}
                   >
-                    <span className="pricing-loss-item__chevron">
-                      <Chevron />
-                    </span>
-                    <span className="pricing-loss-item__icon">{row.icon}</span>
-                    <span className="pricing-loss-item__label">{row.label}</span>
-                    <span className="pricing-loss-item__math">{row.math}</span>
-                    <span className="pricing-loss-item__amount">
-                      {row.amount}<span className="pricing-loss-item__period"> / mo</span>
-                    </span>
-                    {openIdx === i && (
-                      <div className="pricing-loss-item__detail">
-                        {row.detail}
-                      </div>
-                    )}
+                    <button type="button" onClick={() => setOpenIdx(openIdx === i ? null : i)} aria-expanded={openIdx === i}>
+                      <span className="pricing-loss-item__icon">{row.icon}</span>
+                      <span className="pricing-loss-item__label">{row.label}</span>
+                      <span className="pricing-loss-item__signal">{row.signal}</span>
+                      <span className="pricing-loss-item__chevron"><Chevron /></span>
+                    </button>
+                    <div className="pricing-loss-item__detail"><p>{row.detail}</p></div>
                   </li>
                 ))}
               </ul>
-
-              <div className="pricing-loss-total">
-                <span className="pricing-loss-total__label">Estimated monthly friction</span>
-                <div className="pricing-loss-total__row">
-                  <span className="pricing-loss-total__amount">≈ €{total}</span>
-                  <span className="pricing-loss-total__period">/ month</span>
-                </div>
-                <span className="pricing-loss-total__sub">per venue · 5 shifts / week</span>
-              </div>
             </div>
 
-            {/* Right: solution */}
             <div className="pricing-solution">
-              <h3 className="pricing-solution__heading">
-                Fix it for less than you're losing.
-              </h3>
               <div className="pricing-card">
                 <div className="pricing-card__summary">
-                  <p className="pricing-card__kicker">TableOrders</p>
+                  <p className="pricing-card__kicker"><span>One venue</span> Everything your floor needs</p>
 
                   <div className="pricing-card__price-block">
                     <div className="pricing-card__price">
                       <span className="pricing-card__amount">€80</span>
                       <span className="pricing-card__period">/ month</span>
                     </div>
-                    <p className="pricing-card__note">Per venue · All devices included</p>
+                    <p className="pricing-card__note">Per venue / month</p>
                   </div>
                 </div>
 
@@ -131,9 +106,9 @@ export default function PricingSection() {
 
                 <div className="pricing-card__action">
                   <div className="pricing-card__verdict">
-                    For many small venues, one or two avoided mistakes can cover most of the monthly cost.
+                    Start with a workflow walkthrough. We will check fit before discussing setup.
                   </div>
-                  <BookACallButton />
+                  <BookACallButton className="pricing-card__button" />
                 </div>
               </div>
             </div>

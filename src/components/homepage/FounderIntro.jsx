@@ -7,9 +7,7 @@ export default function FounderIntro({ profile }) {
         alt={profile.photoAlt}
       />
       <blockquote className="whois-intro">
-        "Most restaurant tech is built by people who've never run a service.
-        I've spent years working as a waiter, bartender,
-        UX designer and developer."
+        “I have worked the floor, designed the workflow, and built the product. You speak directly to the person responsible for all three.”
       </blockquote>
     </div>
   );

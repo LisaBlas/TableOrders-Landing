@@ -27,6 +27,11 @@ export default function VenueProofCard({ venue }) {
         ))}
       </div>
 
+      <div className="proof-venue-card__caption">
+        <span>Real venue / real workflow</span>
+        <strong>01 — 03</strong>
+      </div>
+
       <div className="proof-venue-card__actions">
         {venue.mapsUrl && (
           <Button

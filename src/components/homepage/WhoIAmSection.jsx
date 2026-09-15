@@ -11,9 +11,9 @@ export default function WhoIAmSection() {
         <RevealOnScroll>
           <div className="whois-section">
             <div className="whois-copy">
-              <p className="whois-eyebrow">Why this works</p>
+              <p className="whois-eyebrow">One builder / three perspectives</p>
               <h2 className="whois-heading">
-                Built by a waiter, designer, and developer
+                Hospitality instinct. Product clarity. Direct responsibility.
               </h2>
               <FounderIntro profile={FOUNDER_PROFILE} />
               <div className="whois-actions">
