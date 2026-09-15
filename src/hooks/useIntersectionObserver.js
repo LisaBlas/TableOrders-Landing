@@ -24,7 +24,10 @@ export default function useIntersectionObserver({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        // Reveal content that the viewport passed in one large jump as well as
+        // content that intersects normally. This keeps keyboard/page-jump
+        // navigation from leaving skipped sections permanently transparent.
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
           setIsVisible(true);
           if (triggerOnce) {
             observer.unobserve(entry.target);

@@ -1,3 +1,5 @@
+import { DEMO_URL } from '../../config/site';
+
 export default function DemoPhone({
   className = '',
   loading = 'lazy',
@@ -9,7 +11,7 @@ export default function DemoPhone({
         <div className="demo-phone__speaker" />
         <div className="demo-phone__screen">
           <iframe
-            src="https://lisablas.github.io/TableOrders/demo/"
+            src={DEMO_URL}
             title="TableOrders demo"
             className="demo-phone__iframe"
             loading={loading}

@@ -14,13 +14,26 @@ const WALKTHROUGH_STEPS = [
 ];
 
 export default function ContactPage() {
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState('idle');
 
-  function copyEmail() {
-    navigator.clipboard.writeText(EMAIL).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopyStatus('copied');
+    } catch {
+      const input = document.createElement('textarea');
+      input.value = EMAIL;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.select();
+      const copied = document.execCommand('copy');
+      input.remove();
+      setCopyStatus(copied ? 'copied' : 'failed');
+    }
+
+    setTimeout(() => setCopyStatus('idle'), 2000);
   }
 
   return (
@@ -45,10 +58,13 @@ export default function ContactPage() {
                 <div className="about-shift-hero__actions">
                   <BookACallButton />
                   <Button variant="secondary" onClick={copyEmail}>
-                    {copied ? '✓ Copied' : 'Copy email'}
+                    {copyStatus === 'copied' ? '✓ Copied' : copyStatus === 'failed' ? 'Copy failed' : 'Copy email'}
                   </Button>
                 </div>
                 <p className="contact-email-hint">{EMAIL}</p>
+                <p className="sr-only" aria-live="polite">
+                  {copyStatus === 'copied' ? 'Email address copied to clipboard.' : copyStatus === 'failed' ? 'Could not copy the email address.' : ''}
+                </p>
                 <p className="contact-reply-time">I usually reply within a day.</p>
               </div>
 

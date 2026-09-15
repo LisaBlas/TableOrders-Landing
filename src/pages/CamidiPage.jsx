@@ -228,10 +228,10 @@ export default function CamidiPage() {
                   The old setup worked because the team knew the room. It became stressful when that knowledge had to live in memory: which order had been sent, which table was ready to split, which handwritten item belonged to which POS category.
                 </p>
                 <figure className="cs-owner-note">
-                  <blockquote>
-                    "We did not need a new fiscal POS. We needed the service work around it to stop stealing attention from guests."
-                  </blockquote>
-                  <figcaption>Owner perspective, summarized from the Camidi workflow</figcaption>
+                  <p>
+                    Camidi did not need a new fiscal POS. The priority was to reduce the service work around it so staff could keep their attention on guests.
+                  </p>
+                  <figcaption>Workflow summary</figcaption>
                 </figure>
               </div>
               <div className="cs-venue-photos">

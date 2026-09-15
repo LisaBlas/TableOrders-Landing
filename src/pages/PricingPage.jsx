@@ -19,7 +19,10 @@ export default function PricingPage() {
           <RevealOnScroll>
             <div className="pricing-page__header">
               <p className="pain-eyebrow">Simple venue pricing</p>
-              <h1 className="pricing-page__title">One room.<br /><em>One clear price.</em></h1>
+              <h1 className="pricing-page__title">
+                <span>One room.</span>
+                <em>One clear price.</em>
+              </h1>
               <p className="pricing-page__intro">No tier maze. TableOrders is a focused operational layer for small hospitality teams that keep their official POS.</p>
             </div>
 

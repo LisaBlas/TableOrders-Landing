@@ -29,6 +29,7 @@ export default function Navigation() {
               <Link
                 to={link.to}
                 className={`nav__link${pathname === link.to ? ' nav__link--active' : ''}`}
+                aria-current={pathname === link.to ? 'page' : undefined}
               >
                 {link.label}
               </Link>
