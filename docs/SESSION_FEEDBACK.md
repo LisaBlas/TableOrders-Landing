@@ -21,3 +21,5 @@ attempts. Most sessions add nothing here; that's expected. For a repeat,
 append `(again YYYY-MM-DD)` to the existing bullet instead of adding a new one.
 
 ---
+
+- 2026-09-15 — [ENVIRONMENT] Headless Chrome repeatedly stalled during responsive screenshot capture because this VPS browser process could not connect to DBus; single-process mode plus a hard timeout was required for every usable capture. **Fix:** add a project screenshot script with the known working Chrome flags, or provide a Playwright-based visual QA command in `scripts/README.md`.
