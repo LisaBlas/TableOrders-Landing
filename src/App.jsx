@@ -14,7 +14,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter basename="/TableOrders-Landing">
+    <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
