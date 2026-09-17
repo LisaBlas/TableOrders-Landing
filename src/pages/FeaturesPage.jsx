@@ -180,7 +180,7 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      <section className="section hiw-try-section">
+      <section className="section hiw-try-section" id="try-the-demo">
         <div className="container">
           <RevealOnScroll>
             <div className="hiw-try">

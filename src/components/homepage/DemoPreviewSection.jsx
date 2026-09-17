@@ -1,6 +1,5 @@
 import RevealOnScroll from '../ui/RevealOnScroll';
 import Button from '../ui/Button';
-import { DEMO_URL } from '../../config/site';
 
 const FLOW = [
   { number: '01', title: 'Open a table', text: 'See the whole floor and open any table from the shared room view.' },
@@ -41,7 +40,7 @@ export default function DemoPreviewSection() {
           <div className="demo-launch">
             <div className="demo-launch__signal"><span>●</span> Interactive demo</div>
             <p>Try the real workflow in your browser. No login needed.</p>
-            <Button href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+            <Button to="/features#try-the-demo">
               Launch demo <span aria-hidden="true">↗</span>
             </Button>
           </div>
