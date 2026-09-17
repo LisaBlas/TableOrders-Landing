@@ -1,7 +1,14 @@
+import { useEffect, useRef, useState } from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import RevealOnScroll from '../components/ui/RevealOnScroll';
 import WorkflowCTA from '../components/homepage/WorkflowCTA';
 import DemoPhone from '../components/ui/DemoPhone';
+import PhoneVideoStack from '../components/ui/PhoneVideoStack';
+import orderingVideo from '../assets/videos/01-ordering.mp4';
+import payingVideo from '../assets/videos/02-paying.mp4';
+import tableStatesVideo from '../assets/videos/03-table-states.mp4';
+import dailySalesVideo from '../assets/videos/04-daily-sales.mp4';
+import analyticsVideo from '../assets/videos/05-analytics.mp4';
 
 const STEPS = [
   {
@@ -46,6 +53,14 @@ const STEPS = [
   },
 ];
 
+const STEP_VIDEOS = [
+  { src: orderingVideo },
+  { src: payingVideo },
+  { src: tableStatesVideo },
+  { src: dailySalesVideo },
+  { src: analyticsVideo },
+];
+
 const CHAOS_CASES = [
   'Voucher amounts',
   'Split payment state',
@@ -56,6 +71,26 @@ const CHAOS_CASES = [
 
 
 export default function FeaturesPage() {
+  const [activeStep, setActiveStep] = useState(0);
+  const stepRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveStep(Number(entry.target.dataset.stepIndex));
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+
+    stepRefs.current.forEach((el) => el && observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <PageLayout>
       <section className="section section--diagonal hiw-hero">
@@ -98,34 +133,49 @@ export default function FeaturesPage() {
             </div>
           </RevealOnScroll>
 
-          <div className="hiw-steps">
-            {STEPS.map((step) => (
-              <RevealOnScroll key={step.num}>
-                <article id={`step-${step.num}`} className="hiw-step">
-                  <div className="hiw-step__header">
-                    <span className="hiw-step__num">{step.num}</span>
-                    <div>
-                      <p className="hiw-step__eyebrow">{step.eyebrow}</p>
-                      <h3 className="hiw-step__title">{step.title}</h3>
+          <div className="hiw-showcase">
+            <div className="hiw-showcase__phone">
+              <PhoneVideoStack videos={STEP_VIDEOS} activeIndex={activeStep} />
+            </div>
+            <div className="hiw-showcase__steps hiw-steps">
+              {STEPS.map((step, index) => (
+                <RevealOnScroll key={step.num}>
+                  <article
+                    id={`step-${step.num}`}
+                    ref={(el) => { stepRefs.current[index] = el; }}
+                    data-step-index={index}
+                    className={`hiw-step ${index === activeStep ? 'hiw-step--active' : ''}`}
+                  >
+                    <PhoneVideoStack
+                      videos={[STEP_VIDEOS[index]]}
+                      activeIndex={index === activeStep ? 0 : -1}
+                      className="phone-video--inline"
+                    />
+                    <div className="hiw-step__header">
+                      <span className="hiw-step__num">{step.num}</span>
+                      <div>
+                        <p className="hiw-step__eyebrow">{step.eyebrow}</p>
+                        <h3 className="hiw-step__title">{step.title}</h3>
+                      </div>
                     </div>
-                  </div>
-                  <div className="hiw-step__grid">
-                    <div className="hiw-step__col">
-                      <span className="hiw-step__label">Staff action</span>
-                      <p>{step.staff}</p>
+                    <div className="hiw-step__grid">
+                      <div className="hiw-step__col">
+                        <span className="hiw-step__label">Staff action</span>
+                        <p>{step.staff}</p>
+                      </div>
+                      <div className="hiw-step__col">
+                        <span className="hiw-step__label">Problem solved</span>
+                        <p>{step.problem}</p>
+                      </div>
+                      <div className="hiw-step__col">
+                        <span className="hiw-step__label">Operational result</span>
+                        <p>{step.result}</p>
+                      </div>
                     </div>
-                    <div className="hiw-step__col">
-                      <span className="hiw-step__label">Problem solved</span>
-                      <p>{step.problem}</p>
-                    </div>
-                    <div className="hiw-step__col">
-                      <span className="hiw-step__label">Operational result</span>
-                      <p>{step.result}</p>
-                    </div>
-                  </div>
-                </article>
-              </RevealOnScroll>
-            ))}
+                  </article>
+                </RevealOnScroll>
+              ))}
+            </div>
           </div>
         </div>
       </section>

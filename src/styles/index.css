@@ -116,6 +116,14 @@ ul, ol {
   overflow: hidden;
 }
 
+/* The dot background above uses inset:0, so it never needs clipping — and overflow:hidden
+   here breaks position:sticky for the scrollytelling phone in the features steps section.
+   This must stay unlayered (@layer legacy below would lose to the rule above regardless
+   of specificity). */
+.hiw-steps-section.section--dots {
+  overflow: visible;
+}
+
 .section--dots::before {
   content: '';
   position: absolute;
@@ -2913,7 +2921,9 @@ body {
   color: var(--bg-primary);
 }
 
-main { overflow: hidden; }
+/* horizontal-only, matching html/body's overflow-x: clip above — overflow:hidden here
+   broke position:sticky for any descendant (e.g. the features-page scrollytelling phone) */
+main { overflow-x: clip; }
 
 .container {
   max-width: var(--max-width) !important;
@@ -3172,10 +3182,12 @@ main { overflow: hidden; }
 @keyframes cardFloat { 50% { transform: translateY(-8px) rotate(1deg); } }
 
 .hero-ticker { position: absolute; left: 0; right: 0; bottom: 0; height: 54px; overflow: hidden; border-top: 1px solid #0d0d0d; border-bottom: 1px solid #0d0d0d; background: #0d0d0d; color: #f5f0e7; display: flex; align-items: center; }
-.hero-ticker__track { display: flex; align-items: center; width: max-content; animation: ticker 28s linear infinite; }
+.hero-ticker__track { display: flex; align-items: center; width: max-content; animation: ticker 28s linear infinite; will-change: transform; }
+.hero-ticker__group { display: flex; align-items: center; flex: 0 0 auto; }
+.hero-ticker__item { display: flex; align-items: center; flex: 0 0 auto; }
 .hero-ticker span { white-space: nowrap; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .13em; padding: 0 28px; }
 .hero-ticker i { width: 7px; height: 7px; background: #bca98e; transform: rotate(45deg); flex: 0 0 auto; }
-@keyframes ticker { to { transform: translateX(-50%); } }
+@keyframes ticker { to { transform: translateX(calc(-100% / 6)); } }
 
 /* Service flow */
 .demo-preview-section { background: #f8f5ef; }
@@ -4050,6 +4062,87 @@ main { overflow: hidden; }
   height: 5px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 100px;
+}
+
+/* Scrollytelling phone: stacked looping clips, one visible at a time */
+.phone-video {
+  position: sticky;
+  top: calc(var(--nav-height) + 40px);
+  display: flex;
+  justify-content: center;
+}
+
+.phone-video__shell {
+  width: clamp(200px, 22vw, 260px);
+  aspect-ratio: 9 / 20;
+  background: #1a1a2e;
+  border-radius: 34px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 14px 10px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone-video__speaker {
+  width: 48px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.phone-video__screen {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.phone-video__clip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.phone-video__clip.is-active {
+  opacity: 1;
+}
+
+.phone-video__home {
+  width: 32px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+/* Per-card mobile variant, replacing the desktop sticky phone (see media query above) */
+.phone-video--inline {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .phone-video--inline {
+    position: static;
+    display: flex;
+    margin-bottom: 24px;
+  }
+
+  .phone-video--inline .phone-video__shell {
+    width: clamp(160px, 44vw, 200px);
+  }
 }
 
 .demo-callout {
@@ -6128,6 +6221,42 @@ main { overflow: hidden; }
   margin: 0 auto;
 }
 
+.hiw-showcase {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hiw-showcase__phone {
+  min-height: 100%;
+}
+
+.hiw-showcase__steps.hiw-steps {
+  max-width: none;
+  margin: 0;
+}
+
+/* box-shadow (not background/border) because @layer legacy's .hiw-step rule sets
+   those unlayered elsewhere and would always win regardless of specificity here. */
+.hiw-step--active {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+@media (max-width: 900px) {
+  .hiw-showcase {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Sticky swap doesn't translate to a single mobile column — each card gets its
+     own small inline phone instead (see .phone-video--inline below). */
+  .hiw-showcase__phone {
+    display: none;
+  }
+}
+
 .hiw-step {
   display: grid;
   grid-template-columns: 64px 1fr;
@@ -7463,9 +7592,548 @@ main { overflow: hidden; }
   }
 }
 
-main > section {
-  border-top: 1px solid var(--accent);
-  border-bottom: 1px solid var(--accent);
+}
+
+/* Homepage spacing integrity. These declarations must remain unlayered because
+   the unlayered reset otherwise wins over matching spacing in @layer legacy. */
+.pain-trust-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pain-trust-pill + .pain-trust-pill {
+  border-left: 1px solid var(--border);
+}
+
+.pain-trust-pill span {
+  display: block;
+  margin: 0;
+  line-height: 1;
+}
+
+.proof-venue-card__location {
+  padding: 6px 9px;
+}
+
+.proof-venue-card__actions {
+  padding: 14px 4px 4px;
+}
+
+.workflow-cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.whois-credential-panel {
+  border: 0;
+  border-top: 1px solid #0d0d0d;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.whois-credential {
+  padding: 32px 0;
+}
+
+.whois-credential + .whois-credential {
+  border-top: 0;
+}
+
+.pricing-loss-list {
+  border: 0;
+  border-top: 1px solid #0d0d0d;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pricing-loss-item {
+  border-radius: 0;
+  background: transparent;
+}
+
+.pricing-loss-item > button {
+  padding: 20px 16px;
+}
+
+.pricing-loss-item--open .pricing-loss-item__detail p {
+  padding: 0 54px 22px 58px;
+}
+
+@media (max-width: 760px) {
+  .pain-trust-pill {
+    padding: 12px 10px;
+  }
+
+  .proof-venue-card__actions {
+    padding: 14px 0 0;
+  }
+
+  .workflow-cta__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .pricing-loss-item > button {
+    padding: 18px 12px;
+  }
+
+  .pricing-loss-item--open .pricing-loss-item__detail p {
+    padding: 0 42px 20px 52px;
+  }
+}
+
+/* Features-page layout also needs to remain unlayered. The global reset is
+   unlayered, so spacing declared only in @layer legacy is otherwise lost. */
+.hiw-section-header {
+  max-width: 680px;
+  margin-bottom: 56px;
+}
+
+.hiw-section-title {
+  margin-top: 12px;
+}
+
+.hiw-section-subtitle {
+  margin-top: 18px;
+}
+
+.hiw-showcase {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hiw-showcase__steps.hiw-steps {
+  max-width: none;
+  margin: 0;
+}
+
+.phone-video__shell {
+  padding: 14px 10px 16px;
+}
+
+.hiw-step__eyebrow {
+  margin-bottom: 6px;
+}
+
+.hiw-try {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(56px, 8vw, 112px);
+  align-items: center;
+}
+
+.demo-phone__shell {
+  padding: 16px 12px 20px;
+}
+
+.hiw-handoff__checks {
+  margin-top: 28px;
+}
+
+.hiw-handoff__checks span {
+  padding: 10px 14px;
+}
+
+.hiw-compare-wrapper {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.hiw-compare-header {
+  margin-bottom: 44px;
+}
+
+.hiw-compare__col {
+  padding: 30px 28px;
+}
+
+.hiw-compare__list li {
+  padding-left: 22px;
+}
+
+@media (max-width: 900px) {
+  .hiw-showcase,
+  .hiw-try {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hiw-showcase__phone {
+    display: none;
+  }
+
+  .hiw-try .demo-phone {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .hiw-section-header {
+    margin-bottom: 40px;
+  }
+
+  .hiw-compare__col {
+    padding: 24px 22px;
+  }
+}
+
+/* Camidi layout needs to remain unlayered: the global reset is unlayered too,
+   so padding declared only in @layer legacy is otherwise reset to zero. */
+.cs-story-hero__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cs-hero__venue {
+  margin-top: 2px;
+}
+
+.cs-venue-section,
+.cs-requirements-section,
+.cs-fit-signals-section {
+  padding: clamp(88px, 9vw, 136px) 0;
+}
+
+.cs-venue-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(480px, 1.18fr);
+  align-items: center;
+}
+
+.cs-venue-story__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 520px;
+}
+
+.cs-owner-note {
+  margin-top: 14px;
+  padding: 24px 26px;
+}
+
+.cs-owner-note figcaption {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.cs-venue-photos {
+  display: grid;
+  gap: 14px;
+}
+
+.cs-venue-photos img {
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid rgba(245, 240, 231, 0.14);
+}
+
+.cs-venue-photos__main {
+  aspect-ratio: 16 / 10;
+}
+
+.cs-venue-photos__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.cs-venue-photos__pair img {
+  aspect-ratio: 4 / 3;
+}
+
+.cs-paper-trail-section {
+  padding: clamp(88px, 9vw, 132px) 0;
+}
+
+.cs-paper-trail {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.62fr) minmax(520px, 1.38fr);
+  gap: clamp(56px, 7vw, 96px);
+  align-items: start;
+}
+
+.cs-paper-trail__sticky-nav {
+  padding: 22px;
+  max-width: 360px;
+  gap: 16px;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 18px 50px rgba(43, 36, 32, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.cs-paper-trail__sticky-nav .cs-eyebrow {
+  margin: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.12);
+  color: #0d0d0d;
+}
+
+.cs-paper-trail__nav-list {
+  gap: 6px;
+}
+
+.cs-paper-trail__nav-list::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  left: 18px;
+  width: 1px;
+  background: rgba(13, 13, 13, 0.14);
+}
+
+.cs-paper-trail__nav-item {
+  align-items: flex-start;
+  gap: 14px;
+  min-height: 74px;
+  padding: 14px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #6f675e;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.cs-paper-trail__nav-item:not(.cs-paper-trail__nav-item--active):hover {
+  color: #0d0d0d;
+  border-color: rgba(13, 13, 13, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateX(2px);
+}
+
+.cs-paper-trail__nav-item--active {
+  border-color: #0d0d0d;
+  background: #0d0d0d;
+  color: #f8f5ef;
+  box-shadow: 8px 8px 0 rgba(188, 169, 142, 0.55);
+  transform: translate(-3px, -3px);
+}
+
+.cs-paper-trail__nav-item--active::before {
+  display: none;
+}
+
+.cs-paper-trail__nav-num {
+  width: 36px;
+  height: 36px;
+  border-color: rgba(13, 13, 13, 0.16);
+  background: #f8f5ef;
+  color: #6f675e;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.cs-paper-trail__nav-item--active .cs-paper-trail__nav-num {
+  border-color: #bca98e;
+  background: rgba(188, 169, 142, 0.12);
+  color: #f8f5ef;
+  box-shadow: none;
+}
+
+.cs-paper-trail__nav-label {
+  flex: 1;
+  gap: 5px;
+  padding-top: 2px;
+  line-height: 1.25;
+}
+
+.cs-paper-trail__nav-desc {
+  max-height: 52px;
+  opacity: 1;
+  color: #8a8074;
+  line-height: 1.45;
+}
+
+.cs-paper-trail__nav-item--active .cs-paper-trail__nav-desc {
+  color: #aaa49b;
+}
+
+.cs-paper-trail__step {
+  padding: 26px 0;
+}
+
+.cs-paper-trail__divider {
+  margin: 10px 0;
+}
+
+.cs-paper-trail__divider--top {
+  margin: 0 0 14px;
+}
+
+.cs-paper-trail__divider span {
+  padding: 5px 11px;
+}
+
+.cs-paper-trail__coda {
+  margin-top: 24px;
+  padding: 20px 22px;
+}
+
+.cs-requirements {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(480px, 1.18fr);
+  gap: clamp(56px, 7vw, 88px);
+  align-items: start;
+}
+
+.cs-requirements__list {
+  border-top: 1px solid rgba(13, 13, 13, 0.25);
+}
+
+.cs-requirement {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 22px;
+  padding: 26px 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.25);
+}
+
+.cs-requirement h3 {
+  margin-bottom: 8px;
+}
+
+.cs-fit-signals {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.cs-fit-signals .cs-workflow-header {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+.cs-fit-signals__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.cs-fit-signal {
+  min-height: 330px;
+  padding: 30px;
+}
+
+.cs-fit-signal h3 {
+  margin-bottom: 26px;
+}
+
+.cs-fit-signal ul {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cs-fit-signal li {
+  position: relative;
+  padding-left: 28px;
+  line-height: 1.6;
+}
+
+.cs-fit-signal li::before {
+  content: '';
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9b8160;
+}
+
+.cs-fit-signals__decision {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 26px 28px;
+}
+
+@media (max-width: 980px) {
+  .cs-venue-story,
+  .cs-paper-trail,
+  .cs-requirements {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .cs-venue-story__copy {
+    max-width: 680px;
+  }
+
+  .cs-paper-trail__sticky-nav {
+    max-width: none;
+    padding: 0 24px;
+    border: 0;
+    border-bottom: 1px solid rgba(13, 13, 13, 0.12);
+    background: rgba(248, 245, 239, 0.94);
+    box-shadow: 0 10px 30px rgba(43, 36, 32, 0.06);
+    backdrop-filter: blur(14px);
+  }
+
+  .cs-paper-trail__nav-list::before {
+    display: none;
+  }
+
+  .cs-paper-trail__nav-item--active {
+    min-height: 0;
+    padding: 13px 0;
+    border: 0;
+    background: transparent;
+    color: #0d0d0d;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .cs-paper-trail__nav-item--active .cs-paper-trail__nav-num {
+    border-color: #0d0d0d;
+    background: #0d0d0d;
+    color: #f8f5ef;
+  }
+}
+
+@media (max-width: 720px) {
+  .cs-venue-section,
+  .cs-paper-trail-section,
+  .cs-requirements-section,
+  .cs-fit-signals-section {
+    padding: 76px 0;
+  }
+
+  .cs-venue-photos__pair,
+  .cs-fit-signals__grid,
+  .cs-fit-signals__decision {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-fit-signal {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .cs-fit-signals__decision {
+    padding: 24px;
+  }
 }
 
 /* ============================================
@@ -7550,5 +8218,4 @@ main > section {
     max-width: 280px;
     margin: 0 auto;
   }
-}
 }

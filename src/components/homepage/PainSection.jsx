@@ -2,6 +2,15 @@ import RevealOnScroll from '../ui/RevealOnScroll';
 import { HeroCopyTop, HeroCopyBottom } from './HeroCopy';
 import HeroPhotoStrip from './HeroPhotoStrip';
 
+const tickerItems = [
+  'Live tables',
+  'Fast orders',
+  'Sent batches',
+  'Bill splitting',
+  'Daily sales',
+  'Works alongside your POS',
+];
+
 export default function PainSection() {
   return (
     <section className="section section--full section--diagonal" id="top">
@@ -17,18 +26,16 @@ export default function PainSection() {
         </RevealOnScroll>
       </div>
       <div className="hero-ticker" aria-label="TableOrders capabilities">
-        <div className="hero-ticker__track">
-          <span>Live tables</span><i />
-          <span>Fast orders</span><i />
-          <span>Sent batches</span><i />
-          <span>Bill splitting</span><i />
-          <span>Daily sales</span><i />
-          <span>Works alongside your POS</span><i />
-          <span aria-hidden="true">Live tables</span><i aria-hidden="true" />
-          <span aria-hidden="true">Fast orders</span><i aria-hidden="true" />
-          <span aria-hidden="true">Sent batches</span><i aria-hidden="true" />
-          <span aria-hidden="true">Bill splitting</span><i aria-hidden="true" />
-          <span aria-hidden="true">Daily sales</span><i aria-hidden="true" />
+        <div className="hero-ticker__track" aria-hidden="true">
+          {Array.from({ length: 6 }, (_, groupIndex) => (
+            <div className="hero-ticker__group" key={groupIndex}>
+              {tickerItems.map((item) => (
+                <div className="hero-ticker__item" key={item}>
+                  <span>{item}</span><i aria-hidden="true" />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

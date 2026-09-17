@@ -246,7 +246,7 @@ export default function CamidiPage() {
         </div>
       </section>
 
-      <section className="cs-paper-trail-section">
+      <section className="cs-paper-trail-section" id="before-tableorders">
         <div className="container">
           <div className="cs-paper-trail">
             <div className="cs-paper-trail__sticky-nav">
@@ -329,7 +329,7 @@ export default function CamidiPage() {
         </div>
       </section>
 
-      <section className="cs-fit-signals-section">
+      <section className="cs-fit-signals-section" id="fit">
         <div className="container">
           <RevealOnScroll>
             <div className="cs-fit-signals">
